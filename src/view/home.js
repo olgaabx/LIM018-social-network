@@ -4,5 +4,5 @@ export default () =>{
     const divElem = document.createElement('div');
     divElem.innerHTML=viewHome;
 
-    return divElem; 
+    return divElem;
 }
