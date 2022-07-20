@@ -1,11 +1,11 @@
-import Home from "./home.js";
-import Publicar from "./Publicar.js";
-import grupos from "./grupos.js";
+import Home from './home.js';
+import Publicar from './Publicar.js';
+import grupo from './grupos.js';
 
 const components = {
-    home : Home,
-    publicar: Publicar,
-    grupos: grupos
-}
+  home: Home,
+  publicar: Publicar,
+  grupos: grupo,
+};
 
-export {components}; 
+export { components };

@@ -1,9 +1,8 @@
-export default () =>{
-    const viewPublicar = `<p>Hola esta es mi sección Publicar</p>`
+export default () => {
+  const viewPublicar = '<p>Hola esta es mi sección Publicar</p>';
 
-    const divElem = document.createElement('div');
-    divElem.innerHTML=viewPublicar;
+  const divElem = document.createElement('div');
+  divElem.innerHTML = viewPublicar;
 
-    return divElem; 
-}
-
+  return divElem;
+};
