@@ -15,7 +15,7 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve -s src/"
+    "start": "serve  src/ -s"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -27,6 +27,7 @@
     "eslint-plugin-jest": "^25.3.0",
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
+    "prettier": "2.7.1",
     "regenerator-runtime": "^0.13.1",
     "serve": "^13.0.2",
     "stylelint": "^14.1.0",
@@ -34,5 +35,8 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "firebase": "^9.9.0"
   }
 }
