@@ -5,7 +5,7 @@ import grupos from './grupos.js';
 const components = {
   home: Home,
   publicar: Publicar,
-  grupos : grupos
+  grupo: grupos,
 };
 
 export { components };
