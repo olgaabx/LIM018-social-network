@@ -1,8 +1,13 @@
-export default () => {
-  const viewHome = '<p>Hola esta es mi seccion Home</p>';
+export function home(form) {
+  const fondo = `<section class="contenedor1">
+        <div class= "container">
+         
+          </div>
+          ${form}
+        </section>`;
 
-  const divElem = document.createElement('div');
-  divElem.innerHTML = viewHome;
+  const divElemento = document.createElement('div');
+  divElemento.innerHTML = fondo;
 
-  return divElem;
-};
+  return divElemento;
+}

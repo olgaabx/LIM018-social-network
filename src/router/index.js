@@ -1,21 +1,16 @@
 import { components } from '../components/index.js';
-import register from '../components/register.js';
+import { logIn } from '../components/login.js';
 
-const changeview = (router) => {
+export const changeview = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
-  switch (router) {
-    case '#/':
-    { return container.appendChild(components.logIn(register)); }
-    // { return container.appendChild(components.home()); }
-    case '#/Register':
-    { return container.appendChild(components.publicar()); }
-    // case '#/grupos':
-    // { return container.appendChild(components.grupo()); }
+  switch (route) {
+    case '':
+    case '#/inicio':
+      container.appendChild(components.Home(logIn()));
+      break;
     default:
+      container.innerHTML = 'Página No Encontrada';
       break;
   }
-  return console.log(router);
 };
-
-export { changeview };
