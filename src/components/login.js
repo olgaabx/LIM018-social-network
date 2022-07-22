@@ -1,6 +1,7 @@
 export default () => {
-  const viewLogin = `
-        <div class="login">
+  // eslint-disable-next-line spaced-comment
+  const viewLogin = /*html*/ `
+        <div class="login" href="#/">
           <div class="form-container">
             <img src="" alt="logo" class="logo">
 
@@ -15,7 +16,7 @@ export default () => {
                 <a href="/">Forgot my password</a>
             </form>
 
-            <button class="secondary-button signup-button">Sign up</button>
+            <button class="secondary-button signup-button"><a href="#/Registrarse">Registrarse</a></button>
           </div>
         </div>`;
 
