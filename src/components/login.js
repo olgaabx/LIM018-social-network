@@ -1,6 +1,8 @@
 export function logIn() {
-  const viewLogin = `
-        <div class="login">
+  // eslint-disable-next-line spaced-comment, operator-linebreak
+  const viewLogin =
+    /*html*/
+    `  <div class="login">
           <div class="form-container">
             <img src="" alt="logo" class="logo">
 
@@ -14,6 +16,7 @@ export function logIn() {
                 <input type="submit" value="Log In" class="primary-button login-button">
                 <a href="/">Forgot my password</a>
             </form>
+            <p class="text">¿No tienes una cuenta? <a class="link" id="registrate" href="#/registro"> Regístrate</a></p>
 
             <button class="secondary-button signup-button"><a href="#/Registrarse">Registrarse</a></button>
           </div>
