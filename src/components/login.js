@@ -1,10 +1,10 @@
-export const login = () => {
-  const loginDiv = document.createElement('div');
-  loginDiv.textContent = 'Bienvenido al Login';
-  const buttonComeback = document.createElement('button');
+export function login() {
+  const loginDiv = `<div id="container3" class="container3">
+  <form id="loginForm">
 
-  buttonComeback.textContent = 'Regresar';
-
-  loginDiv.appendChild(buttonComeback);
+  <div class=""
+  </div>
+  
+  `;
   return loginDiv;
 };

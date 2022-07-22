@@ -1,26 +1,13 @@
-// eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+export function home(form) {
+  const homeDiv = `<section class="container1">
+  <div class="container2">
+  <img src="./Imganes/logo.png" alt="logoTech">
+  </div>
+  ${form}
+  </section>`;
 
-export const home = () => {
-  const homeDiv = document.createElement('div');
-  const buttonRegister = document.createElement('button');
-  const buttonLogin = document.createElement('button');
-  const inputMail = document.createElement('input');
-  const inputPassword = document.createElement('input');
-
-  buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Inicia sesión';
-  inputMail.placeholder = 'correo electronico';
-  inputPassword.placeholder = 'Ingresa tu contraseña';
-
-  homeDiv.classList.add = 'homeContainer';
-
-  buttonRegister.addEventListener('click', () => onNavigate('/register'));
-
-  homeDiv.appendChild(inputMail);
-  homeDiv.appendChild(inputPassword);
-  homeDiv.appendChild(buttonLogin);
-  homeDiv.appendChild(buttonRegister);
+  const divElement = document.createElement('div');
+  divElement.innerHTML = homeDiv;
 
   return homeDiv;
-};
+}
