@@ -1,13 +1,13 @@
 export function home(form) {
-  const homeDiv = `<section class="container1">
-  <div class="container2">
-  <img src="./Imganes/logo.png" alt="logoTech">
-  </div>
-  ${form}
-  </section>`;
+  const fondo = `<section class="contenedor1">
+        <div class= "container">
+         
+          </div>
+          ${form}
+        </section>`;
 
-  const divElement = document.createElement('div');
-  divElement.innerHTML = homeDiv;
+  const divElemento = document.createElement('div');
+  divElemento.innerHTML = fondo;
 
-  return homeDiv;
+  return divElemento;
 }
