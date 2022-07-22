@@ -1,13 +1,9 @@
-import Home from './home.js';
-import Publicar from './Publicar.js';
-import grupos from './grupos.js';
-import login from './login.js';
+import { logIn } from './login.js';
+import { home } from './home.js';
 
 const components = {
-  home: Home,
-  publicar: Publicar,
-  grupo: grupos,
-  logIn: login,
+  login: logIn,
+  Home: home,
 };
 
 export { components };

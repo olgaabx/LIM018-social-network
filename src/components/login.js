@@ -1,4 +1,4 @@
-export default () => {
+export function logIn() {
   const viewLogin = `
         <div class="login">
           <div class="form-container">
@@ -19,8 +19,5 @@ export default () => {
           </div>
         </div>`;
 
-  const mainLogin = document.createElement('section');
-  mainLogin.innerHTML = viewLogin;
-
-  return mainLogin;
-};
+  return viewLogin;
+}
