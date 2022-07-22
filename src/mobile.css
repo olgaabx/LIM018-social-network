@@ -1,0 +1,106 @@
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD982;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    /* Para centrar el contenido vertical y horizontalmente*/
+    display: grid;
+    place-items: center;
+}
+
+.form-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /*con auto toma el tamaño que desea*/
+    width: 300px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 48px;
+    justify-self: center;
+    display: none; /* para que no aparezca en la parte desktop y sí en mobile */
+}
+
+.title {
+    font-size: var(--lg);
+    margin-bottom: 36px;
+    text-align: start;
+}
+
+.subtitle {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.label {
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.input {
+    background-color: var(--text-input-field);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: var(--md);
+    padding: 6px;
+}
+
+.input-name,
+.input-email,
+.input-password {
+    margin-bottom: 22px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+}
+
+.login-button {
+    margin-top: 14px;
+    margin-bottom: 30px;
+}

@@ -1,8 +1,7 @@
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
-  const viewLogin =
-    /*html*/
-    `  <div class="login">
+  const viewLogin = /*html*/ `
+      <div class="login">
           <div class="form-container">
             <img src="" alt="logo" class="logo">
 
@@ -18,7 +17,7 @@ export function logIn() {
             </form>
             <p class="text">¿No tienes una cuenta? <a class="link" id="registrate" href="#/registro"> Regístrate</a></p>
 
-            <button class="secondary-button signup-button"><a href="#/Registrarse">Registrarse</a></button>
+            <button class="secondary-button signup-button">Sign up</button>
           </div>
         </div>`;
 
