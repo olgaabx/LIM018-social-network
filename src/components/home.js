@@ -1,7 +1,7 @@
 export function home(form) {
   const fondo = `<section class="contenedor1">
         <div class= "container">
-         
+
           </div>
           ${form}
         </section>`;
