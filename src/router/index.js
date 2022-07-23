@@ -1,9 +1,6 @@
 import { logIn } from '../components/login.js';
 import { register } from '../components/register.js';
-<<<<<<< HEAD
-=======
 import { home } from '../components/home.js';
->>>>>>> 3d67c45bd0f884e44db7a7d8f4592f45d84f3826
 
 export const changeview = (route) => {
   const container = document.getElementById('container');

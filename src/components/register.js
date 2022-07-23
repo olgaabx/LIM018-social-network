@@ -1,5 +1,28 @@
 export const register = () => {
-  const formRegister = `
+  const viewRegister = /*html*/ `
+  <div class="login">
+        <div class="form-container">
+            <h1 class="title">My account</h1>
+
+            <form action="/" class="form">
+                <div>
+                    <label for="name" class="label" required>Name</label>
+                    <input type="text" id="name" placeholder="Olga Acosta" class="input input-name" required>
+
+                    <label for="email" class="label" required>Email</label>
+                    <input type="email" id="email" placeholder="platzi@example.com" class="input input-email" required>
+
+                    <label for="password" class="label" required>Password</label>
+                    <input type="password" id="password" placeholder="***********" class="input input-password" required>
+                </div>
+
+                <input type="submit" value="Create" class="primary-button login-button">
+                <p class="texto">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio"> Inicia sesión</a></p>
+            </form>
+        </div>
+    </div> `;
+
+  /* `
         <div id="inicio" class="cajaInterna2">
             <form id="formIngreso">
                 <div class="seccionIngreso">
@@ -21,8 +44,8 @@ export const register = () => {
                     <img id="imgGoogle" src="imagenes/GoogleOriginal.png">
                 </div>
 
-                 <p class="texto">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio"> Inicia sesión</a></p> 
+                 <p class="texto">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio"> Inicia sesión</a></p>
             </form>
-        </div>`;
-  return formRegister;
+        </div>`; */
+  return viewRegister;
 };

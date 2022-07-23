@@ -1,4 +1,4 @@
-import { changeview } from './router/rutas.js';
+import { changeview } from './router/index.js';
 
 const init = () => {
   changeview(window.location.hash.toLocaleLowerCase());
