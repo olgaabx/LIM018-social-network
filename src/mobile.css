@@ -114,6 +114,7 @@ body {
 .login-register-text {
   font-weight: 300;
   font-size: var(--small);
+  text-align: center;
 }
 
 .title-register {
