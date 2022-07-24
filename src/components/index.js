@@ -1,10 +1,10 @@
 import { logIn } from './login.js';
-import { home } from './home.js';
+import { mainpage } from './principal.js';
 import { register } from './register.js';
 
 const components = {
-  login: logIn,
-  Home: home,
+  Login: logIn,
+  Mainpage: mainpage,
   Register: register,
 };
 

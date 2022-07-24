@@ -1,26 +1,29 @@
 export const register = () => {
-  const viewRegister = /*html*/ `
-  <div class="login">
-        <div class="form-container">
-            <h1 class="title">My account</h1>
+  const viewRegister = /* html */ `
+  <div class="register-container">
+        <div class="logo-container logo-container-register">
+          <div class="logo-circle logo-circle-register">
+            <img src="../imagens/logo.png" alt="logo" class="logo logo-img-register">
+          </div>
+          <p class="logo-title logo-title-register">TecHelp</p>
+        </div>
+        <div class="form-container form-container-register">
+            <h1 class="title-register">Regístrate aquí</h1>
+            <p class="description">Ingresa tus datos</p>
 
             <form action="/" class="form">
                 <div>
-                    <label for="name" class="label" required>Name</label>
-                    <input type="text" id="name" placeholder="name" class="input input-name" required>
+                    <input type="text" id="name" placeholder="Nombre" class="input input-name" required>
 
-                    <label for="email" class="label" required>Email</label>
-                    <input type="email" id="email" placeholder="email" class="input input-email" required>
+                    <input type="email" id="email" placeholder="Correo electrónico" class="input input-email" required>
 
-                    <label for="password" class="label" required>Password</label>
-                    <input type="password" id="password" placeholder="***********" class="input input-password" required>
+                    <input type="password" id="password" placeholder="Contraseña" class="input input-password" required>
                 </div>
 
-                <input type="submit" value="Create" class="primary-button login-button">
-                <p class="texto">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio"> Inicia sesión</a></p>
+                <input type="submit" value="Regístrate" class="primary-button login-button">
+                <p class="login-register-text">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio">Inicia sesión</a></p>
             </form>
         </div>
     </div> `;
-
   return viewRegister;
 };
