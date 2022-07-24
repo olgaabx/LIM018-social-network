@@ -19,7 +19,7 @@ export function logIn() {
             <input type="password" id="new-password" placeholder="Contraseña" class="input input-password" required>
 
             <input type="submit" value="Ingresar" class="primary-button login-button" >
-            <p class="login-register-text">registro exitoso <a class="link" id="registrate" href="#/home"> Ingresar</a></p>
+            <p class="login-register-text">registro exitoso <a class="link" id="registrate" href="#/home"> Ingresar aqui </a></p>
           </form>
           <div class="icon-container">
             <img src="../imagens/google-svgrepo-com.svg" alt="icono de gmail" class="icon-gmail">
