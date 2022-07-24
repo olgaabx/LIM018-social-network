@@ -8,7 +8,7 @@ export function logIn() {
           <div class="logo-circle">
             <img src="../imagens/logo.png" alt="logo" class="logo">
           </div>
-          <p class="logo-description">Bienvenidos, aqui podrás encontrar <br> toda la ayuda Tech que necesitas.</p>
+          <p class="logo-description">Aquí podrás encontrar toda<br> la ayuda tech que necesitas.</p>
         </div>
 
         <div class="form-container">

@@ -2,7 +2,7 @@
   --white: #ffffff;
   --black: #000000;
   --very-light-blue: rgba(196, 215, 224, 0.84);
-  --pale-logo: #F8F9D7;
+  --pale-logo: #f8f9d7;
   --hard-purple: rgba(110, 133, 183, 0.84);
   --small: 1.4rem;
   --medium: 1.6rem;
@@ -20,8 +20,8 @@ html {
 }
 
 body {
-  font-family: 'Barlow', sans-serif;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Barlow", sans-serif;
+  font-family: "Oswald", sans-serif;
   margin: 0;
 }
 
@@ -58,9 +58,11 @@ body {
   height: 131px;
 }
 
-.logo-description {
+.logo-description,
+.description {
   font-weight: 400;
   font-size: var(--small);
+  margin-bottom: 20px;
 }
 
 .login {
@@ -98,9 +100,26 @@ body {
   flex-direction: column;
 }
 
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.icon-github {
+  width: 27px;
+  margin-left: 25px;
+}
+
 .login-register-text {
   font-weight: 300;
   font-size: var(--small);
+}
+
+.title-register {
+  font-size: var(--large);
+  text-align: center;
+  margin: 30px 0;
 }
 
 .form div {

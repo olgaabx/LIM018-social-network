@@ -2,8 +2,8 @@ export const register = () => {
   const viewRegister = /* html */ `
   <div class="login">
         <div class="form-container">
-            <h1 class="title">Registrate aquí</h1>
-            <p>Ingresa tus datos aquí</p>
+            <h1 class="title-register">Regístrate aquí</h1>
+            <p class="description">Ingresa tus datos</p>
 
             <form action="/" class="form">
                 <div>
@@ -15,7 +15,7 @@ export const register = () => {
                 </div>
 
                 <input type="submit" value="Create" class="primary-button login-button">
-                <p class="texto">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio">Inicia sesión</a></p>
+                <p class="login-register-text">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio">Inicia sesión</a></p>
             </form>
         </div>
     </div> `;
