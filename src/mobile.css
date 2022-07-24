@@ -2,7 +2,7 @@
   --white: #ffffff;
   --black: #000000;
   --very-light-blue: rgba(196, 215, 224, 0.84);
-  --text-input-field: #f7f7f7;
+  --pale-logo: #F8F9D7;
   --hard-purple: rgba(110, 133, 183, 0.84);
   --small: 1.4rem;
   --medium: 1.6rem;
@@ -16,63 +16,62 @@
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%; /*para que 1rem sean 10px*/
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Barlow', sans-serif;
+  font-family: 'Oswald', sans-serif;
   margin: 0;
 }
 
+.main-container {
+  /* background-color: rgb(235, 232, 229); */
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.logo-title {
+  color: var(--hard-purple);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
 .logo-circle {
-    width: 137px;
-    height: 141px;
-    background: #F8F9D7;
-    border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 137px;
+  height: 141px;
+  background: var(--pale-logo);
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.logo {
+  width: 130px;
+  height: 131px;
+}
+
+.logo-description {
+  font-weight: 400;
+  font-size: var(--small);
 }
 
 .login {
   width: 100%;
   height: 100vh;
   /* Para centrar el contenido vertical y horizontalmente*/
-  display: grid;
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
   place-items: center;
 }
-
-.form-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto; /*con auto toma el tamaño que desea*/
-  width: 194px;
-  height: 150px;
-}
-
-/* .logo {
-  width: 150px;
-  margin-bottom: 48px;
-  justify-self: center;
-  display: none; /* para que no aparezca en la parte desktop y sí en mobile */
-/*} */
-
-.title {
-  font-size: var(--lg);
-  margin-bottom: 36px;
-  text-align: start;
-}
-
-/* .subtitle {
-  color: var(--very-light-pink);
-  font-size: var(--md);
-  font-weight: 300;
-  margin-top: 0;
-  margin-bottom: 32px;
-  text-align: center;
-} */
-
-/* .label {
-  font-size: var(--small);
-  font-weight: bold;
-  margin-bottom: 4px;
-} */
 
 .input {
   width: 194px;
@@ -90,10 +89,18 @@ body {
   margin-bottom: 22px;
 }
 
+.form-container {
+  margin: 20px 0;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
+}
+
+.login-register-text {
+  font-weight: 300;
+  font-size: var(--small);
 }
 
 .form div {
