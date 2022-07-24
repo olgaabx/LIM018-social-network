@@ -25,9 +25,9 @@ body {
   margin: 0;
 }
 
-.main-container {
-  /* background-color: rgb(235, 232, 229); */
-}
+/* .main-container {
+  background-color: rgb(235, 232, 229);
+} */
 
 .logo-container {
   display: flex;
