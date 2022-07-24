@@ -2,10 +2,7 @@ export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
   const viewLogin = /*html*/ `
       <div class="login">
-          <div class="form-container">
-            <div class="logo-circle">
-              <img src="../imagens/logo.png" alt="logo" class="logo">
-            </div>
+         
 
 
             <form action="/" class="form">
