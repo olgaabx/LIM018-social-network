@@ -13,8 +13,10 @@ export function logIn() {
 
         <div class="form-container">
           <form action="/" class="form">
-            <input type="email" id="email" placeholder="Correo electrónico" class="input input-email" required>
-
+            <div class="ingresarDatos">
+              <input type="email" id="email" placeholder="Correo electrónico" class="datos" required>
+              <i class="fa-solid fa-envelope"></i>
+            </div>
             <input type="password" id="new-password" placeholder="Contraseña" class="input input-password" required>
 
             <input type="submit" value="Ingresar" class="primary-button login-button">
@@ -25,7 +27,8 @@ export function logIn() {
             <img src="../imagens/github-svgrepo-com.svg" alt="icono de github" class="icon-github">
           </div>
           <p class="login-register-text">¿No tienes una cuenta? <a class="link" id="registrate" href="#/registro"> Regístrate</a></p>
-        </div>
+          
+          </div>
       </div>`;
 
   return viewLogin;
