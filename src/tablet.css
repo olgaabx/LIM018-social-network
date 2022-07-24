@@ -1,0 +1,81 @@
+.login {
+  /* Para centrar el contenido vertical y horizontalmente*/
+  flex-direction: row;
+}
+
+.logo-container {
+  width: 100%;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.logo-title {
+  font-size: 8rem;
+}
+
+.logo-circle {
+  width: 160px;
+  height: 160px;
+  background: var(--pale-logo);
+  border-radius: 50%;
+  margin: 25px 0;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.logo-description,
+.description {
+  font-weight: 500;
+  font-size: var(--medium);
+}
+
+.input {
+  width: 250px;
+  height: 40px;
+  background-color: var(--very-light-blue);
+  border: none;
+  border-radius: 8px;
+  font-size: var(--medium);
+  padding: 6px;
+}
+
+.login-register-text {
+  font-weight: 300;
+  font-size: var(--medium);
+}
+
+.form-container-register {
+  justify-content: flex-start;
+}
+
+.logo-container-register {
+  height: 60px;
+  flex-direction: row;
+  margin: 0;
+}
+
+.logo-circle-register {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+}
+
+.logo-img-register {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-title-register {
+  font-size: 2.5rem;
+}
