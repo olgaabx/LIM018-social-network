@@ -1,3 +1,6 @@
+import { userRegister, emailVerification } from '../firebase/config.js';
+//import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
 export const register = () => {
   const viewRegister = /* html */ `
   <div class="register-container">
@@ -20,10 +23,31 @@ export const register = () => {
                     <input type="password" id="password" placeholder="Contraseña" class="input input-password" required>
                 </div>
 
-                <input type="submit" value="Regístrate" class="primary-button login-button">
+                <input type="submit" value="Regístrate" id ="register-button" class="primary-button register-button">
                 <p class="login-register-text">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio">Inicia sesión</a></p>
             </form>
         </div>
     </div> `;
   return viewRegister;
+};
+
+export const signUp = () => {
+  const userName = document.querySelector('#name');
+  const userEmail = document.querySelector('#email');
+  const userPassword = document.querySelector('#password');
+  const registerButton = document.querySelector('#register-button');
+
+  registerButton.addEventListener('click', () => {
+    userRegister(userEmail.value, userPassword.value)
+      .then((result) => {
+        console.log(result);
+        emailVerification().then(() => {
+          alert('Revisa tu correo, hemos enviado una verificación');
+          window.location.href = '#/inicio';
+        });
+        const userCredential = result.user;
+
+        alert(`Registro exitoso ${userCredential.email}`);
+      });
+  });
 };

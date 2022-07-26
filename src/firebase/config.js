@@ -1,7 +1,20 @@
 // Configuración de Firebase de nuestra app web
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+// eslint-disable-next-line import/no-unresolved
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendEmailVerification,
+  // eslint-disable-next-line import/no-unresolved
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+
+// eslint-disable-next-line import/no-unresolved
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,4 +33,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
+// const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
+console.log(auth);
+export const dataBase = getFirestore(app);
+console.log(dataBase);
+
+// eslint-disable-next-line max-len
+export const userRegister = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+export const userLogin = (email, password) => signInWithEmailAndPassword(email, password);
+
+export const signInWithGmail = () => signInWithPopup(auth, provider);
+
+export const emailVerification = () => sendEmailVerification(auth.currentUser);
