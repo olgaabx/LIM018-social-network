@@ -12,6 +12,7 @@ import {
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
+// CONECCION CON FIRESTORE
 // eslint-disable-next-line import/no-unresolved
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
@@ -40,21 +41,25 @@ console.log(auth);
 export const dataBase = getFirestore(app);
 console.log(dataBase);
 
+// R E G I S T E R,
+
 // eslint-disable-next-line max-len
 export const userRegister = (email, password) => {
   const unaPromesa = createUserWithEmailAndPassword(auth, email, password);
   return unaPromesa;
 };
 
-export const userLogin = (email, password) => signInWithEmailAndPassword(email, password);
-
-export const signInWithGmail = () => signInWithPopup(auth, provider);
-
-export const emailVerification = () => sendEmailVerification(auth.currentUser);
-
-// firestore coneccion con  Home
+// FIRESTORE CONECCION CON HOME,
 const saveData = getFirestore();
 
 export const saveTask = (title, description) => {
   addDoc(collection(saveData, 'tasks'), { title, description });
 };
+
+// COSAS QUE TODAVIA NO USAMOS,
+
+// export const userLogin = (email, password) => signInWithEmailAndPassword(email, password);
+
+// export const signInWithGmail = () => signInWithPopup(auth, provider);
+
+// export const emailVerification = () => sendEmailVerification(auth.currentUser);

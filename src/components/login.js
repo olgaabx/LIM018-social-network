@@ -1,4 +1,4 @@
-import { userLogin } from '../firebase/config.js';
+// import { userLogin } from '../firebase/config.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
@@ -35,24 +35,24 @@ export function logIn() {
   return viewLogin;
 }
 
-export const signUpPage = () => {
-  const userEmail = document.querySelector('#email');
-  const userPassword = document.querySelector('#new-password');
-  const loginButton = document.querySelector('#loginButton');
+// export const signUpPage = () => {
+//   const userEmail = document.querySelector('#email');
+//   const userPassword = document.querySelector('#new-password');
+//   const loginButton = document.querySelector('#loginButton');
 
-  loginButton.addEventListener('click', (e) => {
-    userLogin(userEmail.value, userPassword.value).then((result) => {
-      const userCredential = result.user;
-      if (userCredential.emailVerified === false) {
-        console.log(e.target);
-        console.log('este correo es inválido');
-      } else {
-        alert(`Cuenta válida ${userCredential.email}`);
-      }
-    })
-      .catch((error) => {
-        const err = error.message;
-        alert(err);
-      });
-  });
-};
+//   loginButton.addEventListener('click', (e) => {
+//     userLogin(userEmail.value, userPassword.value).then((result) => {
+//       const userCredential = result.user;
+//       if (userCredential.emailVerified === false) {
+//         console.log(e.target);
+//         console.log('este correo es inválido');
+//       } else {
+//         alert(`Cuenta válida ${userCredential.email}`);
+//       }
+//     })
+//       .catch((error) => {
+//         const err = error.message;
+//         alert(err);
+//       });
+//   });
+// };

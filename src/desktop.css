@@ -6,7 +6,9 @@ body{
 
 
 /*loguin*/
-
+.form-container{
+  margin-right: 10%;
+}
 .logo-title{
   font-size: 15rem;
 }

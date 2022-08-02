@@ -1,4 +1,4 @@
-import { saveTask } from '../firebase/config.js';
+import { saveTask } from "../firebase/config.js";
 
 export function homePage() {
   const home = /* html */ `
@@ -32,20 +32,8 @@ export function homePage() {
 
   <div class="col-md-6" id="tasks-container"></div>
  `;
+
   return home;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-
-});
-
-const taskForm = document.getElementById('taskForm');
-
-/* taskForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const title = taskForm['task-title'];
-  const description = taskForm['task-description'];
-
-  saveTask(title.value, description.value);
-}); */
+//window.addEventListener("DOMContentLoaded", () => {});
