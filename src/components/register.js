@@ -1,5 +1,5 @@
-import { userRegister } from '../firebase/config.js';
-//import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { userRegister, emailVerification } from '../firebase/config.js';
+// import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 export const register = () => {
   const viewRegister = /* html */ `

@@ -3,18 +3,13 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  sendEmailVerification,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 // CONECCION CON FIRESTORE
 // eslint-disable-next-line import/no-unresolved
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+// import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,10 +31,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // const provider = new GoogleAuthProvider();
-const provider = new GoogleAuthProvider();
-console.log(auth);
-export const dataBase = getFirestore(app);
-console.log(dataBase);
+// const provider = new GoogleAuthProvider();
+// console.log(auth);
+// export const dataBase = getFirestore(app);
+// console.log(dataBase);
 
 // R E G I S T E R,
 
@@ -49,8 +44,14 @@ export const userRegister = (email, password) => {
   return unaPromesa;
 };
 
-// FIRESTORE CONECCION CON HOME,
-const saveData = getFirestore();
+export const userLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
+
+// export const signInWithGmail = () => signInWithPopup(auth, provider);
+
+export const emailVerification = () => sendEmailVerification(auth.currentUser);
+
+// firestore coneccion con  Home
+//const saveData = getFirestore();
 
 export const saveTask = (title, description) => {
   addDoc(collection(saveData, 'tasks'), { title, description });

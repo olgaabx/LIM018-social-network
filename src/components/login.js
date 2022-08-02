@@ -14,13 +14,14 @@ export function logIn() {
         </div>
 
         <div class="form-container">
-          <p class="description">Ingresa tus datos</p>
-          <form action="/" class="form">
+          <form action="/" class="form" id="form">
+            
             <input type="email" id="email" placeholder="Correo electrónico" class="input input-email" required>
               
-            <input type="password" id="new-password" placeholder="Contraseña" class="input input-password" required>
+            <input type="password" id="password" placeholder="Contraseña" class="input input-password" required>
 
             <input type="submit" value="Ingresar" id ="login-button" class="primary-button login-button">
+            <a class = "link" id="muro" href="#/home"> Mi muro </a>
           </form>
           <div class="icon-container">
             <button type = 'button' id='gmailIcon'><a href='#/home'><img src="../imagens/google-svgrepo-com.svg" alt="icono de gmail" class="icon-gmail">
@@ -35,24 +36,39 @@ export function logIn() {
   return viewLogin;
 }
 
-// export const signUpPage = () => {
-//   const userEmail = document.querySelector('#email');
-//   const userPassword = document.querySelector('#new-password');
-//   const loginButton = document.querySelector('#loginButton');
+export const signUpPage = () => {
+  // const userEmail = document.querySelector('#email').value;
+  // const userPassword = document.querySelector('#new-password').value;
+  // const loginButton = document.querySelector('#loginButton').value;
+  const form = document.getElementById('form');
+  form.addEventListener('submit', (e) => {
+    console.log(form);
+    e.preventDefault();
+    userLogin(form.email.value, form.password.value)
+      .then((result) => {
+        const userCredential = result.user;
+        console.log(userCredential);
+        // if (userCredential.emailVerified === false) {
+        //   console.log('este correo es inválido');
+        // } else {
+        //   alert(`Cuenta válida ${userCredential.email}`);
+        window.location.hash = '#/home';
+      })
+      .catch((error) => {
+        const err = error.message;
+        alert(err);
+      });
+  });
+};
 
-//   loginButton.addEventListener('click', (e) => {
-//     userLogin(userEmail.value, userPassword.value).then((result) => {
-//       const userCredential = result.user;
-//       if (userCredential.emailVerified === false) {
-//         console.log(e.target);
-//         console.log('este correo es inválido');
-//       } else {
-//         alert(`Cuenta válida ${userCredential.email}`);
-//       }
-//     })
-//       .catch((error) => {
-//         const err = error.message;
-//         alert(err);
-//       });
-//   });
-// };
+// Sign In With Gmail
+
+// const gmailButton = document.getElementById('gmailIcon');
+// gmailButton.addEventListener('click', () => {
+//   sessionStorage.clear();
+//   signInWithGmail(provider)
+//   .then(result) => {
+//     const googleUser = result.user;
+//     searchUser
+//   }
+// })
