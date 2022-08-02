@@ -1,4 +1,4 @@
-import { logIn } from '../components/login.js';
+import { logIn, signUpPage } from '../components/login.js';
 import { register, addSignUpEvents } from '../components/register.js';
 import { mainpage } from '../components/principal.js';
 import { homePage } from '../components/home.js';
@@ -10,6 +10,7 @@ export const changeview = (route) => {
     case '':
     case '#/inicio':
       container.appendChild(mainpage(logIn()));
+      signUpPage();
       break;
     case '#/registro':
       container.appendChild(mainpage(register()));
