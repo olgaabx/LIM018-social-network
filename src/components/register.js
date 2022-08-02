@@ -15,7 +15,7 @@ export const register = () => {
             <p class="description">Ingresa tus datos</p>
 
             <form action="/" class="form" id="form-register">
-                <div>
+                <div class="input-container">
                     <input type="text" id="name" name="name" placeholder="Nombre" class="input input-name" required>
 
                     <input type="email" id="email" name="email" placeholder="Correo electrónico" class="input input-email" required>
@@ -24,7 +24,7 @@ export const register = () => {
                 </div>
 
                 <input type="submit" value="Regístrate" id ="register-button" class="primary-button register-button">
-                <p class="login-register-text">¿Ya tienes una cuenta? <a class="link" id="inicia" href="#/inicio">Inicia sesión</a></p>
+                <p class="login-register-text">¿Ya tienes una cuenta? <br/><a class="link" id="inicia" href="#/inicio">Inicia sesión</a></p>
             </form>
         </div>
     </div> `;

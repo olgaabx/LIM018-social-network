@@ -1,9 +1,9 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --very-light-blue: rgba(196, 215, 224, 0.84);
+  --very-light-blue: #c4d7e0d6;
   --pale-logo: #f8f9d7;
-  --hard-purple: rgba(110, 133, 183, 0.84);
+  --hard-purple: #6e85b7d6;
   --small: 1.4rem;
   --medium: 1.6rem;
   --large: 1.8rem;
@@ -28,6 +28,7 @@ body {
   background-color: rgb(235, 232, 229);
 } */
 
+/*Login container */
 .login {
   /* width: 100%;
   height: 100vh; */
@@ -35,19 +36,19 @@ body {
   /* display: grid; */
   display: flex;
   flex-direction: column;
-  place-items: center;
+  place-items: center;  
 }
 
 .logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 12px 0;
 }
 
 .logo-title {
   color: var(--hard-purple);
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 600;
 }
 
@@ -71,11 +72,12 @@ body {
 .description {
   font-weight: 400;
   font-size: var(--small);
-  margin-bottom: 20px;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .input {
-  width: 194px;
+  width: 80%;
   height: 43px;
   background-color: var(--very-light-blue);
   border: none;
@@ -93,10 +95,37 @@ body {
 /* .form-container {
   margin: 20px 0;
 } */
+/*IMPUT CONTAINER */
 
+.form-container{
+  background-color: var(--white);
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  min-width: 250px;
+  height: 90%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  border-radius: 20px;
+  margin: 5%;
+  }
+  .form-container::after{
+    position: absolute;
+    content: '';/*para que el navegador lo considere seudo-elem*/
+    background: linear-gradient(to right, #c4d7e0d6, #6e85b7d6);
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    filter: blur(10px);
+    z-index: -1;
+    border-radius: 20px;
+  }
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .icon-container {
@@ -109,22 +138,27 @@ body {
   width: 27px;
   margin-left: 25px;
 }
-
+/* REGISTER*/
+.form-container-register{
+  
+}
 .login-register-text {
   font-weight: 300;
   font-size: var(--small);
   text-align: center;
+  margin: 5px 0;
 }
 
 .title-register {
   font-size: var(--large);
   text-align: center;
-  margin: 30px 0;
+  padding-top: 10px;
 }
 
 .form div {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .primary-button {
@@ -150,11 +184,6 @@ body {
 
 .login-button {
   color: rgba(0, 0, 0, 1);
-  margin-top: 14px;
-  margin-bottom: 30px;
-<<<<<<< HEAD
-}
-=======
 }
 
 .logo-container-register {
@@ -177,4 +206,13 @@ body {
 .logo-title-register {
   font-size: 2.5rem;
 }
->>>>>>> 0b56053f146f4916c5daccda51274ba4edb66665
+
+/*botone*/
+input{
+  border: none;
+}
+.icon-gmail, 
+.icon-github{
+ background-color: var(--white);
+ border: none;
+}

@@ -1,11 +1,13 @@
 .login {
   /* Para centrar el contenido vertical y horizontalmente*/
   flex-direction: row;
+  
 }
 
 .logo-container {
   width: 100%;
   align-items: center;
+  margin: 10% 0;
 }
 
 .form-container {
@@ -13,8 +15,9 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 85%;
   align-items: center;
+
 }
 
 .logo-title {
@@ -53,6 +56,7 @@
 .login-register-text {
   font-weight: 300;
   font-size: var(--medium);
+  margin-top: 10%;
 }
 
 .form-container-register {

@@ -13,7 +13,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 // eslint-disable-next-line import/no-unresolved
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -51,3 +51,10 @@ export const userLogin = (email, password) => signInWithEmailAndPassword(email, 
 export const signInWithGmail = () => signInWithPopup(auth, provider);
 
 export const emailVerification = () => sendEmailVerification(auth.currentUser);
+
+// firestore coneccion con  Home
+const saveData = getFirestore();
+
+export const saveTask = (title, description) => {
+  addDoc(collection(saveData, 'tasks'), { title, description });
+};

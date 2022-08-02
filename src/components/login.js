@@ -14,8 +14,8 @@ export function logIn() {
         </div>
 
         <div class="form-container">
+          <p class="description">Ingresa tus datos</p>
           <form action="/" class="form">
-            
             <input type="email" id="email" placeholder="Correo electrónico" class="input input-email" required>
               
             <input type="password" id="new-password" placeholder="Contraseña" class="input input-password" required>
@@ -28,8 +28,8 @@ export function logIn() {
             <button type='button' id="gitHubIcon"><a href='#/home'><img src="../imagens/github-svgrepo-com.svg" alt="icono de github" class="icon-github"></a></button>
           </div>
           <p class="login-register-text">¿No tienes una cuenta? <a class="link" id="registrate" href="#/registro"> Regístrate</a></p>
-          
-          </div>
+          <p class="login-register-text">!FELICIDADES¡ ya estas registrado<a class="link" id="registrate" href="#/home"> Ingresa aqui</a></p>
+        </div>
       </div>`;
 
   return viewLogin;
