@@ -1,3 +1,5 @@
+import { savePost } from '../firebase/index.js';
+
 export function homePage() {
   const viewMuro = /* html */ `
     <form id="task-form">
@@ -27,6 +29,6 @@ export function addHomePageEvents() {
     const title = taskForm['task-title'];
     const description = taskForm['task-description'];
 
-    console.log(title.value, description.value);
+    savePost(title.value, description.value);
   });
 }

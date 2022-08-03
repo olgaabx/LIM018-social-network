@@ -1,2 +1,2 @@
-export { userLogin, userRegister, emailVerification } from './auth';
-export { savePost } from './post';
+export { userLogin, userRegister } from './auth.js';
+export { savePost } from './post.js';

@@ -2,7 +2,7 @@ import {
   createUserWithEmailAndPassword,
   auth,
   signInWithEmailAndPassword,
-} from './config';
+} from './config.js';
 
 // eslint-disable-next-line max-len
 export const userRegister = (email, password) => {
