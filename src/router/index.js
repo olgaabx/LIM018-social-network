@@ -18,9 +18,6 @@ export const changeview = (route) => {
       break;
     case '#/home':
       container.appendChild(mainpage(homePage()));
-      
-      const taskForm = document.getElementById("taskForm");
-      console.log(taskForm);
       break;
     default:
       container.innerHTML = 'Página No Encontrada';

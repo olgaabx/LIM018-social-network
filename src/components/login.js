@@ -1,4 +1,4 @@
-// import { userLogin } from '../firebase/config.js';
+import { userLogin } from '../firebase/config.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
@@ -14,6 +14,7 @@ export function logIn() {
         </div>
 
         <div class="form-container">
+          <p class="description">Ingresa tus datos</p>
           <form action="/" class="form" id="form">
             
             <input type="email" id="email" placeholder="Correo electrónico" class="input input-email" required>
@@ -42,7 +43,6 @@ export const signUpPage = () => {
   // const loginButton = document.querySelector('#loginButton').value;
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
-    console.log(form);
     e.preventDefault();
     userLogin(form.email.value, form.password.value)
       .then((result) => {
