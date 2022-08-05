@@ -1,7 +1,7 @@
 import { logIn, signUpPage } from '../components/login.js';
 import { register, addSignUpEvents } from '../components/register.js';
 import { mainpage } from '../components/principal.js';
-import { homePage } from '../components/home.js';
+import { homePage, addHomePageEvents } from '../components/home.js';
 
 export const changeview = (route) => {
   const container = document.getElementById('container');
@@ -18,6 +18,7 @@ export const changeview = (route) => {
       break;
     case '#/home':
       container.appendChild(mainpage(homePage()));
+      addHomePageEvents();
       break;
     default:
       container.innerHTML = 'Página No Encontrada';

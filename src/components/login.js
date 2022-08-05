@@ -1,4 +1,5 @@
-import { userLogin } from '../firebase/config.js';
+import { userLogin } from '../firebase/index.js';
+import { modalIniciarSesion} from '../components/error.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
@@ -38,9 +39,6 @@ export function logIn() {
 }
 
 export const signUpPage = () => {
-  // const userEmail = document.querySelector('#email').value;
-  // const userPassword = document.querySelector('#new-password').value;
-  // const loginButton = document.querySelector('#loginButton').value;
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
