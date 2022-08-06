@@ -1,8 +1,8 @@
 import { userRegister } from '../firebase/index.js';
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-
+ /* html */
 export const register = () => {
-  const viewRegister = /* html */ `
+  const viewRegister = `
   <div class="register-container">
         <div class="logo-container logo-container-register">
           <div class="logo-circle logo-circle-register">
@@ -28,7 +28,18 @@ export const register = () => {
             </form>
         </div>
     </div> `;
-  return viewRegister;
+  //return viewRegister;
+  
+  const divElement = document.createElement("div");
+  // divElement.setAttribute('class', 'backgroundImage');
+  divElement.innerHTML = viewRegister;
+  return divElement;
+
+  // const divElement = document.createElement('div');
+  // // divElement.setAttribute('class', 'backgroundImage');
+  // divElement.innerHTML = viewRegister;
+  // const blankPage = document.querySelector('#container');
+  // blankPage.appendChild(divElement);
 };
 
 export const addSignUpEvents = () => {

@@ -1,10 +1,9 @@
 import { userLogin } from '../firebase/index.js';
-import { modalIniciarSesion} from '../components/error.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
   const viewLogin = /*html*/ `
-      <div class="login">
+      <div id="loginDiv" class="login">
 
         <div class="logo-container">
           <p class="logo-title">TecHelp</p>
@@ -35,12 +34,19 @@ export function logIn() {
         </div>
       </div>`;
 
-  return viewLogin;
-}
+  // return viewLogin;
 
+  const divElement = document.createElement('div');
+  // divElement.setAttribute('class', 'backgroundImage');
+  divElement.innerHTML = viewLogin;
+  return divElement;
+  // const blankPage = document.querySelector('#container');
+  // blankPage.appendChild(divElement);
+}
 export const signUpPage = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
+    console.log(form);
     e.preventDefault();
     userLogin(form.email.value, form.password.value)
       .then((result) => {
@@ -50,7 +56,7 @@ export const signUpPage = () => {
         //   console.log('este correo es inválido');
         // } else {
         //   alert(`Cuenta válida ${userCredential.email}`);
-        window.location.hash = '#/home';
+        window.location.hash = "#/home";
       })
       .catch((error) => {
         const err = error.message;

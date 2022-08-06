@@ -9,7 +9,10 @@ import {
 
 // CONECCION CON FIRESTORE
 // eslint-disable-next-line import/no-unresolved
-import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import {
+  getFirestore,
+  collection, addDoc, getDocs, onSnapshot,
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -49,6 +52,7 @@ export {
   collection,
   addDoc,
   getDocs,
+  onSnapshot,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,
