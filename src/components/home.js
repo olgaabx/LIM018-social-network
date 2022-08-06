@@ -1,4 +1,4 @@
-import { savePost } from "../firebase/index.js";
+import { savePost } from '../firebase/index.js';
 
 export function homePage() {
   /* html */
@@ -18,7 +18,7 @@ export function homePage() {
     <div class="col-md-6" id="tasks-container"></div>
 `;
 
-  const nodeHome = document.createElement("div");
+  const nodeHome = document.createElement('div');
   nodeHome.innerHTML = viewHome;
 
   return nodeHome;
@@ -30,7 +30,7 @@ export function homePage() {
 }
 
 export function addHomePageEvents() {
-  const taskForm = document.getElementById("task-form");
+  const taskForm = document.getElementById('task-form');
 
   taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
