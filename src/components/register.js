@@ -1,4 +1,4 @@
-import { userRegister, emailVerification } from '../firebase/config.js';
+import { userRegister } from '../firebase/index.js';
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 export const register = () => {
@@ -28,7 +28,18 @@ export const register = () => {
             </form>
         </div>
     </div> `;
-  return viewRegister;
+  // return viewRegister;
+
+  const divElement = document.createElement('div');
+  // divElement.setAttribute('class', 'backgroundImage');
+  divElement.innerHTML = viewRegister;
+  return divElement;
+
+  // const divElement = document.createElement('div');
+  // // divElement.setAttribute('class', 'backgroundImage');
+  // divElement.innerHTML = viewRegister;
+  // const blankPage = document.querySelector('#container');
+  // blankPage.appendChild(divElement);
 };
 
 export const addSignUpEvents = () => {

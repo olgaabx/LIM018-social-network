@@ -1,9 +1,9 @@
-import { userLogin } from '../firebase/config.js';
+import { userLogin } from '../firebase/index.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
   const viewLogin = /*html*/ `
-      <div class="login">
+      <div id="loginDiv" class="login">
 
         <div class="logo-container">
           <p class="logo-title">TecHelp</p>
@@ -15,9 +15,9 @@ export function logIn() {
 
         <div class="form-container">
           <form action="/" class="form" id="form">
-            
+
             <input type="email" id="email" placeholder="Correo electrónico" class="input input-email" required>
-              
+
             <input type="password" id="password" placeholder="Contraseña" class="input input-password" required>
 
             <input type="submit" value="Ingresar" id ="login-button" class="primary-button login-button">
@@ -25,7 +25,7 @@ export function logIn() {
           </form>
           <div class="icon-container">
             <button type = 'button' id='gmailIcon'><a href='#/home'><img src="../imagens/google-svgrepo-com.svg" alt="icono de gmail" class="icon-gmail">
-            <span></span> 
+            <span></span>
             <button type='button' id="gitHubIcon"><a href='#/home'><img src="../imagens/github-svgrepo-com.svg" alt="icono de github" class="icon-github"></a></button>
           </div>
           <p class="login-register-text">¿No tienes una cuenta? <a class="link" id="registrate" href="#/registro"> Regístrate</a></p>
@@ -33,13 +33,16 @@ export function logIn() {
         </div>
       </div>`;
 
-  return viewLogin;
-}
+  // return viewLogin;
 
+  const divElement = document.createElement('div');
+  // divElement.setAttribute('class', 'backgroundImage');
+  divElement.innerHTML = viewLogin;
+  return divElement;
+  // const blankPage = document.querySelector('#container');
+  // blankPage.appendChild(divElement);
+}
 export const signUpPage = () => {
-  // const userEmail = document.querySelector('#email').value;
-  // const userPassword = document.querySelector('#new-password').value;
-  // const loginButton = document.querySelector('#loginButton').value;
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
     console.log(form);

@@ -1,41 +1,43 @@
-// import { saveTask } from '../firebase/config.js';
+import { savePost } from '../firebase/index.js';
 
 export function homePage() {
-  const viewMuro = /* html */ `
- 
+  /* html */
+  const viewHome = `
+    <form id="task-form">
+      <label for="title">Title:</label>
+      <input type="text" id="task-title" placeholder="Task Title" id="task-title">
 
-              <form id="task-form">
-                <label for="title">Title:</label>
-                <input type="text" id="task-title" placeholder="Task Title" id="task-title">
-                  
 
-                <label for="description">Description:</label>
-                <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
+      <label for="description">Description:</label>
+      <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
 
-                <button class="btn-task-save">Save</button>
-              </form>
-           
-        <!-- Tasks List -->
-        <div class="col-md-6" id="tasks-container"></div>
-      </div>
-</div>`;
+      <button class="btn-task-save">Save</button>
+    </form>
 
-  return viewMuro;
+    <!-- Tasks List -->
+    <div class="col-md-6" id="tasks-container"></div>
+`;
+
+  const nodeHome = document.createElement('div');
+  nodeHome.innerHTML = viewHome;
+
+  return nodeHome;
+  // const divElement = document.createElement('div');
+  // // divElement.setAttribute('class', 'backgroundImage');
+  // divElement.innerHTML = viewHome;
+  // const blankPage = document.querySelector('#container');
+  // blankPage.appendChild(divElement);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
- console.log('works');
-});
+export function addHomePageEvents() {
+  const taskForm = document.getElementById('task-form');
 
-// const taskForm = document.getElementById('task-form');
+  taskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-// taskForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
+    const title = taskForm['task-title'];
+    const description = taskForm['task-description'];
 
-//   const title = taskForm['task-title'];
-//   const description = taskForm['task-description'];
-
-//   console.log(title.value, description.value);
-// });
-
-// const prueba = saveTask();
+    savePost(title.value, description.value);
+  });
+}

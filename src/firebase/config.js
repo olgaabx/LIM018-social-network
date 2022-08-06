@@ -8,7 +8,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 // eslint-disable-next-line import/no-unresolved
-// import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,22 +34,17 @@ const auth = getAuth(app);
 // console.log(auth);
 // export const dataBase = getFirestore(app);
 // console.log(dataBase);
+const dataBase = getFirestore();
 
-// eslint-disable-next-line max-len
-export const userRegister = (email, password) => {
-  const unaPromesa = createUserWithEmailAndPassword(auth, email, password);
-  return unaPromesa;
+export {
+  app,
+  auth,
+  dataBase,
+  initializeApp,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getAuth,
+  getFirestore,
+  collection,
+  addDoc,
 };
-
-export const userLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
-
-// export const signInWithGmail = () => signInWithPopup(auth, provider);
-
-export const emailVerification = () => sendEmailVerification(auth.currentUser);
-
-// firestore coneccion con  Home
-// const saveData = getFirestore();
-
-// export const saveTask = (title, description) => {
-//   addDoc(collection(saveData, 'tasks'), { title, description });
-// };
