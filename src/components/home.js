@@ -32,11 +32,11 @@ export function homePage() {
 export function addHomePageEvents() {
   const taskForm = document.getElementById('task-form');
 
-  taskForm.addEventListener("submit", (e) => {
+  taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const title = taskForm["task-title"];
-    const description = taskForm["task-description"];
+    const title = taskForm['task-title'];
+    const description = taskForm['task-description'];
 
     savePost(title.value, description.value);
   });
