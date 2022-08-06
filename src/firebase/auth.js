@@ -1,7 +1,8 @@
 import {
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   auth,
-  signInWithEmailAndPassword,
+
 } from './config.js';
 
 // eslint-disable-next-line max-len

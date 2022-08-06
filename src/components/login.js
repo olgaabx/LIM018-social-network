@@ -43,23 +43,26 @@ export function logIn() {
   // const blankPage = document.querySelector('#container');
   // blankPage.appendChild(divElement);
 }
-export const signUpPage = () => {
+export const startSession = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
+    // eslint-disable-next-line no-console
     console.log(form);
     e.preventDefault();
     userLogin(form.email.value, form.password.value)
       .then((result) => {
         const userCredential = result.user;
+        // eslint-disable-next-line no-console
         console.log(userCredential);
         // if (userCredential.emailVerified === false) {
         //   console.log('este correo es inválido');
         // } else {
         //   alert(`Cuenta válida ${userCredential.email}`);
-        window.location.hash = "#/home";
+        window.location.hash = '#/home';
       })
       .catch((error) => {
         const err = error.message;
+        // eslint-disable-next-line no-alert
         alert(err);
       });
   });
