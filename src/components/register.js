@@ -44,10 +44,10 @@ export const addSignUpEvents = () => {
         const userCredential = result.user;
         console.log(userCredential);
 
-        //emailVerification().then(() => {
+        // emailVerification().then(() => {
         //  alert('Revisa tu correo, hemos enviado una verificación');
         //  window.location.href = '#/inicio';
-        //});
+        // });
 
         alert(`Registro exitoso ${userCredential.email}`);
       });

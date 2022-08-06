@@ -48,8 +48,8 @@ export const userLogin = (email, password) => signInWithEmailAndPassword(auth, e
 export const emailVerification = () => sendEmailVerification(auth.currentUser);
 
 // firestore coneccion con  Home
-const saveData = getFirestore();
+// const saveData = getFirestore();
 
-export const saveTask = (title, description) => {
-  addDoc(collection(saveData, 'tasks'), { title, description });
-};
+// export const saveTask = (title, description) => {
+//   addDoc(collection(saveData, 'tasks'), { title, description });
+// };

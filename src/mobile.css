@@ -36,7 +36,7 @@ body {
   /* display: grid; */
   display: flex;
   flex-direction: column;
-  place-items: center;  
+  place-items: center;
 }
 
 .logo-container {
@@ -139,9 +139,9 @@ body {
   margin-left: 25px;
 }
 /* REGISTER*/
-.form-container-register{
-  
-}
+/* .form-container-register{
+
+} */
 .login-register-text {
   font-weight: 300;
   font-size: var(--small);
@@ -211,7 +211,7 @@ body {
 input{
   border: none;
 }
-.icon-gmail, 
+.icon-gmail,
 .icon-github{
  background-color: var(--white);
  border: none;
