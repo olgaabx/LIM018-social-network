@@ -15,8 +15,7 @@ export function homePage() {
     </form>
 
     <!-- Tasks List -->
-    <div class="col-md-6" id="tasks-container"></div>
-`;
+    <div class="col-md-6" id="tasks-container"></div>`;
 
   const nodeHome = document.createElement('div');
   nodeHome.innerHTML = viewHome;
