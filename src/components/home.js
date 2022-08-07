@@ -39,6 +39,7 @@ export const getPosts = async () => {
   // los convierto en data de js con data()
     let html = '';
     querySnapshot.forEach((doc) => {
+      // eslint-disable-next-line no-console
       console.log(doc.data());
       const dataPosts = doc.data();
       html += `
