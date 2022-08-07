@@ -27,6 +27,6 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
-    "quotes": [2, "single", { "avoidEscape": true }]
+    "quotes": [1, "single", { "avoidEscape": true }]
   }
 }

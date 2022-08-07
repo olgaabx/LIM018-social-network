@@ -1,2 +1,2 @@
 export { userLogin, userRegister } from './auth.js';
-export { savePost } from './post.js';
+export { savePost, getTask, OngetTask } from './post.js';

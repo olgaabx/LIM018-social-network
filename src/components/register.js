@@ -1,6 +1,6 @@
 import { userRegister } from '../firebase/index.js';
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-
+/* html */
 export const register = () => {
   const viewRegister = /* html */ `
   <div class="register-container">
@@ -53,6 +53,7 @@ export const addSignUpEvents = () => {
     userRegister(formRegister.email.value, formRegister.password.value)
       .then((result) => {
         const userCredential = result.user;
+        // eslint-disable-next-line no-console
         console.log(userCredential);
 
         // emailVerification().then(() => {
@@ -60,6 +61,7 @@ export const addSignUpEvents = () => {
         //  window.location.href = '#/inicio';
         // });
 
+        // eslint-disable-next-line no-alert
         alert(`Registro exitoso ${userCredential.email}`);
       });
   });

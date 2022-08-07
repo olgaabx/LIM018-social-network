@@ -7,8 +7,12 @@ import {
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
+// CONECCION CON FIRESTORE
 // eslint-disable-next-line import/no-unresolved
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import {
+  getFirestore,
+  collection, addDoc, getDocs, onSnapshot,
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -47,4 +51,14 @@ export {
   getFirestore,
   collection,
   addDoc,
+  getDocs,
+  onSnapshot,
 };
+
+// COSAS QUE TODAVIA NO USAMOS,
+
+// export const userLogin = (email, password) => signInWithEmailAndPassword(email, password);
+
+// export const signInWithGmail = () => signInWithPopup(auth, provider);
+
+// export const emailVerification = () => sendEmailVerification(auth.currentUser);
