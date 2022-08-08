@@ -4,10 +4,7 @@ import { savePost, OngetTask } from '../firebase/index.js';
 export function homePage() {
   /* html */
   const viewHome = `
-    <form id="task-form">
-      <label for="title">Title:</label>
-      <input type="text" id="task-title" placeholder="Task Title" id="task-title">
-        
+    <form id="task-form"> 
 
       <label for="description">Description:</label>
       <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
@@ -43,7 +40,6 @@ export const getPosts = async () => {
       const dataPosts = doc.data();
       html += `
     <div>
-      <h3>${dataPosts.title}</h3>
       <p>${dataPosts.description}</p>
     </div>
     `;
@@ -62,10 +58,9 @@ export const addHomePageEvents = () => {
   taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const title = taskForm['task-title'];
     const description = taskForm['task-description'];
 
-    savePost(title.value, description.value);
+    savePost(description.value);
     taskForm.reset();
   });
 };

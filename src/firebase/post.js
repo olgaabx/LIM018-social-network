@@ -1,7 +1,7 @@
 import { addDoc, collection, dataBase, getDocs, onSnapshot } from './config.js';
 
-export const savePost = (title, description) => {
-  addDoc(collection(dataBase, 'posts'), { title, description });
+export const savePost = (description) => {
+  addDoc(collection(dataBase, 'posts'), { description });
 };
 
 // FUNCION PARA TRAER INFOR DE FIRESTORE // getDoc (te trae los archivos desde el firestore)
