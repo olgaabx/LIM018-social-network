@@ -11,7 +11,11 @@ import {
 // eslint-disable-next-line import/no-unresolved
 import {
   getFirestore,
-  collection, addDoc, getDocs, onSnapshot,
+  collection,
+  addDoc,
+  getDocs,
+  onSnapshot,
+  // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
