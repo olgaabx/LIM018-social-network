@@ -1,5 +1,5 @@
 // import { async } from 'regenerator-runtime';
-import { savePost, OngetTask } from '../firebase/index.js';
+import { savePost, OngetTask } from "../firebase/index.js";
 // getTask
 export function homePage() {
   /* html */
@@ -13,9 +13,13 @@ export function homePage() {
       <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
 
       <button class="btn-task-save">Save</button>
-    </form>`;
+    </form>
 
-  const nodeHome = document.createElement('div');
+    <!-- Tasks List -->
+    <div class="col-md-6" id="tasks-container"></div>
+`;
+
+  const nodeHome = document.createElement("div");
   nodeHome.innerHTML = viewHome;
 
   return nodeHome;
@@ -27,13 +31,13 @@ export function homePage() {
 }
 
 export const getPosts = async () => {
-  const taskContainer = document.getElementById('tasks-container');
+  const taskContainer = document.getElementById("tasks-container");
   // querySnapshot son los datos que existen en este momento y los trae de firestore
   OngetTask((querySnapshot) => {
-  // const querySnapshot = await getTask();
-  // Aqui llamo a querySnapshot y traigo solo los DOC con forEach,
-  // los convierto en data de js con data()
-    let html = '';
+    // const querySnapshot = await getTask();
+    // Aqui llamo a querySnapshot y traigo solo los DOC con forEach,
+    // los convierto en data de js con data()
+    let html = "";
     querySnapshot.forEach((doc) => {
       // eslint-disable-next-line no-console
       console.log(doc.data());
@@ -55,12 +59,12 @@ export const addHomePageEvents = () => {
   //   console.log(doc);
   // });
 
-  const taskForm = document.getElementById('task-form');
-  taskForm.addEventListener('submit', (e) => {
+  const taskForm = document.getElementById("task-form");
+  taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const title = taskForm['task-title'];
-    const description = taskForm['task-description'];
+    const title = taskForm["task-title"];
+    const description = taskForm["task-description"];
 
     savePost(title.value, description.value);
     taskForm.reset();
