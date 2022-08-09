@@ -70,12 +70,12 @@ export const startSession = () => {
 
 // Sign In With Gmail
 
-// const gmailButton = document.getElementById('gmailIcon');
-// gmailButton.addEventListener('click', () => {
-//   sessionStorage.clear();
-//   signInWithGmail(provider)
-//   .then(result) => {
-//     const googleUser = result.user;
-//     searchUser
-//   }
-// })
+const gmailButton = document.getElementById('gmailIcon');
+gmailButton.addEventListener('click', () => {
+  sessionStorage.clear();
+  signInWithGmail(provider)
+  .then(result) => {
+    const googleUser = result.user;
+    searchUser
+  }
+})
