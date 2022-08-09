@@ -1,8 +1,8 @@
 import { userRegister } from '../firebase/index.js';
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
- /* html */
+/* html */
 export const register = () => {
-  const viewRegister = `
+  const viewRegister = /* html */ `
   <div class="register-container">
         <div class="logo-container logo-container-register">
           <div class="logo-circle logo-circle-register">
@@ -28,9 +28,9 @@ export const register = () => {
             </form>
         </div>
     </div> `;
-  //return viewRegister;
-  
-  const divElement = document.createElement("div");
+  // return viewRegister;
+
+  const divElement = document.createElement('div');
   // divElement.setAttribute('class', 'backgroundImage');
   divElement.innerHTML = viewRegister;
   return divElement;
@@ -53,13 +53,15 @@ export const addSignUpEvents = () => {
     userRegister(formRegister.email.value, formRegister.password.value)
       .then((result) => {
         const userCredential = result.user;
+        // eslint-disable-next-line no-console
         console.log(userCredential);
 
-        //emailVerification().then(() => {
+        // emailVerification().then(() => {
         //  alert('Revisa tu correo, hemos enviado una verificación');
         //  window.location.href = '#/inicio';
-        //});
+        // });
 
+        // eslint-disable-next-line no-alert
         alert(`Registro exitoso ${userCredential.email}`);
       });
   });

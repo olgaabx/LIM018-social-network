@@ -1,11 +1,11 @@
-import { logIn, signUpPage } from './login.js';
+import { logIn, startSession } from './login.js';
 // import { mainpage } from './principal.js';
 import { register, addSignUpEvents } from './register.js';
 import { homePage, addHomePageEvents, getPosts } from './home.js';
 
 const components = {
   Login: logIn,
-  SignUp: signUpPage,
+  SignUp: startSession,
   // Mainpage: mainpage,
   Register: register,
   Home: homePage,
