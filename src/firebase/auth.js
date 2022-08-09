@@ -3,7 +3,6 @@ import {
   createUserWithEmailAndPassword,
   auth,
   signInWithPopup,
-  provider,
 } from './config.js';
 
 // eslint-disable-next-line max-len
@@ -15,6 +14,6 @@ export const userRegister = (email, password) => {
 export const userLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // SingIn con GMAIL
-export const signInWithGmail = () => signInWithPopup(auth, provider);
+export const signInWithGmail = (provider) => signInWithPopup(auth, provider);
 
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);

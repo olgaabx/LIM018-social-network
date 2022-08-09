@@ -75,6 +75,7 @@ export const singInGmail = () => {
   gmailButton.addEventListener('click', (e) => {
     e.preventDefault();
     sessionStorage.clear();
+    console.log(provider.credentialFromResult);
     signInWithGmail(provider)
       .then((result) => {
         const credential = provider.credentialFromResult(result);
@@ -82,14 +83,12 @@ export const singInGmail = () => {
 
         const user = result.user;
         // searchUser;
-        window.location.hash = '#/home';
+        window.location.hash = "#/home";
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
-        const email = error.customData.email;
-        const credential = provider.credentialFromError(error);
+        console.error(errorMessage);
       });
   });
 };
