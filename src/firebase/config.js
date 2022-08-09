@@ -3,7 +3,11 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 import {
-  createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
@@ -39,8 +43,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
-// const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 // console.log(auth);
 // export const dataBase = getFirestore(app);
 // console.log(dataBase);
@@ -61,12 +64,10 @@ export {
   onSnapshot,
   deleteDoc,
   doc,
+  signInWithPopup,
+  provider,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,
-
-// export const userLogin = (email, password) => signInWithEmailAndPassword(email, password);
-
-// export const signInWithGmail = () => signInWithPopup(auth, provider);
 
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);

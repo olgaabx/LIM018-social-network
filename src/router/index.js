@@ -10,7 +10,8 @@ export const changeview = (route) => {
   switch (route) {
     case '':
       container.appendChild(components.Login());
-      components.SignUp();
+      components.SignIn();
+      components.SingInGmail();
       break;
     case '#/registro':
       container.appendChild(components.Register());

@@ -1,4 +1,5 @@
-import { userLogin } from '../firebase/index.js';
+import { provider } from '../firebase/config.js';
+import { userLogin, signInWithGmail } from '../firebase/index.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
@@ -43,11 +44,10 @@ export function logIn() {
   // const blankPage = document.querySelector('#container');
   // blankPage.appendChild(divElement);
 }
+
 export const startSession = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
-    // eslint-disable-next-line no-console
-    console.log(form);
     e.preventDefault();
     userLogin(form.email.value, form.password.value)
       .then((result) => {
@@ -70,12 +70,26 @@ export const startSession = () => {
 
 // Sign In With Gmail
 
-// const gmailButton = document.getElementById('gmailIcon');
-// gmailButton.addEventListener('click', () => {
-//   sessionStorage.clear();
-//   signInWithGmail(provider)
-//   .then(result) => {
-//     const googleUser = result.user;
-//     searchUser
-//   }
-// })
+export const singInGmail = () => {
+  const gmailButton = document.getElementById('gmailIcon');
+  gmailButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    sessionStorage.clear();
+    signInWithGmail(provider)
+      .then((result) => {
+        const credential = provider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        const user = result.user;
+        // searchUser;
+        window.location.hash = '#/home';
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        const email = error.customData.email;
+        const credential = provider.credentialFromError(error);
+      });
+  });
+};
