@@ -1,7 +1,7 @@
 import {
   addDoc, collection, dataBase, onSnapshot, deleteDoc, doc,
 } from './config.js';
-
+// deleteDoc, doc,
 export const savePost = (description) => {
   addDoc(collection(dataBase, 'posts'), { description });
 };
@@ -17,5 +17,9 @@ export const savePost = (description) => {
 export const OngetTask = (callback) => onSnapshot(collection(dataBase, 'posts'), callback);
 
 // const para borrar los post // con doc ya no traigo toda una coleccion sino solo un documento
-export const deletePost = (id) => console.log(id);
+export const deletePost = async (id) => {
+  console.log(id);
+  const borrar = await deleteDoc(doc(dataBase, 'posts', id));
+  console.log(borrar);
+};
 // deleteDoc(doc(dataBase, 'posts'), id);
