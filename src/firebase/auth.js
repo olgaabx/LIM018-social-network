@@ -2,6 +2,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   auth,
+  GoogleAuthProvider,
   signInWithPopup,
 } from './config.js';
 
@@ -14,6 +15,8 @@ export const userRegister = (email, password) => {
 export const userLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // SingIn con GMAIL
-export const signInWithGmail = (provider) => signInWithPopup(auth, provider);
+const provider = new GoogleAuthProvider();
+
+export const signInWithGmail = () => signInWithPopup(auth, provider);
 
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);

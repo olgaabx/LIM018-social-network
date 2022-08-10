@@ -43,7 +43,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+// const provider = new GoogleAuthProvider();
 // console.log(auth);
 // export const dataBase = getFirestore(app);
 // console.log(dataBase);
@@ -65,7 +65,8 @@ export {
   deleteDoc,
   doc,
   signInWithPopup,
-  provider,
+  // provider,
+  GoogleAuthProvider,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,
