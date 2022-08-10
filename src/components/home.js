@@ -1,5 +1,6 @@
 // import { async } from 'regenerator-runtime';
 import { savePost, OngetTask, deletePost } from '../firebase/index.js';
+import { postLikes } from '../firebase/post.js';
 // getTask
 export function homePage() {
   /* html */
@@ -99,6 +100,7 @@ export const getPosts = async () => {
       // eslint-disable-next-line no-console
       // console.log(doc.data());
       const dataPosts = doc.data();
+      /* html */
       html += `
       <div class="tweet-container">
         <div class="tweet-photo">
@@ -109,7 +111,7 @@ export const getPosts = async () => {
           <p>${dataPosts.description}</p>
         </div>
         <div class="tweet-icons">
-          <span><i class="fi fi-rs-heart buton"></i></span>
+          <span><i class="fi fi-rs-heart buton" data-id="${doc.id}" ></i></span>
           <span><i class="fi fi-rs-pencil buton"></i></span>
           <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
         </div>
@@ -124,15 +126,20 @@ export const getPosts = async () => {
         // console.log(event.target.dataset.id);
       });
     });
+    const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+    buttonLike.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        postLikes(event.target.dataset.id);
+      });
+    });
   });
 };
-
 export const addHomePageEvents = () => {
-  const taskForm = document.getElementById('task-form');
-  taskForm.addEventListener('submit', (e) => {
+  const taskForm = document.getElementById("task-form");
+  taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const description = taskForm['task-description'];
+    const description = taskForm["task-description"];
 
     savePost(description.value);
     taskForm.reset();

@@ -65,6 +65,8 @@ export const startSession = () => {
         // eslint-disable-next-line no-alert
         alert(err);
       });
+
+    
   });
 };
 

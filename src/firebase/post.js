@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, dataBase, onSnapshot, deleteDoc, doc,
+  addDoc, collection, dataBase, onSnapshot, deleteDoc, doc, updateDoc,
 } from './config.js';
 // deleteDoc, doc,
 export const savePost = (description) => {
@@ -23,3 +23,11 @@ export const deletePost = async (id) => {
   console.log(borrar);
 };
 // deleteDoc(doc(dataBase, 'posts'), id);
+
+// Likes de Posts
+export const postLikes = async (idPost, dataLikes) => {
+  const docId = doc(dataBase, 'posts', idPost);
+  await updateDoc(docId, {
+    likes: dataLikes,
+  });
+};
