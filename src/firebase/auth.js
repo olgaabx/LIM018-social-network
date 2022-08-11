@@ -18,7 +18,7 @@ export const userLogin = (email, password) => signInWithEmailAndPassword(auth, e
 const provider = new GoogleAuthProvider();
 
 export const signInWithGmail = () => signInWithPopup(auth, provider);
-
+// Usuario actual
 export const currentUser = () => auth.currentUser;
 
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);

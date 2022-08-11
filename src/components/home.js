@@ -136,12 +136,13 @@ export const getPosts = async () => {
   });
 };
 export const addHomePageEvents = () => {
-  const taskForm = document.getElementById("task-form");
-  taskForm.addEventListener("submit", (e) => {
+  const taskForm = document.getElementById('task-form');
+  taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const description = taskForm["task-description"];
+    const description = taskForm['task-description'];
     const currentUserId = currentUser();
+    // eslint-disable-next-line no-console
     console.log(currentUserId.uid);
     savePost(description.value, currentUserId.uid);
     taskForm.reset();

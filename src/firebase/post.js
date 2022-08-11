@@ -5,25 +5,18 @@ import {
 export const savePost = async (description, userId) => {
   await addDoc(collection(dataBase, 'posts'), { description, userId });
 };
+// Creando colección de usuarios
 export const usersCollection = (userId, name, email) => {
   setDoc(doc(dataBase, 'users', userId), { userId, name, email });
 };
 
-// FUNCION PARA TRAER INFOR DE FIRESTORE // getDoc (te trae los archivos desde el firestore)
-// Trae con getDoc la collecion indicada
-// export const getTask = () => getDocs(collection(dataBase, 'posts'));
-// Borrar post
-// export const deleteNote = (idPost) => {
-//   delete( collection(dataBase,'posts').doc(idPost))};
-
-// cons por lo general empeiazan por ON
 export const OngetTask = (callback) => onSnapshot(collection(dataBase, 'posts'), callback);
 
 // const para borrar los post // con doc ya no traigo toda una coleccion sino solo un documento
-export const deletePost = async (id) => {
-  console.log(id);
-  const borrar = await deleteDoc(doc(dataBase, 'posts', id));
-  console.log(borrar);
+export const deletePost = (idPost) => {
+  console.log(idPost);
+  deleteDoc(doc(dataBase, 'posts', idPost));
+  console.log(deleteDoc());
 };
 // deleteDoc(doc(dataBase, 'posts'), id);
 
