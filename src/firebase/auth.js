@@ -19,4 +19,6 @@ const provider = new GoogleAuthProvider();
 
 export const signInWithGmail = () => signInWithPopup(auth, provider);
 
+export const currentUser = () => auth.currentUser;
+
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);

@@ -1,9 +1,12 @@
 import {
-  addDoc, collection, dataBase, onSnapshot, deleteDoc, doc, updateDoc,
+  addDoc, collection, dataBase, onSnapshot, deleteDoc, doc, updateDoc, setDoc,
 } from './config.js';
 // deleteDoc, doc,
-export const savePost = (description) => {
-  addDoc(collection(dataBase, 'posts'), { description });
+export const savePost = async (description, userId) => {
+  await addDoc(collection(dataBase, 'posts'), { description, userId });
+};
+export const usersCollection = (userId, name, email) => {
+  setDoc(doc(dataBase, 'users', userId), { userId, name, email });
 };
 
 // FUNCION PARA TRAER INFOR DE FIRESTORE // getDoc (te trae los archivos desde el firestore)

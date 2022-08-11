@@ -21,6 +21,7 @@ import {
   getDoc,
   updateDoc,
   onSnapshot,
+  setDoc,
   deleteDoc,
   doc,
   // eslint-disable-next-line import/no-unresolved
@@ -65,6 +66,7 @@ export {
   getDocs,
   getDoc,
   updateDoc,
+  setDoc,
   onSnapshot,
   deleteDoc,
   doc,

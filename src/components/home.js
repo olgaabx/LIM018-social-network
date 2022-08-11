@@ -1,4 +1,5 @@
 // import { async } from 'regenerator-runtime';
+import { currentUser } from '../firebase/auth.js';
 import { savePost, OngetTask, deletePost } from '../firebase/index.js';
 import { postLikes } from '../firebase/post.js';
 // getTask
@@ -140,8 +141,9 @@ export const addHomePageEvents = () => {
     e.preventDefault();
 
     const description = taskForm["task-description"];
-
-    savePost(description.value);
+    const currentUserId = currentUser();
+    console.log(currentUserId.uid);
+    savePost(description.value, currentUserId.uid);
     taskForm.reset();
   });
 };
