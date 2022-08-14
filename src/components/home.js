@@ -1,5 +1,7 @@
 // import { async } from 'regenerator-runtime';
+import { currentUser } from '../firebase/auth.js';
 import { savePost, OngetTask, deletePost } from '../firebase/index.js';
+import { postLikes } from '../firebase/post.js';
 // getTask
 export function homePage() {
   /* html */
@@ -87,7 +89,9 @@ export function homePage() {
   // blankPage.appendChild(divElement);
 }
 
-export const getPosts = async () => {
+export const getPosts = async (e) => {
+  console.log(e);
+  // const idPostbtn = e.target.dataset.id;
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
   OngetTask((querySnapshot) => {
@@ -97,8 +101,8 @@ export const getPosts = async () => {
     let html = '';
     querySnapshot.forEach((doc) => {
       // eslint-disable-next-line no-console
-      // console.log(doc.data());
       const dataPosts = doc.data();
+      /* html */
       html += `
       <div class="tweet-container">
         <div class="tweet-photo">
@@ -109,7 +113,7 @@ export const getPosts = async () => {
           <p>${dataPosts.description}</p>
         </div>
         <div class="tweet-icons">
-          <span><i class="fi fi-rs-heart buton"></i></span>
+          <span><i class="fi fi-rs-heart buton" data-id="${doc.id}" ></i></span>
           <span><i class="fi fi-rs-pencil buton"></i></span>
           <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
         </div>
@@ -124,17 +128,23 @@ export const getPosts = async () => {
         // console.log(event.target.dataset.id);
       });
     });
+    const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+    buttonLike.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        postLikes(event.target.dataset.id);
+      });
+    });
   });
 };
-
 export const addHomePageEvents = () => {
   const taskForm = document.getElementById('task-form');
   taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const description = taskForm['task-description'];
-
-    savePost(description.value);
+    const currentUserId = currentUser();
+    // eslint-disable-next-line no-console
+    console.log(currentUserId.uid);
+    savePost(description.value, currentUserId.uid);
     taskForm.reset();
   });
 };
