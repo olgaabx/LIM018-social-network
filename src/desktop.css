@@ -1,13 +1,12 @@
 body{
   display: flex;
   flex-direction: column;
-  
+  background-color: rebeccapurple;
 }
-
 
 /*loguin*/
 .form-container{
-  margin-right: 10%;
+  margin-right: 15%;
 }
 .logo-title{
   font-size: 15rem;
@@ -27,6 +26,7 @@ body{
 .logo-title-register{
   font-size: 5rem;
 }
+
 .form-container-register {
   justify-content: flex-start;
   width: 40%;
@@ -38,6 +38,7 @@ body{
   background-color: #fff;
   border-radius: 20px;
 }
+
 .form-container-register::after{
   position: absolute;
   content: '';/*para que el navegador lo considere seudo-elem*/
@@ -46,7 +47,7 @@ body{
   height: 100%;
   filter: blur(15px);
   z-index: -1;
-} 
+}
 .title-register{
   font-size: 450%;
   color: #737373;
@@ -70,5 +71,5 @@ body{
 .link{
   color: #33C7CA;
   font-size: 120%;
-  
+
 }
