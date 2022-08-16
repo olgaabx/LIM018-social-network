@@ -343,7 +343,7 @@ nav {
 .tweet-container {
   /* display: flex; */
   width: 250px;
-  /* height: 128px; */
+  height: 128px;
   border: solid 1px var(--light-gray);
   border-top: none;
   padding: 5px;
