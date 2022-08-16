@@ -81,7 +81,7 @@ export const singInGmail = () => {
         const token = credential.accessToken;
         const user = result.user;
         // searchUser;
-        window.location.hash = "#/home";
+        window.location.hash = '#/home';
       })
       .catch((error) => {
         const errorCode = error.code;

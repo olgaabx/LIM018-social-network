@@ -19,7 +19,7 @@ export const changeview = (route) => {
       break;
     case '#/inicio':
       container.appendChild(components.Login());
-      components.SignUp();
+      // components.SignUp(); // no sabemos para qué lo estábamos usando
       break;
     case '#/home':
       container.appendChild(components.Home());

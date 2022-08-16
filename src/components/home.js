@@ -75,8 +75,7 @@ export function homePage() {
         </svg>
       </div>
     </div>
-  </footer>
-`;
+  </footer>`;
 
   const nodeHome = document.createElement('div');
   nodeHome.innerHTML = viewHome;
@@ -135,6 +134,7 @@ export const getPosts = async () => {
     });
   });
 };
+
 export const addHomePageEvents = () => {
   const taskForm = document.getElementById('task-form');
   taskForm.addEventListener('submit', (e) => {
