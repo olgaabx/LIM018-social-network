@@ -1,6 +1,8 @@
 // import { async } from 'regenerator-runtime';
 import { currentUser } from '../firebase/auth.js';
-import { savePost, OngetTask, deletePost } from '../firebase/index.js';
+import {
+  savePost, OngetTask, deletePost, signOut, auth,
+} from '../firebase/index.js';
 import { postLikes } from '../firebase/post.js';
 // getTask
 export function homePage() {
@@ -14,11 +16,11 @@ export function homePage() {
         <img src="https://cdn-icons.flaticon.com/png/128/901/premium/901002.png?token=exp=1659804421~hmac=e60a9a416cef2c4df6d63da0397c1d72" alt="logo" class="logo-home">
         <p class="logo-home-title">TecHelp</p>
       </div>
-            <!-- <ul>
+            <ul>
                 <li>
-                    <a href=""></a>
+                    <a href="" id="logOutS">Cerrar sesión</a>
                 </li>
-                <li>
+            <!--<li>
                     <a href=""></a>
                 </li>
                 <li>
@@ -148,3 +150,17 @@ export const addHomePageEvents = () => {
     taskForm.reset();
   });
 };
+
+export function logOut() {
+  const logOutBtn = document.getElementById('logOutS');
+  logOutBtn.addEventListener('click', () => {
+    signOut(auth)
+      .then(() => {
+        sessionStorage.clear();
+        window.location.hash = '#/inicio';
+        return console.log('se cerró sesión exitosamente');
+        // Sign-out successful.
+      })
+      .catch((error) => error);
+  });
+}
