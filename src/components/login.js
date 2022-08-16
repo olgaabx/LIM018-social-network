@@ -45,6 +45,7 @@ export function logIn() {
   // blankPage.appendChild(divElement);
 }
 
+// INICIO DE SESIÓN
 export const startSession = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
@@ -68,8 +69,7 @@ export const startSession = () => {
   });
 };
 
-// Sign In With Gmail
-
+// INICIAR SESIÓN CON GOOGLE
 export const singInGmail = () => {
   const gmailButton = document.getElementById('gmailIcon');
   gmailButton.addEventListener('click', (e) => {
@@ -78,18 +78,14 @@ export const singInGmail = () => {
     signInWithGmail()
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        console.log(GoogleAuthProvider.credentialFromResult);
         const token = credential.accessToken;
-        console.log(token);
         const user = result.user;
-        console.log(user);
         // searchUser;
-        window.location.hash = "#/home";
+        window.location.hash = '#/home';
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(errorMessage);
       });
   });
 };
