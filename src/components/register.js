@@ -72,5 +72,6 @@ export const addSignUpEvents = () => {
         // eslint-disable-next-line no-alert
         alert(`Registro exitoso ${userCredential.email}`);
       });
+    // window.location.href = '#/home';
   });
 };

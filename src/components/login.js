@@ -1,15 +1,19 @@
 // import { provider } from '../firebase/config.js';
-import { userLogin, signInWithGmail, GoogleAuthProvider } from '../firebase/index.js';
+import {
+  userLogin,
+  signInWithGmail,
+  GoogleAuthProvider,
+} from "../firebase/index.js";
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
-  const viewLogin = /*html*/ `
+  const viewLogin = /*html*/`
       <div id="loginDiv" class="login">
 
         <div class="logo-container">
           <p class="logo-title">TecHelp</p>
           <div class="logo-circle">
-            <img src="../imagens/logo.png" alt="logo" class="logo">
+            <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo">
           </div>
           <p class="logo-description">Aquí podrás encontrar toda<br> la ayuda tech que necesitas.</p>
         </div>
@@ -23,21 +27,21 @@ export function logIn() {
             <input type="password" id="password" placeholder="Contraseña" class="input input-password" required>
 
             <input type="submit" value="Ingresar" id ="login-button" class="primary-button login-button">
-            <a class = "link" id="muro" href="#/home"> Mi muro </a>
+            <!-- <a class = "link" id="muro" href="#/home"> Mi muro </a> -->
           </form>
-          <div class="icon-container">
-            <button type = 'button' id='gmailIcon'><a href='#/home'><img src="../imagens/google-svgrepo-com.svg" alt="icono de gmail" class="icon-gmail">
-            <span></span>
-            <button type='button' id="gitHubIcon"><a href='#/home'><img src="../imagens/github-svgrepo-com.svg" alt="icono de github" class="icon-github"></a></button>
-          </div>
+          <section class="icon-container">
+            <button id='gmailIcon' class="gmailButton" href='#/home'> <!-- <a href='#/home' class="gmail-icon">-->
+              <img src="https://sugope.vteximg.com.br/arquivos/iconGoogle.svg?v=637677744074800000" title="Ingresa con Google">
+              Ingresa con Google </button>
+            <!-- <button type='button' id="gitHubIcon"><a href='#/home'><img src="../imagens/github-svgrepo-com.svg" alt="icono de github" class="icon-github"></a></button> -->
+          </section>
           <p class="login-register-text">¿No tienes una cuenta? <a class="link" id="registrate" href="#/registro"> Regístrate</a></p>
-          <p class="login-register-text">!FELICIDADES¡ ya estas registrado<a class="link" id="registrate" href="#/home"> Ingresa aqui</a></p>
         </div>
       </div>`;
 
   // return viewLogin;
 
-  const divElement = document.createElement('div');
+  const divElement = document.createElement("div");
   // divElement.setAttribute('class', 'backgroundImage');
   divElement.innerHTML = viewLogin;
   return divElement;
@@ -47,8 +51,8 @@ export function logIn() {
 
 // INICIO DE SESIÓN
 export const startSession = () => {
-  const form = document.getElementById('form');
-  form.addEventListener('submit', (e) => {
+  const form = document.getElementById("form");
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     userLogin(form.email.value, form.password.value)
       .then((result) => {
@@ -59,7 +63,7 @@ export const startSession = () => {
         //   console.log('este correo es inválido');
         // } else {
         //   alert(`Cuenta válida ${userCredential.email}`);
-        window.location.hash = '#/home';
+        window.location.hash = "#/home";
       })
       .catch((error) => {
         const err = error.message;
@@ -71,8 +75,8 @@ export const startSession = () => {
 
 // INICIAR SESIÓN CON GOOGLE
 export const singInGmail = () => {
-  const gmailButton = document.getElementById('gmailIcon');
-  gmailButton.addEventListener('click', (e) => {
+  const gmailButton = document.getElementById("gmailIcon");
+  gmailButton.addEventListener("click", (e) => {
     e.preventDefault();
     sessionStorage.clear();
     signInWithGmail()
@@ -81,7 +85,7 @@ export const singInGmail = () => {
         const token = credential.accessToken;
         const user = result.user;
         // searchUser;
-        window.location.hash = '#/home';
+        window.location.hash = "#/home";
       })
       .catch((error) => {
         const errorCode = error.code;

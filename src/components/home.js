@@ -1,7 +1,11 @@
 // import { async } from 'regenerator-runtime';
 import { currentUser } from '../firebase/auth.js';
 import {
-  savePost, OngetTask, deletePost, signOut, auth,
+  savePost,
+  OngetTask,
+  deletePost,
+  signOut,
+  auth,
 } from '../firebase/index.js';
 import { postLikes } from '../firebase/post.js';
 // getTask
@@ -13,14 +17,14 @@ export function homePage() {
 
     <div class="navbar-left">
       <div class="logo-container-home">
-        <img src="https://cdn-icons.flaticon.com/png/128/901/premium/901002.png?token=exp=1659804421~hmac=e60a9a416cef2c4df6d63da0397c1d72" alt="logo" class="logo-home">
+        <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo-home">
         <p class="logo-home-title">TecHelp</p>
       </div>
             <ul>
-                <li>
+                <!--<li>
                     <a href="" id="logOutS">Cerrar sesión</a>
                 </li>
-            <!--<li>
+                <li>
                     <a href=""></a>
                 </li>
                 <li>
@@ -41,6 +45,7 @@ export function homePage() {
       <ul>
         <li class="navbar-shopping-cart">
           <img src="./" alt="profile photo">
+          <a href="" id="logOutS">Cerrar sesión</a>
         </li>
       </ul>
     </div>
