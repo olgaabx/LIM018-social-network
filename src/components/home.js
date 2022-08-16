@@ -89,9 +89,8 @@ export function homePage() {
   // blankPage.appendChild(divElement);
 }
 
-export const getPosts = async (e) => {
-  console.log(e);
-  // const idPostbtn = e.target.dataset.id;
+export const getPosts = async () => {
+  //
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
   OngetTask((querySnapshot) => {
