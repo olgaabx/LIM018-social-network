@@ -21,10 +21,15 @@ html {
 }
 
 body {
-  font-family: "Barlow", sans-serif;
-  font-family: "Oswald", sans-serif;
+  /* font-family: "Barlow", sans-serif;
+  font-family: "Oswald", sans-serif; */
+  font-family: 'Averia Serif Libre', cursive;
+  font-family: 'Roboto', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
 /* .main-container {
   background-color: rgb(235, 232, 229);
 } */
@@ -48,6 +53,8 @@ body {
 }
 
 .logo-title {
+  font-family: "Barlow", sans-serif;
+  font-family: "Oswald", sans-serif;
   color: var(--hard-purple);
   font-size: 5rem;
   font-weight: 600;
@@ -69,11 +76,14 @@ body {
   height: 131px;
 }
 
+.description {
+  margin-bottom: 25px;
+}
+
 .logo-description,
 .description {
-  font-weight: 400;
-  font-size: var(--small);
-  margin: 10px 0;
+  font-weight: 500;
+  font-size: var(--large);
   text-align: center;
 }
 
@@ -110,39 +120,48 @@ body {
   padding: 0 5%;
   border-radius: 20px;
   margin: 5%;
-  }
-  .form-container::after{
-    position: absolute;
-    content: '';/*para que el navegador lo considere seudo-elem*/
-    background: linear-gradient(to right, #c4d7e0d6, #6e85b7d6);
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    filter: blur(10px);
-    z-index: -1;
-    border-radius: 20px;
-  }
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* --- B O T O N ---- G M A I L */
 .icon-container {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+
+  /* margin: 20px 0; */
 }
 
-.icon-github {
-  width: 27px;
-  margin-left: 25px;
+.gmailButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  font-size: var(--small);
+  color: #233052;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
 }
+
+.gmailButton img {
+  width: 20px;
+  height: 20px;
+  margin-right: 9px;
+}
+
+.gmail-icon {
+  margin-bottom: 5px;
+}
+
 /* REGISTER*/
-/* .form-container-register{
 
-} */
 .login-register-text {
   font-weight: 300;
   font-size: var(--small);
@@ -324,7 +343,7 @@ nav {
 .tweet-container {
   /* display: flex; */
   width: 250px;
-  /* height: 128px; */
+  height: 128px;
   border: solid 1px var(--light-gray);
   border-top: none;
   padding: 5px;
