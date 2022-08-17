@@ -1,4 +1,8 @@
-import { userRegister, usersCollection } from '../firebase/index.js';
+import {
+  userRegister,
+  usersCollection,
+  updateDisplayName,
+} from "../firebase/index.js";
 
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 /* html */
@@ -61,6 +65,7 @@ export const addSignUpEvents = () => {
           formRegister.email.value,
         );
         const userCredential = result.user;
+        updateDisplayName(formRegister.name.value);
         // eslint-disable-next-line no-console
         console.log(userCredential);
 

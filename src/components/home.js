@@ -51,7 +51,7 @@ export function homePage() {
       <label for="description">Description:</label>
       <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
 
-      <button class="btn-task-save">Save</button>
+      <button class="btn-task-save">Publicar</button>
     </form>
     <!-- Tasks List -->
     <div class="post-user-container" id="tasks-container"></div>
@@ -95,26 +95,30 @@ export const getPosts = async () => {
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
   OngetTask((querySnapshot) => {
+    // console.log(querySnapshot);
     // const querySnapshot = await getTask();
     // Aqui llamo a querySnapshot y traigo solo los DOC con forEach,
     // los convierto en data de js con data()
     let html = '';
     querySnapshot.forEach((doc) => {
+      // console.log(doc.id);
       // eslint-disable-next-line no-console
-      // console.log(doc.data());
       const dataPosts = doc.data();
+      // console.log(dataPosts);
+      // const current = currentUser();
+      // console.log(current);
       /* html */
       html += `
       <div class="tweet-container">
         <div class="tweet-photo">
           <img src="/" alt="profile photo">
-          <a href="/" class="tweet-text name">Angélica</a>
+          <a href="/" class="tweet-text name">${dataPosts.userId}</a>
         </div>
         <div class="text">
           <p>${dataPosts.description}</p>
         </div>
         <div class="tweet-icons">
-          <span><i class="fi fi-rs-heart buton" data-id="${doc.id}" ></i></span>
+          <span><i class="fi fi-rs-heart buton"></i></span>
           <span><i class="fi fi-rs-pencil buton"></i></span>
           <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
         </div>
@@ -124,6 +128,7 @@ export const getPosts = async () => {
     taskContainer.innerHTML = html;
     const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
     buttonDelete.forEach((btn) => {
+      // console.log(btn);
       btn.addEventListener('click', (event) => {
         deletePost(event.target.dataset.id);
         // console.log(event.target.dataset.id);
@@ -137,7 +142,7 @@ export const getPosts = async () => {
     });
   });
 };
-
+// Función para publicar Posts
 export const addHomePageEvents = () => {
   const taskForm = document.getElementById('task-form');
   taskForm.addEventListener('submit', (e) => {
@@ -146,7 +151,7 @@ export const addHomePageEvents = () => {
     const description = taskForm['task-description'];
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
-    console.log(currentUserId.uid);
+    console.log(currentUserId);
     savePost(description.value, currentUserId.uid);
     taskForm.reset();
   });
