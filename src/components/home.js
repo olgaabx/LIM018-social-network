@@ -1,5 +1,5 @@
 // import { async } from 'regenerator-runtime';
-import { currentUser } from '../firebase/auth.js';
+import { currentUser, updateDisplayName } from '../firebase/auth.js';
 import {
   savePost,
   OngetTask,

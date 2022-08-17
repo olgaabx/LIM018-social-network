@@ -2,7 +2,7 @@ import {
   userRegister,
   usersCollection,
   updateDisplayName,
-} from "../firebase/index.js";
+} from '../firebase/index.js';
 
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 /* html */

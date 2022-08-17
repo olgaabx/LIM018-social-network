@@ -2,9 +2,8 @@
 import {
   userLogin,
   signInWithGmail,
-  GoogleAuthProvider,
-} from "../firebase/index.js";
-import { userLogin, signInWithGmail, GoogleAuthProvider, usersCollection} from '../firebase/index.js';
+  GoogleAuthProvider, usersCollection,
+} from '../firebase/index.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
@@ -88,7 +87,7 @@ export const singInGmail = () => {
         const token = credential.accessToken;
         const user = result.user;
         // debugger;
-      // usersCollection(user.uid, user.displayName, user.email);
+        usersCollection(user.uid, user.displayName, user.email);
 
         // if (user.exists()) {
         //   const data = user.data();

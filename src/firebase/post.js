@@ -5,7 +5,7 @@ import {
 export const savePost = async (description, userId) => {
   await addDoc(collection(dataBase, 'posts'), { description, userId });
 };
-// Creando colección de usuarios
+// Creando colección de usuarios, falta jalar name
 export const usersCollection = (userId, name, email) => {
   setDoc(doc(dataBase, 'users', userId), { userId, name, email });
 };
