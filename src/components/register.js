@@ -1,4 +1,8 @@
-import { userRegister, usersCollection } from '../firebase/index.js';
+import {
+  userRegister,
+  usersCollection,
+  updateDisplayName,
+} from "../firebase/index.js";
 
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 /* html */
@@ -7,7 +11,7 @@ export const register = () => {
   <div class="register-container">
         <div class="logo-container logo-container-register">
           <div class="logo-circle logo-circle-register">
-            <img src="../imagens/logo.png" alt="logo" class="logo logo-img-register">
+            <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo logo-img-register">
           </div>
           <p class="logo-title logo-title-register">TecHelp</p>
         </div>
@@ -61,6 +65,7 @@ export const addSignUpEvents = () => {
           formRegister.email.value,
         );
         const userCredential = result.user;
+        updateDisplayName(formRegister.name.value);
         // eslint-disable-next-line no-console
         console.log(userCredential);
 
