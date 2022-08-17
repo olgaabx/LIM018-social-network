@@ -150,7 +150,7 @@ export const addHomePageEvents = () => {
     taskForm.reset();
   });
 };
-
+// funcion para cerrar sesión
 export function logOut() {
   const logOutBtn = document.getElementById('logOutS');
   logOutBtn.addEventListener('click', () => {

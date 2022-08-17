@@ -60,9 +60,9 @@ export const addSignUpEvents = () => {
           formRegister.name.value,
           formRegister.email.value,
         );
-        const userCredential = result.user;
-        // eslint-disable-next-line no-console
-        console.log(userCredential);
+        // const userCredential = result.user;
+        // // eslint-disable-next-line no-console
+        // console.log(userCredential);
 
         // emailVerification().then(() => {
         //  alert('Revisa tu correo, hemos enviado una verificación');

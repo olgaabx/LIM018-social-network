@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+  updateProfile,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
@@ -75,6 +76,7 @@ export {
   // provider,
   GoogleAuthProvider,
   signOut,
+  updateProfile,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,
