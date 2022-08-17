@@ -1,13 +1,10 @@
 // import { provider } from '../firebase/config.js';
-<<<<<<< HEAD
 import {
   userLogin,
   signInWithGmail,
   GoogleAuthProvider,
 } from "../firebase/index.js";
-=======
 import { userLogin, signInWithGmail, GoogleAuthProvider, usersCollection} from '../firebase/index.js';
->>>>>>> main
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
