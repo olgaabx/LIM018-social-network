@@ -39,6 +39,8 @@ export const getCurrentUserName = () => {
 
   // return 'pepito';
 };
+
+
 export const updateDisplayName = (name) => {
   updateProfile(
     auth.currentUser,

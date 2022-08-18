@@ -2,9 +2,12 @@ import {
   addDoc, collection, dataBase, onSnapshot, deleteDoc, doc, updateDoc, setDoc,
 } from './config.js';
 // deleteDoc, doc,
+
+// Creando colección para los post
 export const savePost = async (description, userId) => {
   await addDoc(collection(dataBase, 'posts'), { description, userId });
 };
+
 // Creando colección de usuarios
 export const usersCollection = (userId, name, email) => {
   setDoc(doc(dataBase, 'users', userId), { userId, name, email });
