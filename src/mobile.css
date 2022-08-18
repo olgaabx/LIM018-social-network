@@ -17,7 +17,7 @@
 }
 
 html {
-  font-size: 62.5%; /*para que 1rem sean 10px*/
+  font-size: 62.5%; /*ara que 1rem sean 10px/
 }
 
 body {
@@ -227,7 +227,7 @@ a {
   font-size: 2.5rem;
 }
 
-/*botone*/
+/* /botone/ */
 input{
   border: none;
 }
@@ -237,7 +237,7 @@ input{
  border: none;
 }
 
-/*HEADER HOME*/
+/* /HEADER HOME/ */
 nav {
   display: flex;
   justify-content: space-between;
@@ -333,7 +333,7 @@ nav {
     align-items: center;
 } */
 
-/*POST HOME*/
+/* /POST HOME/ */
 
 .home-container {
   position: relative;
@@ -430,7 +430,6 @@ nav {
     border: 1px solid var(--grey);
     border-radius: 24px;
 }
-
 .tweet-img_left img {
     width: 160px;
     height: 144px;
@@ -439,7 +438,7 @@ nav {
     object-fit: cover;
 } */
 
-/*BOTÓN DE PUBLICAR*/
+/* /BOTÓN DE PUBLICAR/ */
 
 .tweet-bottom {
   width: 50px;
@@ -452,7 +451,7 @@ nav {
   box-shadow: #000000;
 }
 
-/*FOOTER HOME*/
+/* /FOOTER HOME/ */
 
 footer {
   width: 100vw;
@@ -474,7 +473,7 @@ footer {
   height: 50px;
 }
 
-/*AGREGADOR RECIENTEMENTE POR STEFANIIII*/
+/* /AGREGADOR RECIENTEMENTE POR STEFANIIII/ */
 
 .tweet-icons{
   display: flex;

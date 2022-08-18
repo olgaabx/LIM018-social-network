@@ -1,7 +1,6 @@
 // import { async } from 'regenerator-runtime';
-import { currentUser } from '../firebase/auth.js';
-import {
-  savePost, OngetTask, deletePost, signOut, auth,
+import { currentUser, getUserByUserId } from '../firebase/auth.js';
+import { savePost, OngetPost, deletePost, signOut, auth,
 } from '../firebase/index.js';
 import { postLikes } from '../firebase/post.js';
 // getTask
@@ -9,8 +8,6 @@ export function homePage() {
   /* html */
   const viewHome = `
     <nav>
-    <!-- <img src="./" alt="menu" class="menu"> -->
-
     <div class="navbar-left">
       <div class="logo-container-home">
         <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo-home">
@@ -82,62 +79,53 @@ export function homePage() {
 
   const nodeHome = document.createElement('div');
   nodeHome.innerHTML = viewHome;
-
   return nodeHome;
-  // const divElement = document.createElement('div');
-  // // divElement.setAttribute('class', 'backgroundImage');
-  // divElement.innerHTML = viewHome;
-  // const blankPage = document.querySelector('#container');
-  // blankPage.appendChild(divElement);
 }
 
 export const getPosts = async () => {
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
-  OngetTask((querySnapshot) => {
-    // console.log(querySnapshot);
-    // const querySnapshot = await getTask();
-    // Aqui llamo a querySnapshot y traigo solo los DOC con forEach,
-    // los convierto en data de js con data()
+  OngetPost((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
-      // eslint-disable-next-line no-console
       const dataPosts = doc.data();
       // console.log(dataPosts);
-      // const current = currentUser();
-      // console.log(current);
-      /* html */
-      html += `
-      <div class="tweet-container">
-        <div class="tweet-photo">
-          <img src="/" alt="profile photo">
-          <a href="/" class="tweet-text name">${dataPosts.userId}</a>
+      getUserByUserId(dataPosts.userId).then((snap) => {
+      // console.log(snap.docs[0].data());
+        const user = snap.docs[0].data();
+        /* html */
+        html += `
+        <div class="tweet-container">
+          <div class="tweet-photo">
+            <img src="/" alt="profile photo">
+            <a href="/" class="tweet-text name">${user.name}</a>
+          </div>
+          <div class="text">
+            <p>${dataPosts.description}</p>
+          </div>
+          <div class="tweet-icons">
+            <span><i class="fi fi-rs-heart buton"></i></span>
+            <span><i class="fi fi-rs-pencil buton"></i></span>
+            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
+          </div>
         </div>
-        <div class="text">
-          <p>${dataPosts.description}</p>
-        </div>
-        <div class="tweet-icons">
-          <span><i class="fi fi-rs-heart buton"></i></span>
-          <span><i class="fi fi-rs-pencil buton"></i></span>
-          <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
-        </div>
-      </div>
-    `;
-    });
-    taskContainer.innerHTML = html;
-    const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
-    buttonDelete.forEach((btn) => {
-      // console.log(btn);
-      btn.addEventListener('click', (event) => {
-        deletePost(event.target.dataset.id);
-        // console.log(event.target.dataset.id);
-      });
-    });
-    const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-    buttonLike.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        postLikes(event.target.dataset.id);
+        `;
+        taskContainer.innerHTML = html;
+        const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
+        buttonDelete.forEach((btn) => {
+          // console.log(btn);
+          btn.addEventListener('click', (event) => {
+            deletePost(event.target.dataset.id);
+            // console.log(event.target.dataset.id);
+          });
+        });
+        const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+        buttonLike.forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            postLikes(event.target.dataset.id);
+          });
+        });
       });
     });
   });
@@ -152,11 +140,11 @@ export const addHomePageEvents = () => {
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
     console.log(currentUserId);
-    savePost(description.value, currentUserId.uid);
+    savePost(description.value, currentUserId.uid, currentUserId.displayname);
     taskForm.reset();
   });
 };
-
+// Función para cerrar sesión
 export function logOut() {
   const logOutBtn = document.getElementById('logOutS');
   logOutBtn.addEventListener('click', () => {
@@ -164,7 +152,7 @@ export function logOut() {
       .then(() => {
         sessionStorage.clear();
         window.location.hash = '#/inicio';
-        return console.log('se cerró sesión exitosamente');
+        // return console.log('se cerró sesión exitosamente');
         // Sign-out successful.
       })
       .catch((error) => error);

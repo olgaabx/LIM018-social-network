@@ -2,10 +2,10 @@ export {
   userLogin,
   userRegister,
   signInWithGmail,
-  updateDisplayName,
-} from "./auth.js";
-export {GoogleAuthProvider, signOut, auth} from "./config.js";
+  // updateDisplayName,
+} from './auth.js';
+export { GoogleAuthProvider, signOut, auth } from './config.js';
 export {
-  savePost, OngetTask, deletePost,
+  savePost, OngetPost, deletePost,
   usersCollection,
 } from './post.js';

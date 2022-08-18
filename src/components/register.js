@@ -1,8 +1,8 @@
 import {
   userRegister,
   usersCollection,
-  updateDisplayName,
-} from "../firebase/index.js";
+  // updateDisplayName,
+} from '../firebase/index.js';
 
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 /* html */
@@ -33,41 +33,30 @@ export const register = () => {
             </form>
         </div>
     </div> `;
-  // return viewRegister;
 
   const divElement = document.createElement('div');
-  // divElement.setAttribute('class', 'backgroundImage');
   divElement.innerHTML = viewRegister;
   return divElement;
-
-  // const divElement = document.createElement('div');
-  // // divElement.setAttribute('class', 'backgroundImage');
-  // divElement.innerHTML = viewRegister;
-  // const blankPage = document.querySelector('#container');
-  // blankPage.appendChild(divElement);
 };
 
 export const addSignUpEvents = () => {
-  // const userName = document.querySelector('#name');
-  // const userEmail = document.querySelector('#email');
-  // const userPassword = document.querySelector('#password');
-  // const registerButton = document.querySelector('#register-button');
   const formRegister = document.querySelector('#form-register');
   formRegister.addEventListener('submit', (e) => {
     e.preventDefault();
     userRegister(formRegister.email.value, formRegister.password.value)
       .then((result) => {
-        console.log(result.user.uid);
+        // console.log(result.user.uid);
         const idUser = result.user.uid;
+        // trayeyendo la collecion usaurio
         usersCollection(
           idUser,
           formRegister.name.value,
           formRegister.email.value,
         );
         const userCredential = result.user;
-        updateDisplayName(formRegister.name.value);
-        // eslint-disable-next-line no-console
-        console.log(userCredential);
+        // con displayname estamos jalando el nombre
+        // updateDisplayName(formRegister.name.value);
+        // console.log(userCredential);
 
         // emailVerification().then(() => {
         //  alert('Revisa tu correo, hemos enviado una verificación');
@@ -77,5 +66,6 @@ export const addSignUpEvents = () => {
         // eslint-disable-next-line no-alert
         alert(`Registro exitoso ${userCredential.email}`);
       });
+    // window.location.href = '#/home';
   });
 };
