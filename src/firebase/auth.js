@@ -1,4 +1,3 @@
-import { async } from 'regenerator-runtime';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -6,14 +5,19 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile,
+  dataBase,
+  query,
+  where,
+  collection,
+  getDocs,
 } from './config.js';
 
 // eslint-disable-next-line max-len
-// REGISTRAR USAURIO
 export const userRegister = (email, password) => {
   const unaPromesa = createUserWithEmailAndPassword(auth, email, password);
   return unaPromesa;
 };
+
 export const userLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // SingIn con GMAIL
@@ -21,14 +25,38 @@ const provider = new GoogleAuthProvider();
 
 export const signInWithGmail = () => signInWithPopup(auth, provider);
 // Usuario actual
-export const currentUser = () => {
-  if (auth.currentuser.displayname === null) {
-    return auth.currentUser;
-  }
+export const currentUser = () => auth.currentUser;
+
+// export const emailVerification = () => sendEmailVerification(auth.currentUser);
+
+export const getCurrentUserName = () => {
+  // if(auth.currentUser.displayName === null &&  )
+
+  // if (user.providerId === 'firebase') {
+  //   // traernos el documetn de la coleccion de users donde el
+  //   // return el name
+  // }
+
+  // if (user.providerId === 'google.com') {
+  //   return user.displayName;
+  // }
+
+  // return 'pepito';
+};
+// funcion que recibe el nombre y reemplaza 
+export const updateDisplayName = (name) => {
+  updateProfile(auth.currentUser, {
+    displayName: name,
+  })
+    .then(() => {
+    // Profile updated!
+    // ...
+    })
+    .catch((error) => {
+    // An error occurred
+    // .../
+    });
 };
 
-// pruebas stefani
-// export const pruebas = (displayName, photoURL) => {
-//   updateProfile(auth.currentUser, { displayName, photoURL });
-// };
-// export const emailVerification = () => sendEmailVerification(auth.currentUser);
+// TODO: averiguar si puedo hacer un query para traerme un solo documento
+export const getUserByUserId = (postUserId) => getDocs(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));

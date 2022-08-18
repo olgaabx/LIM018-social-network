@@ -1,4 +1,8 @@
-import { userRegister, usersCollection } from '../firebase/index.js';
+import {
+  userRegister,
+  usersCollection,
+  updateDisplayName,
+} from "../firebase/index.js";
 
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 /* html */
@@ -55,14 +59,17 @@ export const addSignUpEvents = () => {
       .then((result) => {
         console.log(result.user.uid);
         const idUser = result.user.uid;
+        // trayeyendo la collecion usaurio
         usersCollection(
           idUser,
           formRegister.name.value,
           formRegister.email.value,
         );
-        // const userCredential = result.user;
-        // // eslint-disable-next-line no-console
-        // console.log(userCredential);
+        const userCredential = result.user;
+        // con displayname estamos jalando el nombre
+        updateDisplayName(formRegister.name.value);
+        // eslint-disable-next-line no-console
+        console.log(userCredential);
 
         // emailVerification().then(() => {
         //  alert('Revisa tu correo, hemos enviado una verificación');

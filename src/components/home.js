@@ -1,5 +1,5 @@
 // import { async } from 'regenerator-runtime';
-import { currentUser } from '../firebase/auth.js';
+import { currentUser, getUserByUserId } from '../firebase/auth.js';
 import {
   savePost, OngetTask, deletePost, signOut, auth,
 } from '../firebase/index.js';
@@ -51,7 +51,7 @@ export function homePage() {
       <label for="description">Description:</label>
       <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
 
-      <button class="btn-task-save">Save</button>
+      <button class="btn-task-save">Publicar</button>
     </form>
     <!-- Tasks List -->
     <div class="post-user-container" id="tasks-container"></div>
@@ -92,65 +92,74 @@ export function homePage() {
 }
 
 export const getPosts = async () => {
-  //
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
   OngetTask((querySnapshot) => {
+    // console.log(querySnapshot);
     // const querySnapshot = await getTask();
     // Aqui llamo a querySnapshot y traigo solo los DOC con forEach,
     // los convierto en data de js con data()
     let html = '';
     querySnapshot.forEach((doc) => {
+      // console.log(doc.id);
       // eslint-disable-next-line no-console
       const dataPosts = doc.data();
-      /* html */
-      html += `
-      <div class="tweet-container">
-        <div class="tweet-photo">
-          <img src="/" alt="profile photo">
-          <a href="/" class="tweet-text name">Angélica</a>
+      // console.log(dataPosts);
+      // const current = currentUser();
+      // console.log(current);
+      getUserByUserId(dataPosts.userId).then((snap) => {
+        const user = snap.docs[0].data();
+        /* html */
+        html += `
+        <div class="tweet-container">
+          <div class="tweet-photo">
+            <img src="/" alt="profile photo">
+            <a href="/" class="tweet-text name">${user.name}</a>
+          </div>
+          <div class="text">
+            <p>${dataPosts.description}</p>
+          </div>
+          <div class="tweet-icons">
+            <span><i class="fi fi-rs-heart buton"></i></span>
+            <span><i class="fi fi-rs-pencil buton"></i></span>
+            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
+          </div>
         </div>
-        <div class="text">
-          <p>${dataPosts.description}</p>
-        </div>
-        <div class="tweet-icons">
-          <span><i class="fi fi-rs-heart buton" data-id="${doc.id}" ></i></span>
-          <span><i class="fi fi-rs-pencil buton"></i></span>
-          <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
-        </div>
-      </div>
-    `;
-    });
-    taskContainer.innerHTML = html;
-    const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
-    buttonDelete.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        deletePost(event.target.dataset.id);
-        // console.log(event.target.dataset.id);
-      });
-    });
-    const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-    buttonLike.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        postLikes(event.target.dataset.id);
+        `;
+        taskContainer.innerHTML = html;
+        const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
+        buttonDelete.forEach((btn) => {
+          // console.log(btn);
+          btn.addEventListener('click', (event) => {
+            deletePost(event.target.dataset.id);
+            // console.log(event.target.dataset.id);
+          });
+        });
+        const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+        buttonLike.forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            postLikes(event.target.dataset.id);
+          });
+        });
       });
     });
   });
 };
-
+// Función para publicar Posts
 export const addHomePageEvents = () => {
   const taskForm = document.getElementById('task-form');
   taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const description = taskForm['task-description'];
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
-    console.log(currentUserId.uid);
-    savePost(description.value, currentUserId.uid);
+    console.log(currentUserId);
+    savePost(description.value, currentUserId.uid, currentUserId.displayname);
     taskForm.reset();
   });
 };
-// funcion para cerrar sesión
+
 export function logOut() {
   const logOutBtn = document.getElementById('logOutS');
   logOutBtn.addEventListener('click', () => {

@@ -20,6 +20,8 @@ export const deletePost = (idPost) => {
 };
 // deleteDoc(doc(dataBase, 'posts'), id);
 
+// Agregar usuarios de Google a Firestore
+
 // Likes de Posts
 export const postLikes = async (idPost, dataLikes) => {
   const docId = doc(dataBase, 'posts', idPost);

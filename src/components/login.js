@@ -1,5 +1,10 @@
 // import { provider } from '../firebase/config.js';
-import { userLogin, signInWithGmail, GoogleAuthProvider } from '../firebase/index.js';
+import {
+  userLogin,
+  signInWithGmail,
+  GoogleAuthProvider,
+  usersCollection,
+} from '../firebase/index.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
@@ -54,7 +59,7 @@ export const startSession = () => {
       .then((result) => {
         const userCredential = result.user;
         // eslint-disable-next-line no-console
-        console.log(userCredential);
+        // console.log(userCredential);
         // if (userCredential.emailVerified === false) {
         //   console.log('este correo es inválido');
         // } else {
@@ -77,15 +82,24 @@ export const singInGmail = () => {
     sessionStorage.clear();
     signInWithGmail()
       .then((result) => {
+        // console.log(result);
         const credential = GoogleAuthProvider.credentialFromResult(result);
+        // console.log(credential);
         const token = credential.accessToken;
         const user = result.user;
+        // debugger;
+        usersCollection(user.uid, user.displayName, user.email);
+        // if (user.exists()) {
+        //   const data = user.data();
+        //   data.id = signInWithGmail.user;
+        //   sessionStorage.setItem('');
+        //   console.log(data);
+        // }
+        // console.log(user);
         // searchUser;
         window.location.hash = '#/home';
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+      .catch(() => {
       });
   });
 };

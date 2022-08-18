@@ -11,7 +11,7 @@ import {
   signOut,
   updateProfile,
   // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 // CONECCION CON FIRESTORE
 // eslint-disable-next-line import/no-unresolved
@@ -26,6 +26,8 @@ import {
   setDoc,
   deleteDoc,
   doc,
+  query,
+  where,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
@@ -73,6 +75,8 @@ export {
   deleteDoc,
   doc,
   signInWithPopup,
+  query,
+  where,
   // provider,
   GoogleAuthProvider,
   signOut,
