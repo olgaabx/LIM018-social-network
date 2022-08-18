@@ -1,14 +1,12 @@
-// import { provider } from '../firebase/config.js';
 import {
   userLogin,
   signInWithGmail,
-  GoogleAuthProvider,
-  usersCollection,
+  GoogleAuthProvider, usersCollection,
 } from '../firebase/index.js';
 
 export function logIn() {
   // eslint-disable-next-line spaced-comment, operator-linebreak
-  const viewLogin = /*html*/ `
+  const viewLogin = /*html*/`
       <div id="loginDiv" class="login">
 
         <div class="logo-container">
@@ -40,14 +38,9 @@ export function logIn() {
         </div>
       </div>`;
 
-  // return viewLogin;
-
   const divElement = document.createElement('div');
-  // divElement.setAttribute('class', 'backgroundImage');
   divElement.innerHTML = viewLogin;
   return divElement;
-  // const blankPage = document.querySelector('#container');
-  // blankPage.appendChild(divElement);
 }
 
 // INICIO DE SESIÓN
@@ -89,14 +82,6 @@ export const singInGmail = () => {
         const user = result.user;
         // debugger;
         usersCollection(user.uid, user.displayName, user.email);
-        // if (user.exists()) {
-        //   const data = user.data();
-        //   data.id = signInWithGmail.user;
-        //   sessionStorage.setItem('');
-        //   console.log(data);
-        // }
-        // console.log(user);
-        // searchUser;
         window.location.hash = '#/home';
       })
       .catch(() => {

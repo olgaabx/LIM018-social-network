@@ -11,7 +11,7 @@ import {
   signOut,
   updateProfile,
   // eslint-disable-next-line import/no-unresolved
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 // CONECCION CON FIRESTORE
 // eslint-disable-next-line import/no-unresolved
@@ -49,11 +49,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// UTENTIFICACIÓN A LA BASE DE DATOS FIREBASE
 const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
-// console.log(auth);
-// export const dataBase = getFirestore(app);
-// console.log(dataBase);
 const dataBase = getFirestore();
 
 export {
