@@ -86,7 +86,7 @@ export function homePage() {
   nodeHome.innerHTML = viewHome;
   return nodeHome;
 }
-
+// ir a base de datos traerse los post y pintarlo
 export const getPosts = async () => {
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
