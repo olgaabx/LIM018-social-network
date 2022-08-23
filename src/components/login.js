@@ -44,7 +44,7 @@ export function logIn() {
 }
 
 // INICIO DE SESIÓN
-export const startSession = () => {
+export const loginEvent = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();

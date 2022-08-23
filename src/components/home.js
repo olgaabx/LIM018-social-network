@@ -1,6 +1,11 @@
 // import { async } from 'regenerator-runtime';
-import { currentUser, getUserByUserId } from '../firebase/auth.js';
-import { savePost, OngetPost, deletePost, signOut, auth,
+import { currentUser, getUserById } from '../firebase/auth.js';
+import {
+  savePost,
+  OngetPost,
+  deletePost,
+  signOut,
+  auth,
 } from '../firebase/index.js';
 import { postLikes } from '../firebase/post.js';
 // getTask
@@ -81,7 +86,6 @@ export function homePage() {
   nodeHome.innerHTML = viewHome;
   return nodeHome;
 }
-
 export const getPosts = async () => {
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
@@ -89,20 +93,20 @@ export const getPosts = async () => {
     let html = '';
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
-      const dataPosts = doc.data();
+      const dataPost = doc.data();
       // console.log(dataPosts);
-      getUserByUserId(dataPosts.userId).then((snap) => {
-      // console.log(snap.docs[0].data());
-        const user = snap.docs[0].data();
+      getUserById(dataPost.userId).then((user) => {
+        console.log(user);
+        // const user = snap.docs[0].data();
         /* html */
         html += `
         <div class="tweet-container">
           <div class="tweet-photo">
             <img src="/" alt="profile photo">
-            <a href="/" class="tweet-text name">${user.name}</a>
+            <a href="/" class="tweet-text name">${user.data().name}</a>
           </div>
           <div class="text">
-            <p>${dataPosts.description}</p>
+            <p>${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
             <span><i class="fi fi-rs-heart buton">
