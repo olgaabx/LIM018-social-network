@@ -105,7 +105,8 @@ export const getPosts = async () => {
             <p>${dataPosts.description}</p>
           </div>
           <div class="tweet-icons">
-            <span><i class="fi fi-rs-heart buton"></i></span>
+            <span><i class="fi fi-rs-heart buton">
+            </i></span>
             <span><i class="fi fi-rs-pencil buton"></i></span>
             <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
           </div>
