@@ -14,7 +14,7 @@ export const usersCollection = (userId, name, email) => {
 
 // elimina los post - ACTUALIZA LA INFORMACION EN TIEMPO REAL DE POST -
 export const OngetPost = (callback) => onSnapshot(collection(dataBase, 'posts'), callback);
-
+// 
 // Const para borrar los post- con (doc) ya no traigo toda una coleccion sino solo un documento
 export const deletePost = (idPost) => {
   // console.log(idPost);

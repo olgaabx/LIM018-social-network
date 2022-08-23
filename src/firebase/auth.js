@@ -9,7 +9,8 @@ import {
   query,
   where,
   collection,
-  getDocs,
+  getDoc,
+  doc,
 } from './config.js';
 
 // eslint-disable-next-line max-len
@@ -29,7 +30,13 @@ export const signInWithGmail = () => signInWithPopup(auth, provider);
 export const currentUser = () => auth.currentUser;
 
 // TODO: averiguar si puedo hacer un query para traerme un solo documento
-export const getUserByUserId = (postUserId) => getDocs(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));
+// eslint-disable-next-line max-len
+// export const getUserById = (postUserId) => getDoc(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));
+export function getUserById(postUserId) {
+  const docRef = doc(dataBase, 'users', postUserId);
+
+  return getDoc(docRef);
+}
 
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);
 // CON FEÑA -------------------------------------------------------------------------
@@ -58,3 +65,4 @@ export const getUserByUserId = (postUserId) => getDocs(query(collection(dataBase
 // }
 // return 'pepito';
 // };
+
