@@ -1,6 +1,6 @@
 import { logIn, loginEvent, singInGmail } from './login.js';
 // import { mainpage } from './principal.js';
-import { register, addSignUpEvents } from './register.js';
+import { register, signupEvent } from './register.js';
 import { homePage, addHomePageEvents, getPosts } from './home.js';
 
 const components = {
@@ -8,7 +8,7 @@ const components = {
   SignIn: loginEvent,
   SingInGmail: singInGmail,
   Register: register,
-  AddSignUpEvents: addSignUpEvents,
+  AddSignUpEvents: signupEvent,
   Home: homePage,
   AddHomePageEvents: addHomePageEvents,
   Getposts: getPosts,

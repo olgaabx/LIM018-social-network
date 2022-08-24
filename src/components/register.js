@@ -39,24 +39,22 @@ export const register = () => {
   return divElement;
 };
 
-export const addSignUpEvents = () => {
+export const signupEvent = () => {
   const formRegister = document.querySelector('#form-register');
   formRegister.addEventListener('submit', (e) => {
     e.preventDefault();
     userRegister(formRegister.email.value, formRegister.password.value)
-      .then((result) => {
-        // console.log(result.user.uid);
-        const idUser = result.user.uid;
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        // agregamos el uid para poder agregarlo a la colección de usuarios
+        const userId = userCredential.user.uid;
         // trayeyendo la collecion usaurio
         usersCollection(
-          idUser,
+          userId,
           formRegister.name.value,
           formRegister.email.value,
         );
-        const userCredential = result.user;
-        // con displayname estamos jalando el nombre
-        // updateDisplayName(formRegister.name.value);
-        // console.log(userCredential);
 
         // emailVerification().then(() => {
         //  alert('Revisa tu correo, hemos enviado una verificación');
@@ -64,7 +62,7 @@ export const addSignUpEvents = () => {
         // });
 
         // eslint-disable-next-line no-alert
-        alert(`Registro exitoso ${userCredential.email}`);
+        alert(`Registro exitoso ${user.email}`);
       });
     // window.location.href = '#/home';
   });
