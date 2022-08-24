@@ -32,7 +32,6 @@ export const usersCollection = (userId, name, email) => {
 // FUNCIÓN PARA ORDENAR LOS POST
 // export const q = query(collection(dataBase, 'posts'), orderBy('datePost', 'desc'));
 
-
 // elimina los post - ACTUALIZA LA INFORMACION EN TIEMPO REAL DE POST -
 export const onGetPost = (callback) => onSnapshot(collection(dataBase, 'posts'), callback);
 
