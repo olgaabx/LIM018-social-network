@@ -1,6 +1,14 @@
 import {
-  addDoc, collection, dataBase, onSnapshot, deleteDoc, doc, updateDoc, setDoc,
-} from './config.js';
+  addDoc,
+  collection,
+  dataBase,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  updateDoc,
+  setDoc,
+  Timestamp,
+} from "./config.js";
 // deleteDoc, doc,
 
 // CREACION DE POSTS
