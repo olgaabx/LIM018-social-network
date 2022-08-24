@@ -26,9 +26,10 @@ import {
   setDoc,
   deleteDoc,
   doc,
-  query,
   where,
   Timestamp,
+  orderBy,
+  query,
   // eslint-disable-next-line import/no-unresolved
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
@@ -73,13 +74,14 @@ export {
   deleteDoc,
   doc,
   signInWithPopup,
-  query,
   where,
   // provider,
   GoogleAuthProvider,
   signOut,
   updateProfile,
   Timestamp,
+  orderBy,
+  query,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,

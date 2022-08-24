@@ -2,7 +2,7 @@
 import { currentUser, getUserById } from '../firebase/auth.js';
 import {
   savePost,
-  OngetPost,
+  onGetPost,
   deletePost,
   signOut,
   auth,
@@ -57,12 +57,12 @@ export function homePage() {
       <button class="btn-task-save">Publicar</button>
     </form>
     <!-- Tasks List -->
-    <div class="post-user-container" id="tasks-container"></div>
+    <div class="post-user-container" id="post-container"></div>
 
     <footer>
-    <div class="tweet-bottom">
+    <!-- <div class="tweet-bottom">
       <i class="fi fi-rs-edit"></i>
-    </div>
+    </div> -->
     <div class="footer-container">
       <div class="footer-home-icon">
         <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,9 +89,9 @@ export function homePage() {
 }
 
 export const getPosts = async () => {
-  const taskContainer = document.getElementById('tasks-container');
+  const taskContainer = document.getElementById('post-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
-  OngetPost((querySnapshot) => {
+  onGetPost((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
@@ -106,6 +106,7 @@ export const getPosts = async () => {
           <div class="tweet-photo">
             <img src="/" alt="profile photo">
             <a href="/" class="tweet-text name">${user.data().name}</a>
+            <p class="tweet-date"></p>
           </div>
           <div class="text">
             <p>${dataPost.description}</p>
@@ -114,7 +115,9 @@ export const getPosts = async () => {
             <span><i class="fi fi-rs-heart buton">
             </i></span>
             <span><i class="fi fi-rs-pencil buton"></i></span>
-            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
+            <span><i class="fi fi-rs-trash buton" data-id="${
+  doc.id
+}"></i></span>
           </div>
         </div>
         `;
