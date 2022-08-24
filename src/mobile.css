@@ -333,13 +333,14 @@ nav {
     align-items: center;
 } */
 
-/* /POST HOME/ */
+/* POST HOME */
 
 .home-container {
   position: relative;
   height: 100vh;
 }
 
+/* publicación  */
 .tweet-container {
   /* display: flex; */
   width: 250px;
@@ -361,6 +362,7 @@ nav {
   height: 45px;
   border-radius: 50%;
   object-fit: contain;
+  margin-right: 10px;
 }
 
 .name-btn-container {
@@ -381,7 +383,7 @@ nav {
   font-weight: 500;
 }
 
-.btn-group-post {
+/* .btn-group-post {
   display: flex;
   background: none;
   border: 1px solid var(--light-gray);
@@ -389,7 +391,7 @@ nav {
   color: rgb(129, 129, 129);
   font-weight: 600;
   padding: 3px;
-}
+} */
 
 .text-content {
   height: 100px;
@@ -403,39 +405,25 @@ nav {
   margin: 6px;
 }
 
-.posting-btn-container {
+.tweet-icons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.btn-posting {
-  width: 100px;
-  height: 25px;
-  border: 0;
-  border-radius: 10px;
-  background-color: var(--very-light-blue);
-  font-weight: 600;
-  padding: 3px;
-  margin: 10px 0;
+.tweet-icons span i {
+  width: 30px;
+  height: 30px;
 }
 
-/* .tweet-img {
-    width: 572px;
-    height: 144px;
+.fi-rs-edit{
+  width: 50px;
+  height: 50px;
 }
 
-.tweet-img_left {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    border: 1px solid var(--grey);
-    border-radius: 24px;
-}
-.tweet-img_left img {
-    width: 160px;
-    height: 144px;
-    margin-right: 16px;
-    border-radius: 24px 0 0 24px;
-    object-fit: cover;
+/* .fi-rs-heart {
+  width: 30px;
+  height: 30px;
 } */
 
 /* /BOTÓN DE PUBLICAR/ */
@@ -466,21 +454,4 @@ footer {
 .footer-container {
   display: flex;
   justify-content: space-evenly;
-}
-
-.fi-rs-edit{
-  width: 50px;
-  height: 50px;
-}
-
-/* /AGREGADOR RECIENTEMENTE POR STEFANIIII/ */
-
-.tweet-icons{
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-span .tweet-icons{
-  width: 100px;
-  height: auto;
 }

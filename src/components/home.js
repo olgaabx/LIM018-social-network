@@ -9,6 +9,7 @@ import {
 } from '../firebase/index.js';
 import { postLikes } from '../firebase/post.js';
 // getTask
+
 export function homePage() {
   /* html */
   const viewHome = `
@@ -86,6 +87,7 @@ export function homePage() {
   nodeHome.innerHTML = viewHome;
   return nodeHome;
 }
+
 export const getPosts = async () => {
   const taskContainer = document.getElementById('tasks-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
@@ -108,13 +110,15 @@ export const getPosts = async () => {
             <p>${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
-            <span><i class="fi fi-rs-heart buton"></i></span>
+            <span><i class="fi fi-rs-heart buton">
+            </i></span>
             <span><i class="fi fi-rs-pencil buton"></i></span>
             <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
           </div>
         </div>
         `;
         taskContainer.innerHTML = html;
+
         const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
         buttonDelete.forEach((btn) => {
           // console.log(btn);
@@ -123,6 +127,7 @@ export const getPosts = async () => {
             // console.log(event.target.dataset.id);
           });
         });
+
         const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
         buttonLike.forEach((btn) => {
           btn.addEventListener('click', (event) => {
@@ -133,6 +138,7 @@ export const getPosts = async () => {
     });
   });
 };
+
 // Función para publicar Posts
 export const addHomePageEvents = () => {
   const taskForm = document.getElementById('task-form');
@@ -147,6 +153,7 @@ export const addHomePageEvents = () => {
     taskForm.reset();
   });
 };
+
 // Función para cerrar sesión
 export function logOut() {
   const logOutBtn = document.getElementById('logOutS');
