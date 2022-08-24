@@ -6,10 +6,11 @@ import {
   signInWithPopup,
   // updateProfile,
   dataBase,
-  query,
-  where,
-  collection,
-  getDocs,
+  // query,
+  // where,
+  // collection,
+  getDoc,
+  doc,
 } from './config.js';
 
 // eslint-disable-next-line max-len
@@ -25,11 +26,14 @@ export const userLogin = (email, password) => signInWithEmailAndPassword(auth, e
 const provider = new GoogleAuthProvider();
 export const signInWithGmail = () => signInWithPopup(auth, provider);
 
-// Usuario actual
+// Usuario actual, Si no accedió ningún usuario, el valor de currentUser es nulo
 export const currentUser = () => auth.currentUser;
 
-// TODO: averiguar si puedo hacer un query para traerme un solo documento
-export const getUserByUserId = (postUserId) => getDocs(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));
+// Funcion para extraer  el id de User
+export function getUserById(postUserId) {
+  const docRef = doc(dataBase, 'users', postUserId);
+  return getDoc(docRef);
+}
 
 // export const emailVerification = () => sendEmailVerification(auth.currentUser);
 // CON FEÑA -------------------------------------------------------------------------
@@ -58,3 +62,6 @@ export const getUserByUserId = (postUserId) => getDocs(query(collection(dataBase
 // }
 // return 'pepito';
 // };
+// TODO: averiguar si puedo hacer un query para traerme un solo documento
+// eslint-disable-next-line max-len
+// export const getUserById = (postUserId) => getDoc(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));
