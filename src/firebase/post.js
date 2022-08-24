@@ -30,11 +30,13 @@ export const usersCollection = (userId, name, email) => {
 };
 
 // FUNCIÓN PARA ORDENAR LOS POST
-export const orderByDate = query(collection(dataBase, 'posts'), orderBy('datePost', 'desc'));
+// export const orderByDate = query(collection(dataBase, 'posts'), orderBy('datePost', 'desc'));
 
 // elimina los post - ACTUALIZA LA INFORMACION EN TIEMPO REAL DE POST -
-export const onGetPost = (callback) => onSnapshot(collection(dataBase, 'posts'), callback);
-//
+export const onGetPost = (callback) => {
+  const queryPost = query(collection(dataBase, 'posts'), orderBy('datePost', 'desc'));
+  onSnapshot(queryPost, callback);
+};
 // Const para borrar los post- con (doc) ya no traigo toda una coleccion sino solo un documento
 export const deletePost = (idPost) => {
   // console.log(idPost);

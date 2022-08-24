@@ -114,9 +114,7 @@ export const getPosts = async () => {
             <span><i class="fi fi-rs-heart buton">
             </i></span>
             <span><i class="fi fi-rs-pencil buton"></i></span>
-            <span><i class="fi fi-rs-trash buton" data-id="${
-  doc.id
-}"></i></span>
+            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
           </div>
         </div>
         `;
