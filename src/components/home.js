@@ -91,6 +91,8 @@ export function homePage() {
 export const getPosts = async () => {
   const taskContainer = document.getElementById('post-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
+  const q = query(collection(dataBase, "posts"), orderBy("datePost", "desc")
+  );
   onGetPost((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
