@@ -7,9 +7,9 @@ import {
   doc,
   updateDoc,
   setDoc,
-  Timestamp,
   orderBy,
   query,
+  serverTimestamp,
 } from './config.js';
 // deleteDoc, doc,
 
@@ -18,7 +18,7 @@ export const savePost = async (description, userId) => {
   await addDoc(collection(dataBase, 'posts'), {
     description,
     userId,
-    datePost: Timestamp.fromDate(new Date()), // FECHA DE LA PUBLICACIÓN
+    datePost: serverTimestamp(), // FECHA DE LA PUBLICACIÓN
   });
 };
 

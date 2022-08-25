@@ -6,7 +6,7 @@ import {
   signOut,
   auth,
 } from '../firebase/index.js';
-import { postLikes } from '../firebase/post.js';
+// import { postLikes } from '../firebase/post.js';
 // getTask
 
 export function homePage() {
@@ -101,6 +101,7 @@ export const getPosts = async () => {
       // console.log(current.uid);
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
+        // console.log(user);
         /* html */
         html += `
         <div class="tweet-container">
@@ -131,12 +132,12 @@ export const getPosts = async () => {
           // console.log(event.target.dataset.id);
           });
         });
-        const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-        buttonLike.forEach((btn) => {
-          btn.addEventListener('click', (event) => {
-            postLikes(event.target.dataset.id);
-          });
-        });
+        // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+        // buttonLike.forEach((btn) => {
+        //   btn.addEventListener('click', (event) => {
+        //     postLikes(event.target.dataset.id);
+        //   });
+        // });
       });
     });
   });
