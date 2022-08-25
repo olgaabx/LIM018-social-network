@@ -134,7 +134,7 @@ export const getPosts = async () => {
         });
         document.querySelectorAll('.fi-rs-pencil').forEach((btn) => {
           btn.addEventListener('click', (event) => {
-            console.log(event);
+            console.log(event.target.dataset.id);
           });
         });
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
