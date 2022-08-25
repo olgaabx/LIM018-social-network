@@ -113,7 +113,7 @@ export const getPosts = async () => {
           <div class="text">
             <p>${dataPost.description}</p>
           </div>
-          <div class="tweet-icons"> 
+          <div class="tweet-icons">
             <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
         if (user.data().userId === current.uid) {
           html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
@@ -158,7 +158,7 @@ export const addHomePageEvents = () => {
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
     // console.log(currentUserId);
-    savePost(description.value, currentUserId.uid, currentUserId.displayname);
+    savePost(description.value, currentUserId.uid /* currentUserId.displayname */);
     taskForm.reset();
   });
 };

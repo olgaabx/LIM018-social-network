@@ -3,13 +3,13 @@ export {
   userRegister,
   signInWithGmail,
   // updateDisplayName,
-} from "./auth.js";
+} from './auth.js';
 export {
   GoogleAuthProvider,
   signOut,
   auth,
   serverTimestamp,
-} from "./config.js";
+} from './config.js';
 export {
   savePost,
   onGetPost,
