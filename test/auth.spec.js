@@ -26,17 +26,3 @@ describe('userLogin', () => {
       expect(signInWithEmailAndPassword.mock.calls[0][2]).toBe('prueba');
     }));
 });
-
-// Prueba hecha por Nico -- render
-// describe('login', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof login).toBe('function');
-//   });
-
-//   it('should render a login form', () => {
-//     document.body = '<div id="root"></div>';
-//     document.getElementById('root').appendChild(logIn());
-//     startSession();
-
-//     document.getElementById('loginDiv');
-//   });
