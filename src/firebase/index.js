@@ -15,4 +15,5 @@ export {
   onGetPost,
   deletePost,
   usersCollection,
+  postLikes,
 } from './post.js';

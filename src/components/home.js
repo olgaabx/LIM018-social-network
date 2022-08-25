@@ -5,8 +5,8 @@ import {
   deletePost,
   signOut,
   auth,
+  postLikes,
 } from '../firebase/index.js';
-import { postLikes } from '../firebase/post.js';
 // getTask
 
 export function homePage() {
@@ -116,7 +116,7 @@ export const getPosts = async () => {
           <div class="tweet-icons"> 
             <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
         if (user.data().userId === current.uid) {
-          html += `<span><i class="fi fi-rs-pencil buton">hola</i></span>
+          html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
             <span><i class="fi fi-rs-trash buton"></i></span>
           </div>`;
         } else {
@@ -130,6 +130,11 @@ export const getPosts = async () => {
           btn.addEventListener('click', (event) => {
             deletePost(event.target.dataset.id);
           // console.log(event.target.dataset.id);
+          });
+        });
+        document.querySelectorAll('.fi-rs-pencil').forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            console.log(event);
           });
         });
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');

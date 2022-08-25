@@ -35,17 +35,23 @@ export const onGetPost = (callback) => {
   const queryPost = query(collection(dataBase, 'posts'), orderBy('datePost', 'desc'));
   onSnapshot(queryPost, callback);
 };
+
 // Const para borrar los post- con (doc) ya no traigo toda una coleccion sino solo un documento
 export const deletePost = (idPost) => {
   // console.log(idPost);
   deleteDoc(doc(dataBase, 'posts', idPost));
   // console.log(deleteDoc());
 };
+// Actualizar Posts
+export const updatePost = (idPost, postDescription) => {
+  updateDoc(doc(dataBase, 'posts', idPost), {
+    posts: postDescription,
+  });
+};
 
 // Likes de Posts
 export const postLikes = async (idPost, dataLikes) => {
-  const docId = doc(dataBase, 'posts', idPost);
-  await updateDoc(docId, {
+  await updateDoc(doc(dataBase, 'posts', idPost), {
     likes: dataLikes,
   });
 };
