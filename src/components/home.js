@@ -152,7 +152,7 @@ export const addHomePageEvents = () => {
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
     // console.log(currentUserId);
-    savePost(description.value, currentUserId.uid, currentUserId.displayname);
+    savePost(description.value, currentUserId.uid /* currentUserId.displayname */);
     taskForm.reset();
   });
 };

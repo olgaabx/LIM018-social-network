@@ -13,12 +13,12 @@ import {
 } from './config.js';
 // deleteDoc, doc,
 
-// CREACION DE POSTS
+// COLECCIÓN PARA LA CREACIÓN DE POSTS
 export const savePost = async (description, userId) => {
   await addDoc(collection(dataBase, 'posts'), {
     description,
     userId,
-    datePost: Timestamp.fromDate(new Date()),
+    datePost: Timestamp.fromDate(new Date()), // FECHA DE LA PUBLICACIÓN
   });
 };
 
