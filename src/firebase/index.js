@@ -15,4 +15,4 @@ export {
   onGetPost,
   deletePost,
   usersCollection,
-} from "./post.js";
+} from './post.js';

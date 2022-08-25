@@ -1,4 +1,3 @@
-// import { async } from 'regenerator-runtime';
 import { currentUser, getUserById } from '../firebase/auth.js';
 import {
   savePost,
@@ -89,6 +88,7 @@ export function homePage() {
 }
 
 export const getPosts = async () => {
+  // const user = auth.currentUser();
   const taskContainer = document.getElementById('post-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
   onGetPost((querySnapshot) => {
@@ -96,7 +96,10 @@ export const getPosts = async () => {
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
       const dataPost = doc.data();
-      // console.log(dataPosts);
+      // console.log(dataPost.userId);
+      const current = currentUser();
+      // console.log(current.uid);
+      // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
         // console.log(user);
         /* html */
@@ -110,25 +113,25 @@ export const getPosts = async () => {
           <div class="text">
             <p>${dataPost.description}</p>
           </div>
-          <div class="tweet-icons">
-            <span><i class="fi fi-rs-heart buton">
-            </i></span>
-            <span><i class="fi fi-rs-pencil buton"></i></span>
-            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
-          </div>
-        </div>
-        `;
+          <div class="tweet-icons"> 
+            <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
+        if (user.data().userId === current.uid) {
+          html += `<span><i class="fi fi-rs-pencil buton">hola</i></span>
+            <span><i class="fi fi-rs-trash buton"></i></span>
+          </div>`;
+        } else {
+          html += '</div>';
+        }
         taskContainer.innerHTML = html;
-
+        // }); // este cambie de prueba
         const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
         buttonDelete.forEach((btn) => {
-          // console.log(btn);
+        // console.log(btn);
           btn.addEventListener('click', (event) => {
             deletePost(event.target.dataset.id);
-            // console.log(event.target.dataset.id);
+          // console.log(event.target.dataset.id);
           });
         });
-
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
         // buttonLike.forEach((btn) => {
         //   btn.addEventListener('click', (event) => {
@@ -149,7 +152,7 @@ export const addHomePageEvents = () => {
     const description = taskForm['task-description'];
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
-    console.log(currentUserId);
+    // console.log(currentUserId);
     savePost(description.value, currentUserId.uid, currentUserId.displayname);
     taskForm.reset();
   });
