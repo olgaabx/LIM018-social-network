@@ -123,6 +123,8 @@ export const getPosts = async () => {
         }
         taskContainer.innerHTML = html;
         // }); // este cambie de prueba
+
+        // BORRAR LOS POST
         const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
         buttonDelete.forEach((btn) => {
         // console.log(btn);
