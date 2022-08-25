@@ -4,7 +4,12 @@ export {
   signInWithGmail,
   // updateDisplayName,
 } from "./auth.js";
-export { GoogleAuthProvider, signOut, auth } from "./config.js";
+export {
+  GoogleAuthProvider,
+  signOut,
+  auth,
+  serverTimestamp,
+} from "./config.js";
 export {
   savePost,
   onGetPost,

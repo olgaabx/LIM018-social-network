@@ -98,7 +98,7 @@ export const getPosts = async () => {
       const dataPost = doc.data();
       // console.log(dataPosts);
       getUserById(dataPost.userId).then((user) => {
-        console.log(user);
+        // console.log(user);
         /* html */
         html += `
         <div class="tweet-container">
@@ -129,12 +129,12 @@ export const getPosts = async () => {
           });
         });
 
-        const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-        buttonLike.forEach((btn) => {
-          btn.addEventListener('click', (event) => {
-            postLikes(event.target.dataset.id);
-          });
-        });
+        // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+        // buttonLike.forEach((btn) => {
+        //   btn.addEventListener('click', (event) => {
+        //     postLikes(event.target.dataset.id);
+        //   });
+        // });
       });
     });
   });

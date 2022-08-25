@@ -7,18 +7,18 @@ import {
   doc,
   updateDoc,
   setDoc,
-  Timestamp,
   orderBy,
   query,
-} from './config.js';
+  serverTimestamp,
+} from "./config.js";
 // deleteDoc, doc,
 
 // CREACION DE POSTS
 export const savePost = async (description, userId) => {
-  await addDoc(collection(dataBase, 'posts'), {
+  await addDoc(collection(dataBase, "posts"), {
     description,
     userId,
-    datePost: Timestamp.fromDate(new Date()),
+    datePost: serverTimestamp(),
   });
 };
 
