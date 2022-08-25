@@ -91,8 +91,6 @@ export function homePage() {
 export const getPosts = async () => {
   const taskContainer = document.getElementById('post-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
-  const q = query(collection(dataBase, "posts"), orderBy("datePost", "desc")
-  );
   onGetPost((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
@@ -100,8 +98,7 @@ export const getPosts = async () => {
       const dataPost = doc.data();
       // console.log(dataPosts);
       getUserById(dataPost.userId).then((user) => {
-        console.log(user);
-        // const user = snap.docs[0].data();
+        // console.log(user);
         /* html */
         html += `
         <div class="tweet-container">
@@ -117,9 +114,7 @@ export const getPosts = async () => {
             <span><i class="fi fi-rs-heart buton">
             </i></span>
             <span><i class="fi fi-rs-pencil buton"></i></span>
-            <span><i class="fi fi-rs-trash buton" data-id="${
-  doc.id
-}"></i></span>
+            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
           </div>
         </div>
         `;

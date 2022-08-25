@@ -6,9 +6,9 @@ import {
   signInWithPopup,
   // updateProfile,
   dataBase,
-  query,
-  where,
-  collection,
+  // query,
+  // where,
+  // collection,
   getDoc,
   doc,
 } from './config.js';
@@ -26,7 +26,7 @@ export const userLogin = (email, password) => signInWithEmailAndPassword(auth, e
 const provider = new GoogleAuthProvider();
 export const signInWithGmail = () => signInWithPopup(auth, provider);
 
-// Usuario actual
+// Usuario actual, Si no accedió ningún usuario, el valor de currentUser es nulo
 export const currentUser = () => auth.currentUser;
 
 // TODO: averiguar si puedo hacer un query para traerme un solo documento
@@ -36,7 +36,6 @@ export const currentUser = () => auth.currentUser;
 // postUserId es el ID del usuario que creó el post
 export function getUserById(postUserId) {
   const docRef = doc(dataBase, 'users', postUserId);
-
   return getDoc(docRef);
 }
 
@@ -67,4 +66,6 @@ export function getUserById(postUserId) {
 // }
 // return 'pepito';
 // };
-
+// TODO: averiguar si puedo hacer un query para traerme un solo documento
+// eslint-disable-next-line max-len
+// export const getUserById = (postUserId) => getDoc(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));

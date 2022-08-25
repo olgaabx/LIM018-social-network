@@ -1,7 +1,9 @@
 import {
+  // eslint-disable-next-line import/named
   userLogin,
   signInWithGmail,
-  GoogleAuthProvider, usersCollection,
+  GoogleAuthProvider,
+  usersCollection,
 } from '../firebase/index.js';
 
 export function logIn() {
@@ -50,8 +52,8 @@ export const loginEvent = () => {
     e.preventDefault();
     userLogin(form.email.value, form.password.value)
       .then((result) => {
+        // eslint-disable-next-line no-unused-vars
         const userCredential = result.user;
-        // eslint-disable-next-line no-console
         // console.log(userCredential);
         // if (userCredential.emailVerified === false) {
         //   console.log('este correo es inválido');
@@ -78,6 +80,7 @@ export const singInGmail = () => {
         // console.log(result);
         const credential = GoogleAuthProvider.credentialFromResult(result);
         // console.log(credential);
+        // eslint-disable-next-line no-unused-vars
         const token = credential.accessToken;
         const user = result.user;
         // debugger;
