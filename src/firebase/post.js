@@ -22,8 +22,6 @@ export const savePost = async (description, userId) => {
   });
 };
 
-// export const savePost2 = ()
-
 // Creando colección de usuarios, falta jalar name
 export const usersCollection = (userId, name, email) => {
   setDoc(doc(dataBase, 'users', userId), { userId, name, email });
