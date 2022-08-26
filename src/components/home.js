@@ -101,6 +101,14 @@ const functionDelete = () => {
     });
   });
 };
+  // FUNCION CERRAR MODAL PARA EDITAR POST
+const closeModal = (editModal) => {
+  const modalEvent = document.getElementById('editModal');
+  const buttonClose = editModal.querySelector('.close');
+  buttonClose.addEventListener('click', () => {
+    modalEvent.style.display = 'none';
+  });
+};
 
 // EDITAR POST
 const functionEditPost = () => {
@@ -110,21 +118,15 @@ const functionEditPost = () => {
     btn.addEventListener('click', (event) => {
       getPost(event.target.dataset.id).then((editDoc) => {
         const post = editDoc.data();
-        const editModal = document.getElementById('editModal');
-        editModal.style.display = 'flex';
-        editModal.innerHTML = `<div class = "postEdition">
+        const modalEvent = document.getElementById('editModal');
+        modalEvent.style.display = 'flex';
+        modalEvent.innerHTML = `<div class = "postEdition">
           <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
           <div class="botonesEditar">
           <button class="save">Guardar</button>
           <button class="close">Cancelar</button>
           </div>`;
-
-        // FUNCION CERRAR MODAL PARA EDITAR POST
-        // const buttonModal = document.getElementById('editModal');
-        // const buttonClose = editModal.querySelectorAll('.close');
-        // buttonClose.addEventListener('click', () => {
-        //   editModal.style.display = 'none';
-        // });
+        closeModal(modalEvent);
       });
     });
   });
@@ -168,7 +170,7 @@ export const getPosts = async () => {
         taskContainer.innerHTML = html;
         functionDelete();
         functionEditPost();
-        // closeModal();
+
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
         // buttonLike.forEach((btn) => {
         //   btn.addEventListener('click', (event) => {
