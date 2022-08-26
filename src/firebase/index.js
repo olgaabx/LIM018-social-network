@@ -16,4 +16,5 @@ export {
   deletePost,
   usersCollection,
   postLikes,
+  updatePost,
 } from './post.js';

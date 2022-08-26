@@ -119,13 +119,15 @@ export const getPosts = async () => {
             <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
         if (user.data().userId === current.uid) {
           html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
-            <span><i class="fi fi-rs-trash buton"></i></span>
+            <span><i class="fi fi-rs-trash buton"data-id="${doc.id}"></i></span>
           </div>`;
         } else {
           html += '</div>';
         }
         taskContainer.innerHTML = html;
         // }); // este cambie de prueba
+
+        // BORRAR LOS POST
         const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
         buttonDelete.forEach((btn) => {
         // console.log(btn);
