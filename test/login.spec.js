@@ -1,4 +1,4 @@
-import { logIn, loginEvent } from "../src/components/login.js";
+import { logIn, loginEvent } from '../src/components/login.js';
 
 jest.mock('../src/firebase/config.js');
 jest.mock('../src/firebase/auth.js');
