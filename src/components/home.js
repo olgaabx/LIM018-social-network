@@ -5,9 +5,9 @@ import {
   deletePost,
   signOut,
   auth,
-  updatePost,
   // postLikes,
 } from '../firebase/index.js';
+import { getPost /* updatePost */ } from '../firebase/post.js';
 // getTask
 
 export function homePage() {
@@ -58,7 +58,7 @@ export function homePage() {
     </form>
     <!-- Tasks List -->
     <div class="post-user-container" id="post-container"></div>
-
+     <div id="editModal"></div>
     <footer>
     <!-- <div class="tweet-bottom">
       <i class="fi fi-rs-edit"></i>
@@ -112,7 +112,7 @@ export const getPosts = async () => {
             <p class="tweet-date"></p>
           </div>
           <div class="text">
-            <p>${dataPost.description}</p>
+            <p class ="publication">${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
             <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
@@ -135,11 +135,34 @@ export const getPosts = async () => {
           // console.log(event.target.dataset.id);
           });
         });
-        document.querySelectorAll('.fi-rs-pencil').forEach((btn) => {
+        // Funcionalidad para editar en el modal
+        const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
+        buttonEdit.forEach((btn) => {
           btn.addEventListener('click', (event) => {
-            updatePost(event.target.dataset.id);
+            getPost(event.target.dataset.id).then((editDoc) => {
+              // eslint-disable-next-line no-console
+              console.log(editDoc.data());
+              const post = editDoc.data();
+              const editModal = document.getElementById('editModal');
+              editModal.style.display = 'flex';
+              editModal.innerHTML = `<div class = "postEdition">
+              <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
+              <div class="botonesEditar">
+              <button class="save">Guardar</button>
+              <button class="close">Cancelar</button>
+              </div>`;
+            });
           });
         });
+
+        // eslint-disable-next-line no-unused-vars
+        const closeModal = (editModal) => {
+          const buttonModal = document.getElementById('editModal');
+          const buttonClose = editModal.querySelector('.close');
+          buttonClose.addEventListener('click', () => {
+            buttonModal.style.display = 'none';
+          });
+        };
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
         // buttonLike.forEach((btn) => {
         //   btn.addEventListener('click', (event) => {
