@@ -5,7 +5,8 @@ import {
   deletePost,
   signOut,
   auth,
-  postLikes,
+  updatePost,
+  //postLikes,
 } from '../firebase/index.js';
 // getTask
 
@@ -117,7 +118,7 @@ export const getPosts = async () => {
             <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
         if (user.data().userId === current.uid) {
           html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
-            <span><i class="fi fi-rs-trash buton"></i></span>
+            <span><i class="fi fi-rs-trash buton"data-id="${doc.id}"></i></span>
           </div>`;
         } else {
           html += '</div>';
@@ -136,7 +137,7 @@ export const getPosts = async () => {
         });
         document.querySelectorAll('.fi-rs-pencil').forEach((btn) => {
           btn.addEventListener('click', (event) => {
-            console.log(event.target.dataset.id);
+            updatePost(event.target.dataset.id);
           });
         });
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
