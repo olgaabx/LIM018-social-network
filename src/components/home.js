@@ -8,7 +8,7 @@ import {
   // postLikes,
 } from '../firebase/index.js';
 import {
-  getPost,
+  getPost, updatePost,
   // updatePost
 } from '../firebase/post.js';
 // getTask
@@ -106,10 +106,28 @@ const closeModal = (divEditModal) => {
   const containerEditModal = document.getElementById('editModal');
   const buttonClose = divEditModal.querySelector('.close');
   buttonClose.addEventListener('click', () => {
-    containerEditModal.style.display = 'none';
+    modalEvent.style.display = 'none';
   });
 };
-// FUNCION SUBBIR LOS CAMBIOS DE EDITAR FUNCION
+const functionUpdatePost = (idPost, editModal) => {
+  const buttonSave = editModal.querySelector('.save');
+  buttonSave.addEventListener('click', () => {
+    const description = editModal.querySelector('.postDescription').value;
+    console.log(description);
+    const postDescription = {
+      description,
+    };
+    // eslint-disable-next-line no-param-reassign
+    updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
+    // const editModal1 = document.getElementById('editModal');
+    // const postData = {
+    //   postDescription,
+    // };
+    // updatePost(idPost, postData).then(() => {
+    //   editModal1.style.display = 'none';
+    // });
+  });
+};
 
 // EDITAR POST
 const functionEditPost = () => {
@@ -117,10 +135,14 @@ const functionEditPost = () => {
   const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
   buttonEdit.forEach((btn) => {
     btn.addEventListener('click', (event) => {
-      getPost(event.target.dataset.id).then((editDoc) => {
+      console.log(event.target.dataset.id);
+      // Obteniendo el ID de Post
+      const getPostId = event.target.dataset.id;
+      getPost(getPostId).then((editDoc) => {
         const post = editDoc.data();
-        const modalEvent = document.getElementById('editModal');
-        modalEvent.style.display = 'flex';
+        console.log(post);
+        const modalEvent = document.getElementById("editModal");
+        modalEvent.style.display = "flex";
         modalEvent.innerHTML = `<div class = "postEdition">
           <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
           <div class="botonesEditar">
@@ -128,6 +150,7 @@ const functionEditPost = () => {
           <button class="close">Cancelar</button>
           </div>`;
         closeModal(modalEvent);
+        functionUpdatePost(getPostId, modalEvent);
       });
     });
   });
