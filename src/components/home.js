@@ -7,7 +7,10 @@ import {
   auth,
   // postLikes,
 } from '../firebase/index.js';
-import { getPost /* updatePost */ } from '../firebase/post.js';
+import {
+  getPost,
+  // updatePost
+} from '../firebase/post.js';
 // getTask
 
 export function homePage() {
@@ -88,6 +91,48 @@ export function homePage() {
   return nodeHome;
 }
 
+// BORRAR LOS POST
+const functionDelete = () => {
+  const taskContainer = document.getElementById('post-container');
+  const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
+  buttonDelete.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      deletePost(event.target.dataset.id);
+    });
+  });
+};
+
+// FUNCION CERRAR MODAL PARA EDITAR POST
+const closeModal = (editModal) => {
+  const modalEvent = document.getElementById('editModal');
+  const buttonClose = editModal.querySelector('.close');
+  buttonClose.addEventListener('click', () => {
+    modalEvent.style.display = 'none';
+  });
+};
+
+// EDITAR POST
+const functionEditPost = () => {
+  const taskContainer = document.getElementById('post-container');
+  const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
+  buttonEdit.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      getPost(event.target.dataset.id).then((editDoc) => {
+        const post = editDoc.data();
+        const modalEvent = document.getElementById('editModal');
+        modalEvent.style.display = 'flex';
+        modalEvent.innerHTML = `<div class = "postEdition">
+          <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
+          <div class="botonesEditar">
+          <button class="save">Guardar</button>
+          <button class="close">Cancelar</button>
+          </div>`;
+        closeModal(modalEvent);
+      });
+    });
+  });
+};
+
 export const getPosts = async () => {
   // const user = auth.currentUser();
   const taskContainer = document.getElementById('post-container');
@@ -124,45 +169,9 @@ export const getPosts = async () => {
           html += '</div>';
         }
         taskContainer.innerHTML = html;
-        // }); // este cambie de prueba
+        functionDelete();
+        functionEditPost();
 
-        // BORRAR LOS POST
-        const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
-        buttonDelete.forEach((btn) => {
-        // console.log(btn);
-          btn.addEventListener('click', (event) => {
-            deletePost(event.target.dataset.id);
-          // console.log(event.target.dataset.id);
-          });
-        });
-        // Funcionalidad para editar en el modal
-        const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
-        buttonEdit.forEach((btn) => {
-          btn.addEventListener('click', (event) => {
-            getPost(event.target.dataset.id).then((editDoc) => {
-              // eslint-disable-next-line no-console
-              console.log(editDoc.data());
-              const post = editDoc.data();
-              const editModal = document.getElementById('editModal');
-              editModal.style.display = 'flex';
-              editModal.innerHTML = `<div class = "postEdition">
-              <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
-              <div class="botonesEditar">
-              <button class="save">Guardar</button>
-              <button class="close">Cancelar</button>
-              </div>`;
-            });
-          });
-        });
-
-        // eslint-disable-next-line no-unused-vars
-        const closeModal = (editModal) => {
-          const buttonModal = document.getElementById('editModal');
-          const buttonClose = editModal.querySelector('.close');
-          buttonClose.addEventListener('click', () => {
-            buttonModal.style.display = 'none';
-          });
-        };
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
         // buttonLike.forEach((btn) => {
         //   btn.addEventListener('click', (event) => {
