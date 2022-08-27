@@ -102,13 +102,14 @@ const functionDelete = () => {
   });
 };
   // FUNCION CERRAR MODAL PARA EDITAR POST
-const closeModal = (editModal) => {
-  const modalEvent = document.getElementById('editModal');
-  const buttonClose = editModal.querySelector('.close');
+const closeModal = (divEditModal) => {
+  const containerEditModal = document.getElementById('editModal');
+  const buttonClose = divEditModal.querySelector('.close');
   buttonClose.addEventListener('click', () => {
-    modalEvent.style.display = 'none';
+    containerEditModal.style.display = 'none';
   });
 };
+// FUNCION SUBBIR LOS CAMBIOS DE EDITAR FUNCION
 
 // EDITAR POST
 const functionEditPost = () => {
