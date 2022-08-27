@@ -106,26 +106,19 @@ const closeModal = (divEditModal) => {
   const containerEditModal = document.getElementById('editModal');
   const buttonClose = divEditModal.querySelector('.close');
   buttonClose.addEventListener('click', () => {
-    modalEvent.style.display = 'none';
+    containerEditModal.style.display = 'none';
   });
 };
 const functionUpdatePost = (idPost, editModal) => {
   const buttonSave = editModal.querySelector('.save');
   buttonSave.addEventListener('click', () => {
     const description = editModal.querySelector('.postDescription').value;
-    console.log(description);
+    // console.log(description);
     const postDescription = {
       description,
     };
     // eslint-disable-next-line no-param-reassign
     updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
-    // const editModal1 = document.getElementById('editModal');
-    // const postData = {
-    //   postDescription,
-    // };
-    // updatePost(idPost, postData).then(() => {
-    //   editModal1.style.display = 'none';
-    // });
   });
 };
 
@@ -135,22 +128,37 @@ const functionEditPost = () => {
   const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
   buttonEdit.forEach((btn) => {
     btn.addEventListener('click', (event) => {
-      console.log(event.target.dataset.id);
       // Obteniendo el ID de Post
       const getPostId = event.target.dataset.id;
+
       getPost(getPostId).then((editDoc) => {
         const post = editDoc.data();
-        console.log(post);
-        const modalEvent = document.getElementById("editModal");
-        modalEvent.style.display = "flex";
-        modalEvent.innerHTML = `<div class = "postEdition">
-          <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
-          <div class="botonesEditar">
-          <button class="save">Guardar</button>
-          <button class="close">Cancelar</button>
+        const modalEvent = document.getElementById('editModal');
+        modalEvent.style.display = 'flex';
+        // trayendo el nombre del usuario
+        getUserById(post.userId).then((user) => {
+          modalEvent.innerHTML = `
+          <div class="containerPostEdit">
+            <div class="headerPostEdit">
+              <label class="headerpost">Editar publicación</label>
+              <button class="close">Cancel</button>
+            </div>
+            <div class="tweet-photoEdit">
+              <img src="/" alt="profile photo">
+              <a href="/" class="tweet-text name">${user.data().name}</a>
+            </div>
+            <div class = "postEdition">
+              <div class ="containerTextarea">
+                <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
+              </div>
+              <div class="botonesEditar">
+                <button class="save">Guardar</button>
+              </div>
+            </div>
           </div>`;
-        closeModal(modalEvent);
-        functionUpdatePost(getPostId, modalEvent);
+          closeModal(modalEvent);
+          functionUpdatePost(getPostId, modalEvent);
+        });
       });
     });
   });
