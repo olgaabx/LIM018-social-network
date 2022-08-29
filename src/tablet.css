@@ -1,7 +1,3 @@
-/* body {
-  background-color: aqua;
-} */
-
 .login {
   /* Para centrar el contenido vertical y horizontalmente*/
   flex-direction: row;
@@ -25,11 +21,8 @@
 
 .form-container::after{
   position: absolute;
-<<<<<<< HEAD
-  content: '';/para que el navegador lo considere seudo-elem/
-=======
-  content: '';/*para que el navegador lo considere seudo-elem*/
->>>>>>> main
+  content: ''; /* para que el navegador lo considere seudo-elem */
+  content: ''; /*para que el navegador lo considere seudo-elem*/
   background: linear-gradient(to right, #c4d7e0d6, #6e85b7d6);
   width: 100%;
   height: 100%;

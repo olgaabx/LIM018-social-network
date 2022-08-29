@@ -8,7 +8,7 @@ import {
   // postLikes,
 } from '../firebase/index.js';
 import {
-  getPost,
+  getPost, updatePost,
   // updatePost
 } from '../firebase/post.js';
 // getTask
@@ -101,13 +101,31 @@ const functionDelete = () => {
     });
   });
 };
-
-// FUNCION CERRAR MODAL PARA EDITAR POST
-const closeModal = (editModal) => {
-  const modalEvent = document.getElementById('editModal');
-  const buttonClose = editModal.querySelector('.close');
+  // FUNCION CERRAR MODAL PARA EDITAR POST
+const closeModal = (divEditModal) => {
+  const containerEditModal = document.getElementById('editModal');
+  const buttonClose = divEditModal.querySelector('.close');
   buttonClose.addEventListener('click', () => {
-    modalEvent.style.display = 'none';
+    containerEditModal.style.display = 'none';
+  });
+};
+const functionUpdatePost = (idPost, editModal) => {
+  const buttonSave = editModal.querySelector('.save');
+  buttonSave.addEventListener('click', () => {
+    const description = editModal.querySelector('.postDescription').value;
+    console.log(description);
+    const postDescription = {
+      description,
+    };
+    // eslint-disable-next-line no-param-reassign
+    updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
+    // const editModal1 = document.getElementById('editModal');
+    // const postData = {
+    //   postDescription,
+    // };
+    // updatePost(idPost, postData).then(() => {
+    //   editModal1.style.display = 'none';
+    // });
   });
 };
 
@@ -117,8 +135,12 @@ const functionEditPost = () => {
   const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
   buttonEdit.forEach((btn) => {
     btn.addEventListener('click', (event) => {
-      getPost(event.target.dataset.id).then((editDoc) => {
+      console.log(event.target.dataset.id);
+      // Obteniendo el ID de Post
+      const getPostId = event.target.dataset.id;
+      getPost(getPostId).then((editDoc) => {
         const post = editDoc.data();
+        console.log(post);
         const modalEvent = document.getElementById('editModal');
         modalEvent.style.display = 'flex';
         modalEvent.innerHTML = `<div class = "postEdition">
@@ -128,6 +150,7 @@ const functionEditPost = () => {
           <button class="close">Cancelar</button>
           </div>`;
         closeModal(modalEvent);
+        functionUpdatePost(getPostId, modalEvent);
       });
     });
   });
