@@ -183,6 +183,7 @@ export const getPosts = async () => {
       // console.log(current.uid);
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
+        console.log(user.data().name);
         // console.log(user);
         /* html */
         html += `
