@@ -1,10 +1,13 @@
 import { currentUser, getUserById } from '../firebase/auth.js';
+// import { doc } from '../firebase/config.js';
 import {
   savePost,
   onGetPost,
   deletePost,
   signOut,
   auth,
+  arrayRemove,
+  arrayUnion,
   // postLikes,
 } from '../firebase/index.js';
 import {
@@ -122,6 +125,51 @@ const functionUpdatePost = (idPost, editModal) => {
   });
 };
 
+const functionLikesPost = (userId) => {
+  const btnLike = document.querySelectorAll('.fi-rs-heart');
+  btnLike.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      const idPost = event.target.dataset.id;
+      console.log(idPost);
+      getPost(idPost).then((post) => {
+        const dataPost = post.data();
+        console.log(dataPost);
+        let newData;
+
+        if (dataPost.likes.includes(userId)) {
+          newData = { likes: arrayRemove(userId) };
+          console.log(newData);
+        } else {
+          console.log(userId);
+          newData = { likes: arrayUnion(userId) };
+        }
+
+        updatePost(idPost, newData);
+      });
+    });
+  });
+};
+// const functionLikesPost = () => {
+//   const btnLikes = document.querySelectorAll('.fi-rs-heart');
+//   btnLikes.forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//       const btnLike = e.target;
+//       const idUser = currentUser();
+//       const idPost = btnLike.getAttribute('name');
+//       const dataPost = getUserById(idPost, 'posts');
+
+//       if (dataPost.likes.includes(idUser)) {
+//         postLikes(
+//           idPost,
+//           dataPost.likes.filter((item) => item !== idUser),
+//         );
+//       } else {
+//         postLikes(idPost, [...dataPost.likes, idUser]);
+//       }
+//     });
+//   });
+// };
+
 // EDITAR POST
 const functionEditPost = () => {
   const taskContainer = document.getElementById('post-container');
@@ -191,7 +239,7 @@ export const getPosts = async () => {
             <p class ="publication">${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
-            <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
+            <span><i data-id="${doc.id}" class="fi fi-rs-heart buton"></i></span></div>`;
         if (user.data().userId === current.uid) {
           html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
             <span><i class="fi fi-rs-trash buton"data-id="${doc.id}"></i></span>
@@ -202,13 +250,7 @@ export const getPosts = async () => {
         taskContainer.innerHTML = html;
         functionDelete();
         functionEditPost();
-
-        // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-        // buttonLike.forEach((btn) => {
-        //   btn.addEventListener('click', (event) => {
-        //     postLikes(event.target.dataset.id);
-        //   });
-        // });
+        functionLikesPost(current.uid);
       });
     });
   });
@@ -224,7 +266,11 @@ export const addHomePageEvents = () => {
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
     // console.log(currentUserId);
-    savePost(description.value, currentUserId.uid /* currentUserId.displayname */);
+    savePost(
+      description.value,
+      currentUserId.uid /* currentUserId.displayname */,
+      [],
+    );
     taskForm.reset();
   });
 };
