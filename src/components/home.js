@@ -54,14 +54,14 @@ export function homePage() {
   </nav>
     <form id="task-form">
 
-      <label for="description">Description:</label>
+      <!--<label for="description">Description:</label>-->
       <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
 
       <button class="btn-task-save">Publicar</button>
     </form>
     <!-- Tasks List -->
     <div class="post-user-container" id="post-container"></div>
-     <div id="editModal"></div> 
+     <div id="editModal"></div>
     <footer>
     <!-- <div class="tweet-bottom">
       <i class="fi fi-rs-edit"></i>
@@ -146,12 +146,12 @@ const functionEditPost = () => {
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                   </svg></span>
-            
+
               </div>
-              <div class="photoEdit">
+              <!-- <div class="photoEdit">
                 <img src="/" alt="profile photo">
                 <a  class="tweet-text name">${user.data().name}</a>
-              </div>
+              </div> -->
             <div class = "postEdition">
               <div class ="containerTextarea">
                 <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>

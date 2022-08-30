@@ -17,7 +17,7 @@
 }
 
 html {
-  font-size: 62.5%; /*ara que 1rem sean 10px/
+  font-size: 62.5%; /* para que 1rem sean 10px */
 }
 
 body {
@@ -30,16 +30,9 @@ body {
 a {
   text-decoration: none;
 }
-/* .main-container {
-  background-color: rgb(235, 232, 229);
-} */
 
 /*Login container */
 .login {
-  /* width: 100%;
-  height: 100vh; */
-  /* Para centrar el contenido vertical y horizontalmente*/
-  /* display: grid; */
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -103,9 +96,6 @@ a {
   margin-bottom: 22px;
 }
 
-/* .form-container {
-  margin: 20px 0;
-} */
 /*IMPUT CONTAINER */
 
 .form-container{
@@ -132,8 +122,6 @@ a {
 .icon-container {
   display: flex;
   justify-content: center;
-
-  /* margin: 20px 0; */
 }
 
 .gmailButton {
@@ -227,7 +215,7 @@ a {
   font-size: 2.5rem;
 }
 
-/* /botone/ */
+/* BOTONES */
 input{
   border: none;
 }
@@ -237,7 +225,7 @@ input{
  border: none;
 }
 
-/* /HEADER HOME/ */
+/* HEADER HOME */
 nav {
   display: flex;
   justify-content: space-between;
@@ -245,10 +233,6 @@ nav {
   /* padding: 0 24px; */
   border-bottom: 1px solid var(--light-gray);
 }
-
-/* .menu {
-  display: none;
-} */
 
 .logo-container-home {
   display: flex;
@@ -267,11 +251,6 @@ nav {
   margin-top: 8px;
 }
 
-.navbar-left {
-  /* display: flex;
-  margin-left: 12px; */
-}
-
 .navbar-right {
   width: 45px;
   height: 45px;
@@ -280,61 +259,45 @@ nav {
   border-radius: 50%;
 }
 
-/* .navbar-left ul {
-  margin-left: 12px;
-} */
-
 .navbar-left ul,
 .navbar-right ul {
-    list-style: none;
-    /* padding: 0;
-    margin: 0; */
-    display: flex;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
-/* .navbar-left ul li a,
-.navbar-right ul li a {
-    text-decoration: none;
-    color: var(--very-light-pink);
-    border: 1px solid var(--white);
-    padding: 8px;
-    border-radius: 8px;
+/* PUBLICAR */
+
+/* .btn-task-save {
+  border: none;
+  width: 20%;
+  height: 3rem;
+  background: var(--very-light-blue);
+  border-radius: 15px;
 } */
 
-/* .navbar-left ul li a:hover,
-.navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
-} */
-
-/* .navbar-email {
-    color: var(--very-light-pink);
-    font-size: var(--sm);
-    margin-right: 12px;
+.btn-task-save {
+  background-color: var(--very-light-blue);
+  border-radius: 8px;
+  border: none;
+  color: var(--black);
+  width: 30%;
+  height: 3rem;
+  cursor: pointer;
+  font-size: var(--medium);
+  font-weight: bold;
+  margin: 0 auto;
 }
 
-.navbar-shopping-cart {
-    position: relative;
-} */
-
-/* .navbar-shopping-cart div {
-    width: 16px;
-    height: 16px;
-    background-color: var(--hospital-green);
-    border-radius: 50%;
-    font-size: var(--sm);
-    font-weight: bold;
-    position: absolute;
-    top: -6px;
-    right: -3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+.btn-task-save:hover {
+  border: 1px solid #c6c6c6;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+  color: #222;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
 
 /* POST HOME */
-
 .home-container {
   position: relative;
   height: 100vh;
@@ -342,7 +305,6 @@ nav {
 
 /* publicación  */
 .tweet-container {
-  /* display: flex; */
   width: 250px;
   height: 128px;
   border: solid 1px var(--light-gray);
@@ -353,22 +315,23 @@ nav {
   position: relative;
   background-color: #fff;
 }
-.tweet-container::after{
+
+/* .tweet-container::after{
   position: absolute;
   bottom: 0px;
   left: 0px;
   content: '';
-  /*background-color: #233052;*/
-  background: #6190E8;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  /*background-color: #233052;
+  background: #6190E8;
+  background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
+  background: linear-gradient(to right, #A7BFE8, #6190E8);
   width: 100%;
   height: 10px;
   border-radius: 15px;
-  filter: blur(5px); /*para desenfocar el elemento*/
+  filter: blur(5px);
   z-index: -1;
-}
+} */
+
 .tweet-photo {
   display: flex;
 }
@@ -399,16 +362,6 @@ nav {
   font-weight: 500;
 }
 
-/* .btn-group-post {
-  display: flex;
-  background: none;
-  border: 1px solid var(--light-gray);
-  border-radius: 10px;
-  color: rgb(129, 129, 129);
-  font-weight: 600;
-  padding: 3px;
-} */
-
 .text-content {
   height: 100px;
   margin: 5px;
@@ -437,12 +390,7 @@ nav {
   height: 50px;
 }
 
-/* .fi-rs-heart {
-  width: 30px;
-  height: 30px;
-} */
-
-/* /BOTÓN DE PUBLICAR/ */
+/* BOTÓN DE PUBLICAR */
 
 .tweet-bottom {
   width: 50px;
@@ -457,7 +405,7 @@ nav {
 
 /* Modal para editar post*/
 /*CONTENENDOR DE TODO EL MODAL EDIT*/
-.containerPostEdit{
+.containerPostEdit {
   background-color: #ffffff;
   width: 80%;
   height: 40%;
@@ -468,39 +416,31 @@ nav {
   position: relative;
   flex-direction: column;
 }
-.containerPostEdit::after{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  content: '';
-  background-color: #86868694;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  filter: blur(15px); /*para desenfocar el elemento*/
-  z-index: -1; /*para poner por debajo*/
-}
+
 /*CABEZARA DEL MODAL EDIT*/
-.headerPostEdit{
-  align-items:center ;
+.headerPostEdit {
+  display: flex;
   width: 90%;
   height: 10%;
-  border-bottom: solid 1px var(--light-gray);;
+  border-bottom: solid 1px var(--light-gray);
 }
-.headerpost{
+
+.headerpost {
   width: 250px;
   font-size: 16px;
   text-align: center;
 }
-.close{
+
+.close {
   display: flex;
 }
-.photoEdit{
+
+.photoEdit {
   display: flex;
   justify-content: flex-start;
 }
 
-#editModal{
+#editModal {
   display: none;
   position: fixed;
   top: 0px;
@@ -512,12 +452,13 @@ nav {
 }
 
 /*tratando de hacer scroll en la barra*/
-.postEdition{
+.postEdition {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.containerTextarea{
+
+.containerTextarea {
   margin: 5px;
   width: 90%;
   height: 150px;
@@ -526,7 +467,8 @@ nav {
   font-size: 16px;
 
 }
-.postDescription{
+
+.postDescription {
   background-color: #ffffff;
   width: 90%;
   height: 90%;
@@ -536,8 +478,7 @@ nav {
   resize: none;
 }
 
-/* /FOOTER HOME/ */
-
+/* FOOTER HOME */
 footer {
   width: 100vw;
   height: 56px;
