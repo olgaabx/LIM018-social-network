@@ -1,4 +1,3 @@
-// import { async } from 'regenerator-runtime';
 import { currentUser, getUserById } from '../firebase/auth.js';
 import {
   savePost,
@@ -6,11 +5,12 @@ import {
   deletePost,
   signOut,
   auth,
+  // postLikes,
 } from '../firebase/index.js';
-import { postLikes } from '../firebase/post.js';
 import {
-  query, orderBy, dataBase, collection,
-} from '../firebase/config.js';
+  getPost, updatePost,
+  // updatePost
+} from '../firebase/post.js';
 // getTask
 
 export function homePage() {
@@ -54,14 +54,14 @@ export function homePage() {
   </nav>
     <form id="task-form">
 
-      <label for="description">Description:</label>
+      <!--<label for="description">Description:</label>-->
       <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
 
       <button class="btn-task-save">Publicar</button>
     </form>
     <!-- Tasks List -->
     <div class="post-user-container" id="post-container"></div>
-
+     <div id="editModal"></div>
     <footer>
     <!-- <div class="tweet-bottom">
       <i class="fi fi-rs-edit"></i>
@@ -91,55 +91,129 @@ export function homePage() {
   return nodeHome;
 }
 
+// BORRAR LOS POST
+const functionDelete = () => {
+  const taskContainer = document.getElementById('post-container');
+  const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
+  buttonDelete.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      deletePost(event.target.dataset.id);
+    });
+  });
+};
+  // FUNCION CERRAR MODAL PARA EDITAR POST
+const closeModal = (divEditModal) => {
+  const containerEditModal = document.getElementById('editModal');
+  const buttonClose = divEditModal.querySelector('.close');
+  buttonClose.addEventListener('click', () => {
+    containerEditModal.style.display = 'none';
+  });
+};
+const functionUpdatePost = (idPost, editModal) => {
+  const buttonSave = editModal.querySelector('.save');
+  buttonSave.addEventListener('click', () => {
+    const description = editModal.querySelector('.postDescription').value;
+    // console.log(description);
+    const postDescription = {
+      description,
+    };
+    // eslint-disable-next-line no-param-reassign
+    updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
+  });
+};
+
+// EDITAR POST
+const functionEditPost = () => {
+  const taskContainer = document.getElementById('post-container');
+  const buttonEdit = taskContainer.querySelectorAll('.fi-rs-pencil');
+  buttonEdit.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      // Obteniendo el ID de Post
+      const getPostId = event.target.dataset.id;
+
+      getPost(getPostId).then((editDoc) => {
+        const post = editDoc.data();
+        const modalEvent = document.getElementById('editModal');
+        modalEvent.style.display = 'flex';
+        // trayendo el nombre del usuario
+        getUserById(post.userId).then((user) => {
+          modalEvent.innerHTML = `
+          <div class="containerPostEdit">
+              <div class="headerPostEdit">
+                <label class="headerpost">Editar publicación</label>
+                <span class="close">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg></span>
+
+              </div>
+              <!-- <div class="photoEdit">
+                <img src="/" alt="profile photo">
+                <a  class="tweet-text name">${user.data().name}</a>
+              </div> -->
+            <div class = "postEdition">
+              <div class ="containerTextarea">
+                <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
+              </div>
+              <div class="botonesEditar">
+                <button class="save"><spanx>Guardar</span></button>
+              </div>
+            </div>
+          </div>`;
+          closeModal(modalEvent);
+          functionUpdatePost(getPostId, modalEvent);
+        });
+      });
+    });
+  });
+};
+
 export const getPosts = async () => {
+  // const user = auth.currentUser();
   const taskContainer = document.getElementById('post-container');
   // querySnapshot son los datos que existen en este momento y los trae de firestore
-  // const q = query(collection(dataBase, 'posts'), orderBy('datePost', 'desc'));
   onGetPost((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
       const dataPost = doc.data();
-      // console.log(dataPosts);
+      // console.log(dataPost.userId);
+      const current = currentUser();
+      // console.log(current.uid);
+      // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
-        console.log(user);
-        // const user = snap.docs[0].data();
+        // console.log(user);
         /* html */
         html += `
         <div class="tweet-container">
           <div class="tweet-photo">
             <img src="/" alt="profile photo">
-            <a href="/" class="tweet-text name">${user.data().name}</a>
+            <a  class="tweet-text name">${user.data().name}</a>
             <p class="tweet-date"></p>
           </div>
           <div class="text">
-            <p>${dataPost.description}</p>
+            <p class ="publication">${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
-            <span><i class="fi fi-rs-heart buton">
-            </i></span>
-            <span><i class="fi fi-rs-pencil buton"></i></span>
-            <span><i class="fi fi-rs-trash buton" data-id="${doc.id}"></i></span>
-          </div>
-        </div>
-        `;
+            <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
+        if (user.data().userId === current.uid) {
+          html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
+            <span><i class="fi fi-rs-trash buton"data-id="${doc.id}"></i></span>
+          </div>`;
+        } else {
+          html += '</div>';
+        }
         taskContainer.innerHTML = html;
+        functionDelete();
+        functionEditPost();
 
-        const buttonDelete = taskContainer.querySelectorAll('.fi-rs-trash');
-        buttonDelete.forEach((btn) => {
-          // console.log(btn);
-          btn.addEventListener('click', (event) => {
-            deletePost(event.target.dataset.id);
-            // console.log(event.target.dataset.id);
-          });
-        });
-
-        const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-        buttonLike.forEach((btn) => {
-          btn.addEventListener('click', (event) => {
-            postLikes(event.target.dataset.id);
-          });
-        });
+        // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
+        // buttonLike.forEach((btn) => {
+        //   btn.addEventListener('click', (event) => {
+        //     postLikes(event.target.dataset.id);
+        //   });
+        // });
       });
     });
   });
@@ -154,8 +228,8 @@ export const addHomePageEvents = () => {
     const description = taskForm['task-description'];
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
-    console.log(currentUserId);
-    savePost(description.value, currentUserId.uid, currentUserId.displayname);
+    // console.log(currentUserId);
+    savePost(description.value, currentUserId.uid /* currentUserId.displayname */);
     taskForm.reset();
   });
 };

@@ -1,7 +1,11 @@
 // Configuración de Firebase de nuestra app web
 // Import the functions you need from the SDKs you need
 // eslint-disable-next-line import/no-unresolved
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+import {
+  initializeApp,
+// eslint-disable-next-line import/no-unresolved
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -30,8 +34,9 @@ import {
   Timestamp,
   orderBy,
   query,
+  serverTimestamp,
   // eslint-disable-next-line import/no-unresolved
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -82,6 +87,7 @@ export {
   Timestamp,
   orderBy,
   query,
+  serverTimestamp,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,

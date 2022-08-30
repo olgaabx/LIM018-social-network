@@ -3,11 +3,20 @@ export {
   userRegister,
   signInWithGmail,
   // updateDisplayName,
-} from "./auth.js";
-export { GoogleAuthProvider, signOut, auth } from "./config.js";
+} from './auth.js';
+
+export {
+  GoogleAuthProvider,
+  signOut,
+  auth,
+  serverTimestamp,
+} from './config.js';
+
 export {
   savePost,
   onGetPost,
   deletePost,
   usersCollection,
-} from "./post.js";
+  postLikes,
+  updatePost,
+} from './post.js';
