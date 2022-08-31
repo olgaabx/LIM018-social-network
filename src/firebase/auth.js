@@ -4,6 +4,7 @@ import {
   auth,
   GoogleAuthProvider,
   signInWithPopup,
+  sendEmailVerification,
   // updateProfile,
   dataBase,
   // query,
@@ -28,6 +29,8 @@ export const signInWithGmail = () => signInWithPopup(auth, provider);
 
 // Usuario actual, Si no accedió ningún usuario, el valor de currentUser es nulo
 export const currentUser = () => auth.currentUser;
+
+export const emailVerification = () => sendEmailVerification(auth.currentUser);
 
 // TODO: averiguar si puedo hacer un query para traerme un solo documento
 // eslint-disable-next-line max-len

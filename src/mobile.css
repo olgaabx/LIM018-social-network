@@ -511,3 +511,16 @@ footer {
   display: flex;
   justify-content: space-evenly;
 }
+
+
+.bi-heart{
+  color: black;
+  position:relative;
+  /* z-index: -1 */
+  
+};
+.heartLike{
+  position: absolute;
+  color: rgb(255, 0, 0);
+  z-index: -1 
+  }

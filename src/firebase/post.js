@@ -45,7 +45,7 @@ export const deletePost = (idPost) => {
   // console.log(deleteDoc());
 };
 // Actualizar Posts
-export const updatePost = (idPost, postDescription) => updateDoc(doc(dataBase, 'posts', idPost), postDescription);
+export const updatePost = (idPost, post) => updateDoc(doc(dataBase, 'posts', idPost), post);
 // Likes de Posts
 export const postLikes = async (idPost, dataLikes) => {
   await updateDoc(doc(dataBase, 'posts', idPost), {
