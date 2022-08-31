@@ -306,7 +306,7 @@ nav {
 /* publicación  */
 .tweet-container {
   width: 250px;
-  height: 128px;
+  height: auto;
   border: solid 1px var(--light-gray);
   border-top: none;
   padding: 5px;
@@ -505,4 +505,10 @@ footer {
   position: absolute;
   color: rgb(255, 0, 0);
   z-index: -1 
+  }
+
+  .containerButton{
+    display: flex;
+    justify-content: space-around;
+    padding: 5%;
   }
