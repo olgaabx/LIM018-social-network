@@ -58,9 +58,10 @@ export function homePage() {
     <form id="task-form">
       <div class="section-post">
         <!--<label for="description">Description:</label>-->
-        <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
-
-        <button class="btn-task-save">Publicar</button>
+        <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
+        <div class="div-button-post">
+          <button class="btn-task-save">Publicar</button>
+        </div>
       </div>
     </form>
     <!-- Tasks List -->
