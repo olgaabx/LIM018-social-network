@@ -8,15 +8,19 @@ body{
 .form-container{
   margin-right: 15%;
 }
+
 .logo-title{
   font-size: 15rem;
 }
+
 .logo-description{
   font-size: 300%;
 }
+
 .form{
   width: 100%;
 }
+
 .login-button{
   height: 35px;
   font-size: 2rem;
@@ -39,35 +43,31 @@ body{
   border-radius: 20px;
 }
 
-.form-container-register::after{
-  position: absolute;
-   content: '';/*/para que el navegador lo considere seudo-elem/ */
-  background: linear-gradient(to right, #c4d7e0d6, #6e85b7d6);
-  width: 100%;
-  height: 100%;
-  filter: blur(15px);
-  z-index: -1;
-}
 .title-register{
   font-size: 450%;
   color: #737373;
 }
+
 .description{
   font-size: 300%;
   color: #737373;
 }
+
 .input{
   width: 100%;
   height: 50px;
 }
+
 .register-button{
   width: 100%;
   height: 35px;
   font-size: 200%;
 }
+
 .login-register-text{
   font-size: 200%;
 }
+
 .link{
   color: #33C7CA;
   font-size: 120%;

@@ -4,6 +4,7 @@ export {
   signInWithGmail,
   // updateDisplayName,
 } from './auth.js';
+
 export {
   GoogleAuthProvider,
   signOut,
