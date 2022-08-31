@@ -14,6 +14,7 @@ import {
   GoogleAuthProvider,
   signOut,
   updateProfile,
+  sendEmailVerification,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
@@ -88,6 +89,7 @@ export {
   orderBy,
   query,
   serverTimestamp,
+  sendEmailVerification,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,

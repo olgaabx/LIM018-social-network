@@ -493,3 +493,10 @@ footer {
   display: flex;
   justify-content: space-evenly;
 }
+.bi-heart{
+  /* background-color: rgb(255, 37, 37); */
+  /* border:2px solid rgb(255, 0, 0); */
+  color: rgb(255, 0, 0) ;
+  display: none;
+  /* background-color: rgb(255, 0, 0);*/
+}

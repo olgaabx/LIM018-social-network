@@ -2,6 +2,7 @@ import {
   userRegister,
   usersCollection,
   // updateDisplayName,
+  emailVerification,
 } from '../firebase/index.js';
 
 // import {collection} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
@@ -26,6 +27,8 @@ export const register = () => {
                     <input type="email" id="email" name="email" placeholder="Correo electrónico" class="input input-email" required>
 
                     <input type="password" id="password" name="password" placeholder="Contraseña" class="input input-password" required>
+                    <p class="mensajeRegister">Revisa tu correo, hemos enviado un mensaje de confirmación</p>
+                    <p class="mensajeErrorRegister">No revises nada, igual no  envia nada jejej</p>
                 </div>
 
                 <input type="submit" value="Regístrate" id ="register-button" class="primary-button register-button">
@@ -38,15 +41,48 @@ export const register = () => {
   divElement.innerHTML = viewRegister;
   return divElement;
 };
+// register sin verificación de correo
+// export const signupEvent = () => {
+//   const formRegister = document.querySelector('#form-register');
+//   formRegister.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     userRegister(formRegister.email.value, formRegister.password.value)
+//       .then((userCredential) => {
+//         const user = userCredential.user;
 
+//         // agregamos el uid para poder agregarlo a la colección de usuarios
+//         const userId = userCredential.user.uid;
+//         // trayeyendo la collecion usaurio
+//         usersCollection(
+//           userId,
+//           formRegister.name.value,
+//           formRegister.email.value,
+//         );
+
+//         // emailVerification().then(() => {
+//         //  alert('Revisa tu correo, hemos enviado una verificación');
+//         //  window.location.href = '#/inicio';
+//         // });
+
+//         // eslint-disable-next-line no-alert
+//         alert(`Registro exitoso ${user.email}`);
+//       });
+//     // window.location.href = '#/home';
+//   });
+// };
+
+// registro con verirficación de correo
 export const signupEvent = () => {
   const formRegister = document.querySelector('#form-register');
+  const mensaje = document.querySelector('.mensajeRegister');
+  const mensajeError = document.querySelector('.mensajeErrorRegister');
+
   formRegister.addEventListener('submit', (e) => {
     e.preventDefault();
+
     userRegister(formRegister.email.value, formRegister.password.value)
       .then((userCredential) => {
         const user = userCredential.user;
-
         // agregamos el uid para poder agregarlo a la colección de usuarios
         const userId = userCredential.user.uid;
         // trayeyendo la collecion usaurio
@@ -56,14 +92,14 @@ export const signupEvent = () => {
           formRegister.email.value,
         );
 
-        // emailVerification().then(() => {
-        //  alert('Revisa tu correo, hemos enviado una verificación');
-        //  window.location.href = '#/inicio';
-        // });
-
-        // eslint-disable-next-line no-alert
         alert(`Registro exitoso ${user.email}`);
+        emailVerification().then(() => {
+          mensaje.style.display = 'block';
+        }).catch((error) => {
+          console.log(error);
+          mensajeError.style.display = 'block';
+        });
       });
-    // window.location.href = '#/home';
   });
+  // window.location.href = '#/home';
 };

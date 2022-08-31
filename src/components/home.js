@@ -5,7 +5,7 @@ import {
   deletePost,
   signOut,
   auth,
-  // postLikes,
+  // postLikes,updatePost
 } from '../firebase/index.js';
 import {
   getPost, updatePost,
@@ -101,7 +101,8 @@ const functionDelete = () => {
     });
   });
 };
-  // FUNCION CERRAR MODAL PARA EDITAR POST
+
+// FUNCION CERRAR MODAL PARA EDITAR POST
 const closeModal = (divEditModal) => {
   const containerEditModal = document.getElementById('editModal');
   const buttonClose = divEditModal.querySelector('.close');
@@ -109,6 +110,8 @@ const closeModal = (divEditModal) => {
     containerEditModal.style.display = 'none';
   });
 };
+
+// Función edith post
 const functionUpdatePost = (idPost, editModal) => {
   const buttonSave = editModal.querySelector('.save');
   buttonSave.addEventListener('click', () => {
@@ -121,7 +124,38 @@ const functionUpdatePost = (idPost, editModal) => {
     updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
   });
 };
+// Like post - steafni
+const functionLikePost = () => {
+  const taskContainer = document.getElementById('post-container');
+  const buttonLike = taskContainer.querySelector('.fi-rs-heart');
+  buttonLike.addEventListener('click', (event) => {
+    const getPostId = event.target.dataset.id;
+    getPost(getPostId).then((edit) => {
 
+    });
+    // const current = currentUser();
+    // const ahh = current.email;
+    console.log(ahh);
+    const like = {
+      ahh,
+    };
+    updatePost(editDoc, like).then(() => { console.log(like); });
+    // getPost(getPostId).then((edit) => {
+    //   // const mail = current.email;
+    //   console.log(edit.data().email);
+    // const datalike = buttonLike.value;
+    // const post = editDoc.id;
+    // const likes = {
+    //   post,
+    // };
+    // updatePost(editDoc, likes).then(() => { console.log(likes); });
+  });
+  // const likess = e.target.dataset.;
+  // console.log(likess);
+  // const likesPost = {
+  //   likess,
+  // });
+};
 // EDITAR POST
 const functionEditPost = () => {
   const taskContainer = document.getElementById('post-container');
@@ -197,7 +231,12 @@ export const getPosts = async () => {
             <p class ="publication">${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
-            <span><i class="fi fi-rs-heart buton"data-id="${current.uid}"></i></span></div>`;
+            <span>
+            <i class="fi fi-rs-heart buton"data-id="${current.uid}"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+              </span></div>`;
         if (user.data().userId === current.uid) {
           html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
             <span><i class="fi fi-rs-trash buton"data-id="${doc.id}"></i></span>
@@ -208,7 +247,7 @@ export const getPosts = async () => {
         taskContainer.innerHTML = html;
         functionDelete();
         functionEditPost();
-
+        functionLikePost();
         // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
         // buttonLike.forEach((btn) => {
         //   btn.addEventListener('click', (event) => {

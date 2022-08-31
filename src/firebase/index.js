@@ -2,6 +2,7 @@ export {
   userLogin,
   userRegister,
   signInWithGmail,
+  emailVerification,
   // updateDisplayName,
 } from './auth.js';
 
