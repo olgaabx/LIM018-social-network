@@ -15,12 +15,12 @@ import {
 // deleteDoc, doc,
 
 // COLECCIÓN PARA LA CREACIÓN DE POSTS
-export const savePost = async (description, userId) => {
+export const savePost = async (description, userId, likes) => {
   await addDoc(collection(dataBase, 'posts'), {
     description,
     userId,
+    likes,
     datePost: serverTimestamp(), // FECHA DE LA PUBLICACIÓN
-    likes: [0],
   });
 };
 

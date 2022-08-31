@@ -36,6 +36,8 @@ import {
   orderBy,
   query,
   serverTimestamp,
+  arrayRemove,
+  arrayUnion,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
@@ -90,6 +92,8 @@ export {
   query,
   serverTimestamp,
   sendEmailVerification,
+  arrayRemove,
+  arrayUnion,
 };
 
 // COSAS QUE TODAVIA NO USAMOS,

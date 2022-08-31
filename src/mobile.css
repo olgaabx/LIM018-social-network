@@ -493,10 +493,16 @@ footer {
   display: flex;
   justify-content: space-evenly;
 }
+
+
 .bi-heart{
-  /* background-color: rgb(255, 37, 37); */
-  /* border:2px solid rgb(255, 0, 0); */
-  color: rgb(255, 0, 0) ;
-  display: none;
-  /* background-color: rgb(255, 0, 0);*/
-}
+  color: black;
+  position:relative;
+  /* z-index: -1 */
+  
+};
+.heartLike{
+  position: absolute;
+  color: rgb(255, 0, 0);
+  z-index: -1 
+  }

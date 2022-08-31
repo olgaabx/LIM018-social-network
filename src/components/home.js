@@ -1,11 +1,14 @@
 import { currentUser, getUserById } from '../firebase/auth.js';
+// import { doc } from '../firebase/config.js';
 import {
   savePost,
   onGetPost,
   deletePost,
   signOut,
   auth,
-  // postLikes,updatePost
+  arrayRemove,
+  arrayUnion,
+  // postLikes,
 } from '../firebase/index.js';
 import {
   getPost, updatePost,
@@ -125,37 +128,59 @@ const functionUpdatePost = (idPost, editModal) => {
   });
 };
 // Like post - steafni
-const functionLikePost = () => {
-  const taskContainer = document.getElementById('post-container');
-  const buttonLike = taskContainer.querySelector('.fi-rs-heart');
-  buttonLike.addEventListener('click', (event) => {
-    const getPostId = event.target.dataset.id;
-    getPost(getPostId).then((edit) => {
+// const functionLikePost = () => {
+//   const taskContainer = document.getElementById('post-container');
+//   const buttonLike = taskContainer.querySelector('.fi-rs-heart');
+//   buttonLike.addEventListener('click', (event) => {
+//     const getPostId = event.target.dataset.id;
+//     getPost(getPostId).then((edit) => {
 
+const functionLikesPost = (userId) => {
+  const btnLike = document.querySelectorAll('.fi-rs-heart');
+  btnLike.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      const idPost = event.target.dataset.id;
+      console.log(idPost);
+      getPost(idPost).then((post) => {
+        const dataPost = post.data();
+        let newLike;
+
+        if (dataPost.likes.includes(userId)) {
+          newLike = { likes: arrayRemove(userId) };
+          console.log(newLike);
+          btn.style.display = 'none';
+        } else {
+          console.log(userId);
+          newLike = { likes: arrayUnion(userId) };
+          btn.style.color = 'block';
+        }
+
+        updatePost(idPost, newLike);
+      });
     });
-    // const current = currentUser();
-    // const ahh = current.email;
-    console.log(ahh);
-    const like = {
-      ahh,
-    };
-    updatePost(editDoc, like).then(() => { console.log(like); });
-    // getPost(getPostId).then((edit) => {
-    //   // const mail = current.email;
-    //   console.log(edit.data().email);
-    // const datalike = buttonLike.value;
-    // const post = editDoc.id;
-    // const likes = {
-    //   post,
-    // };
-    // updatePost(editDoc, likes).then(() => { console.log(likes); });
   });
-  // const likess = e.target.dataset.;
-  // console.log(likess);
-  // const likesPost = {
-  //   likess,
-  // });
 };
+// const functionLikesPost = () => {
+//   const btnLikes = document.querySelectorAll('.fi-rs-heart');
+//   btnLikes.forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//       const btnLike = e.target;
+//       const idUser = currentUser();
+//       const idPost = btnLike.getAttribute('name');
+//       const dataPost = getUserById(idPost, 'posts');
+
+//       if (dataPost.likes.includes(idUser)) {
+//         postLikes(
+//           idPost,
+//           dataPost.likes.filter((item) => item !== idUser),
+//         );
+//       } else {
+//         postLikes(idPost, [...dataPost.likes, idUser]);
+//       }
+//     });
+//   });
+// };
+
 // EDITAR POST
 const functionEditPost = () => {
   const taskContainer = document.getElementById('post-container');
@@ -217,8 +242,8 @@ export const getPosts = async () => {
       // console.log(current.uid);
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
-        console.log(user.data().name);
-        // console.log(user);
+        // console.log(user.data().id);
+        console.log(doc.id);
         /* html */
         html += `
         <div class="tweet-container">
@@ -232,14 +257,17 @@ export const getPosts = async () => {
           </div>
           <div class="tweet-icons">
             <span>
-            <i class="fi fi-rs-heart buton"data-id="${current.uid}"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
               </svg>
-              </span></div>`;
+              <i class="fi fi-rs-heart heartLike"data-id="${doc.id}"></i>
+              <p class="contador">${dataPost.likes.length}</p>
+              </span>
+          </div>`;
+        // </div>`;
         if (user.data().userId === current.uid) {
           html += `<span><i class="fi fi-rs-pencil buton" data-id="${doc.id}"></i></span>
-            <span><i class="fi fi-rs-trash buton"data-id="${doc.id}"></i></span>
+            <span><i class="fi fi-rs-trash buton"></i></span>
           </div>`;
         } else {
           html += '</div>';
@@ -247,13 +275,7 @@ export const getPosts = async () => {
         taskContainer.innerHTML = html;
         functionDelete();
         functionEditPost();
-        functionLikePost();
-        // const buttonLike = taskContainer.querySelectorAll('.fi-rs-heart');
-        // buttonLike.forEach((btn) => {
-        //   btn.addEventListener('click', (event) => {
-        //     postLikes(event.target.dataset.id);
-        //   });
-        // });
+        functionLikesPost(current.uid);
       });
     });
   });
@@ -269,7 +291,11 @@ export const addHomePageEvents = () => {
     const currentUserId = currentUser();
     // eslint-disable-next-line no-console
     // console.log(currentUserId);
-    savePost(description.value, currentUserId.uid /* currentUserId.displayname */);
+    savePost(
+      description.value,
+      currentUserId.uid /* currentUserId.displayname */,
+      [],
+    );
     taskForm.reset();
   });
 };

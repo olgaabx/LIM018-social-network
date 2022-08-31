@@ -11,8 +11,9 @@ export {
   signOut,
   auth,
   serverTimestamp,
-} from './config.js';
-
+  arrayRemove,
+  arrayUnion,
+} from "./config.js";
 export {
   savePost,
   onGetPost,
