@@ -56,11 +56,13 @@ export function homePage() {
     </div>
   </nav>
     <form id="task-form">
-
-      <!--<label for="description">Description:</label>-->
-      <textarea id="task-description" rows="3" placeholder="Task Description"></textarea>
-
-      <button class="btn-task-save">Publicar</button>
+      <div class="section-post">
+        <!--<label for="description">Description:</label>-->
+        <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
+        <div class="div-button-post">
+          <button class="btn-task-save">Publicar</button>
+        </div>
+      </div>
     </form>
     <!-- Tasks List -->
     <div class="post-user-container" id="post-container"></div>
@@ -138,10 +140,12 @@ const functionUpdatePost = (idPost, editModal) => {
 const functionLikesPost = (userId) => {
   const btnLike = document.querySelectorAll('.fi-rs-heart');
   btnLike.forEach((btn) => {
+    // console.log(btn);
     btn.addEventListener('click', (event) => {
       const idPost = event.target.dataset.id;
-      console.log(idPost);
+      // console.log(idPost);
       getPost(idPost).then((post) => {
+        console.log(post);
         const dataPost = post.data();
         let newLike;
 

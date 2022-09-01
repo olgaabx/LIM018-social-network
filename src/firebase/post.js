@@ -54,5 +54,6 @@ export const postLikes = async (idPost, dataLikes) => {
     likes: dataLikes,
   });
 };
-// Obteniendo Id de un post
+
+// PROMESA PARA OBTENER EL ID DEL POST
 export const getPost = (idPost) => getDoc(doc(dataBase, 'posts', idPost));

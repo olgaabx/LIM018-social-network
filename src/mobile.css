@@ -266,21 +266,46 @@ nav {
   align-items: center;
 }
 
-/* PUBLICAR */
+/* HOME POSTING SECTION */
+.section-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #22222214;
+  margin-top: 5px;
+}
 
-/* .btn-task-save {
+#task-description {
+  width: 90%;
+  height: 150px;
   border: none;
-  width: 20%;
-  height: 3rem;
-  background: var(--very-light-blue);
-  border-radius: 15px;
-} */
+  margin-bottom: 10px;
+  outline: none;
+  resize: none;
+  padding: 25px;
+  font-family: 'Averia Serif Libre', cursive;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--medium);
+}
+
+.div-button-post {
+  display: flex;
+  width: 100%;
+  margin-left: 60%;
+  margin-bottom: 15px;
+}
+
 
 .btn-task-save {
-  background-color: var(--very-light-blue);
+  border: 1px solid #c6c6c6;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+  color: #222;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  /* background-color: var(--very-light-blue); */
   border-radius: 8px;
-  border: none;
-  color: var(--black);
   width: 30%;
   height: 3rem;
   cursor: pointer;
@@ -289,13 +314,13 @@ nav {
   margin: 0 auto;
 }
 
-.btn-task-save:hover {
+/* .btn-task-save:hover {
   border: 1px solid #c6c6c6;
   box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
   color: #222;
   background-color: #f8f8f8;
   cursor: pointer;
-}
+} */
 
 /* POST HOME */
 .home-container {
@@ -305,7 +330,7 @@ nav {
 
 /* publicación  */
 .tweet-container {
-  width: 250px;
+  width: 90%;
   height: auto;
   border: solid 1px var(--light-gray);
   border-top: none;
@@ -315,22 +340,6 @@ nav {
   position: relative;
   background-color: #fff;
 }
-
-/* .tweet-container::after{
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  content: '';
-  /*background-color: #233052;
-  background: #6190E8;
-  background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
-  background: linear-gradient(to right, #A7BFE8, #6190E8);
-  width: 100%;
-  height: 10px;
-  border-radius: 15px;
-  filter: blur(5px);
-  z-index: -1;
-} */
 
 .tweet-photo {
   display: flex;
@@ -360,6 +369,7 @@ nav {
 .name {
   color: var(--black);
   font-weight: 500;
+  font-size: 2rem;
 }
 
 .text-content {
@@ -370,8 +380,8 @@ nav {
 .text {
   /* display: block; */
   font-size: var(--medium);
-  color: var(--black);
-  margin: 6px;
+  margin: 10px 10px 25px 10px;
+  text-align: justify;
 }
 
 .tweet-icons {
@@ -474,7 +484,6 @@ nav {
   border: 1px solid #222;
   border-radius: 10px;
   font-size: 16px;
-
 }
 
 .postDescription {
@@ -508,16 +517,17 @@ footer {
   color: black;
   position:relative;
   /* z-index: -1 */
-  
+
 };
+
 .heartLike{
   position: absolute;
   color: rgb(255, 0, 0);
-  z-index: -1 
-  }
+  z-index: -1
+}
 
-  .containerButton{
-    display: flex;
-    justify-content: space-around;
-    padding: 5%;
-  }
+.containerButton{
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+}
