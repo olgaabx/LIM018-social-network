@@ -49,7 +49,7 @@ export function homePage() {
     <div class="navbar-right">
       <ul>
         <li class="navbar-shopping-cart">
-          <img src="./" alt="profile photo">
+          <img src="./imagens/perfil-01.png" alt="profile photo">
           <a href="" id="logOutS">Cerrar sesión</a>
         </li>
       </ul>
@@ -148,11 +148,11 @@ const functionLikesPost = (userId) => {
         if (dataPost.likes.includes(userId)) {
           newLike = { likes: arrayRemove(userId) };
           console.log(newLike);
-          btn.style.display = 'none';
+          btn.style.color = '#000000';
         } else {
           console.log(userId);
           newLike = { likes: arrayUnion(userId) };
-          btn.style.color = 'block';
+          btn.style.color = '#D40A19';
         }
 
         updatePost(idPost, newLike);
@@ -244,11 +244,12 @@ export const getPosts = async () => {
       getUserById(dataPost.userId).then((user) => {
         // console.log(user.data().id);
         console.log(doc.id);
+        const likesQty = dataPost.likes ? dataPost.likes.length : 0;
         /* html */
         html += `
         <div class="tweet-container">
           <div class="tweet-photo">
-            <img src="/" alt="profile photo">
+            <img src="./imagens/perfil-01.png" alt="profile photo">
             <a  class="tweet-text name">${user.data().name}</a>
             <p class="tweet-date"></p>
           </div>
@@ -256,13 +257,10 @@ export const getPosts = async () => {
             <p class ="publication">${dataPost.description}</p>
           </div>
           <div class="tweet-icons">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-              </svg>
-              <i class="fi fi-rs-heart heartLike"data-id="${doc.id}"></i>
-              <p class="contador">${dataPost.likes.length}</p>
-              </span>
+            <div class="containerLike">
+              <i class="fi fi-rs-heart heartLike"data-id="${doc.id}"> </i>
+              <p class="contador"> ${likesQty}</p>
+            </div>
           </div>`;
         // </div>`;
         if (user.data().userId === current.uid) {

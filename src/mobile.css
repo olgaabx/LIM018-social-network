@@ -378,8 +378,17 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  align-items: center;
+  flex-direction: row;
 }
-
+/* contenedor like y contador*/
+.containerLike{
+  display: flex;
+  align-items: center;
+}
+.heartLike{
+  border-right: 50px;
+}
 .tweet-icons span i {
   width: 30px;
   height: 30px;

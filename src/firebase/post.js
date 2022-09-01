@@ -26,7 +26,9 @@ export const savePost = async (description, userId, likes) => {
 
 // Creando colección de usuarios, falta jalar name
 export const usersCollection = (userId, name, email) => {
-  setDoc(doc(dataBase, 'users', userId), { userId, name, email });
+  setDoc(doc(dataBase, 'users', userId), {
+    userId, name, email,
+  });
 };
 
 // FUNCIÓN PARA ORDENAR LOS POST
