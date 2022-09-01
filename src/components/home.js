@@ -25,26 +25,6 @@ export function homePage() {
         <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo-home">
         <p class="logo-home-title">TecHelp</p>
       </div>
-            <ul>
-                <!--<li>
-                    <a href="" id="logOutS">Cerrar sesión</a>
-                </li>
-                <li>
-                    <a href=""></a>
-                </li>
-                <li>
-                    <a href=""></a>
-                </li>
-                <li>
-                    <a href=""></a>
-                </li>
-                <li>
-                    <a href=""></a>
-                </li>
-                <li>
-                    <a href=""></a>
-                </li>
-            </ul> -->
     </div>
     <div class="navbar-right">
       <ul>
@@ -73,7 +53,7 @@ export function homePage() {
     </div> -->
     <div class="footer-container">
       <div class="footer-home-icon">
-        <svg width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="up" width="30" height="30" viewbox="0 0 24 24" fill="none"  xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8.77217L14.0208 1.79299C12.8492 0.621414 10.9497 0.621413 9.77817 1.79299L3 8.57116V23.0858H10V17.0858C10 15.9812 10.8954 15.0858 12 15.0858C13.1046 15.0858 14 15.9812 14 17.0858V23.0858H21V8.77217ZM11.1924 3.2072L5 9.39959V21.0858H8V17.0858C8 14.8767 9.79086 13.0858 12 13.0858C14.2091 13.0858 16 14.8767 16 17.0858V21.0858H19V9.6006L12.6066 3.2072C12.2161 2.81668 11.5829 2.81668 11.1924 3.2072Z" fill="currentColor"/>
         </svg>
       </div>
@@ -90,11 +70,17 @@ export function homePage() {
       </div>
     </div>
   </footer>`;
-
   const nodeHome = document.createElement('div');
   nodeHome.innerHTML = viewHome;
   return nodeHome;
 }
+// 
+export const scrollHome = () => {
+  const upButton = document.querySelector('.up');
+  upButton.addEventListener('click', () => {
+    window.scrollTo(0, 0);
+  });
+};
 
 // BORRAR LOS POST
 const functionDelete = () => {
@@ -129,34 +115,29 @@ const functionUpdatePost = (idPost, editModal) => {
     updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
   });
 };
-// Like post - steafni
-// const functionLikePost = () => {
-//   const taskContainer = document.getElementById('post-container');
-//   const buttonLike = taskContainer.querySelector('.fi-rs-heart');
-//   buttonLike.addEventListener('click', (event) => {
-//     const getPostId = event.target.dataset.id;
-//     getPost(getPostId).then((edit) => {
 
 const functionLikesPost = (userId) => {
-  const btnLike = document.querySelectorAll('.fi-rs-heart');
+  const btnLike = document.querySelectorAll('.btn-like');
   btnLike.forEach((btn) => {
     // console.log(btn);
     btn.addEventListener('click', (event) => {
       const idPost = event.target.dataset.id;
       // console.log(idPost);
       getPost(idPost).then((post) => {
-        console.log(post);
+        // console.log(post);
         const dataPost = post.data();
         let newLike;
 
         if (dataPost.likes.includes(userId)) {
           newLike = { likes: arrayRemove(userId) };
-          console.log(newLike);
-          btn.style.color = '#000000';
+          // console.log(newLike);
+          // btn.style.style = 'none';
+          btn.classList.contains('full-heart');
         } else {
-          console.log(userId);
+          // console.log(userId);
           newLike = { likes: arrayUnion(userId) };
-          btn.style.color = '#D40A19';
+          // btn.style.color = 'block';
+          btn.classList.add('.full-heart');
         }
 
         updatePost(idPost, newLike);
@@ -247,7 +228,7 @@ export const getPosts = async () => {
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
         // console.log(user.data().id);
-        console.log(doc.id);
+        // console.log(doc.id);
         const likesQty = dataPost.likes ? dataPost.likes.length : 0;
         /* html */
         html += `
@@ -262,6 +243,7 @@ export const getPosts = async () => {
           </div>
           <div class="tweet-icons">
             <div class="containerLike">
+              <button class="btn-like"data-id="${doc.id}"></button>
               <i class="fi fi-rs-heart heartLike"data-id="${doc.id}"> </i>
               <p class="contador"> ${likesQty}</p>
             </div>

@@ -25,6 +25,7 @@ export const changeview = (route) => {
       container.appendChild(components.Home());
       components.AddHomePageEvents();
       components.Getposts();
+      components.Malogrado();
       break;
     default:
       container.innerHTML = 'Página No Encontrada';

@@ -520,7 +520,7 @@ footer {
 
 };
 
-.heartLike{
+.fi-rs-heart{
   position: absolute;
   color: rgb(255, 0, 0);
   z-index: -1
@@ -530,4 +530,16 @@ footer {
   display: flex;
   justify-content: space-around;
   padding: 5%;
+}
+
+.btn-like{
+  background: url('./imagens/heart.png');
+  border:none;
+  cursor:pointer;
+  background-color: blue;
+}
+
+.full-heart{
+  background: url('./imagens/full-heart.png');
+
 }
