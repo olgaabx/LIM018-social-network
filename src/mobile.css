@@ -297,7 +297,6 @@ nav {
   margin-bottom: 15px;
 }
 
-
 .btn-task-save {
   border: 1px solid #c6c6c6;
   box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
@@ -313,14 +312,6 @@ nav {
   font-weight: bold;
   margin: 0 auto;
 }
-
-/* .btn-task-save:hover {
-  border: 1px solid #c6c6c6;
-  box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-  color: #222;
-  background-color: #f8f8f8;
-  cursor: pointer;
-} */
 
 /* POST HOME */
 .home-container {
@@ -362,7 +353,6 @@ nav {
 .tweet-text {
   /* display: inline-block; */
   font-size: var(--medium);
-  line-height: 28px;
   text-decoration: none;
 }
 
@@ -382,6 +372,7 @@ nav {
   font-size: var(--medium);
   margin: 10px 10px 25px 10px;
   text-align: justify;
+  line-height: 2.5rem;
 }
 
 .tweet-icons {

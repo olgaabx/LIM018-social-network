@@ -129,13 +129,6 @@ const functionUpdatePost = (idPost, editModal) => {
     updatePost(idPost, postDescription).then(() => { editModal.style.display = 'none'; });
   });
 };
-// Like post - steafni
-// const functionLikePost = () => {
-//   const taskContainer = document.getElementById('post-container');
-//   const buttonLike = taskContainer.querySelector('.fi-rs-heart');
-//   buttonLike.addEventListener('click', (event) => {
-//     const getPostId = event.target.dataset.id;
-//     getPost(getPostId).then((edit) => {
 
 const functionLikesPost = (userId) => {
   const btnLike = document.querySelectorAll('.fi-rs-heart');
@@ -167,26 +160,6 @@ const functionLikesPost = (userId) => {
     });
   });
 };
-// const functionLikesPost = () => {
-//   const btnLikes = document.querySelectorAll('.fi-rs-heart');
-//   btnLikes.forEach((btn) => {
-//     btn.addEventListener('click', (e) => {
-//       const btnLike = e.target;
-//       const idUser = currentUser();
-//       const idPost = btnLike.getAttribute('name');
-//       const dataPost = getUserById(idPost, 'posts');
-
-//       if (dataPost.likes.includes(idUser)) {
-//         postLikes(
-//           idPost,
-//           dataPost.likes.filter((item) => item !== idUser),
-//         );
-//       } else {
-//         postLikes(idPost, [...dataPost.likes, idUser]);
-//       }
-//     });
-//   });
-// };
 
 // EDITAR POST
 const functionEditPost = () => {
