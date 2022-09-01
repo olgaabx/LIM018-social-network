@@ -1,4 +1,4 @@
-TecHelp: Red Social para ayuda Tech
+## TecHelp: Red Social para ayuda Tech
 
 ## 1. Introducción ✒️
 Las redes sociales ganan cada vez más seguidores, niños, jóvenes y adultos estan prendados de ellas, nos son muy útiles en el día a día para diversos propósitos, desde diversión hasta educación y pensando en esto último es que nace Help Tech, una red social que permitirá a sus usuarios poder compartir información como links importantes, experiencias y aportes en general que puedan ayudar a otros usuarios en este camino del aprendizaje tech.
@@ -7,8 +7,21 @@ Las redes sociales ganan cada vez más seguidores, niños, jóvenes y adultos es
 Este proyecto de  Red Social tendrá como finalidad construir un SPA (aplicación web contenida en un único archivo)que permita a cualquier usuario crear una cuenta de
 acceso y loguearse con ella y tener acceso a un muro para poder crear, editar, borrar y _"likear"_ publicacciones.
 
-## 3. Descripción del proyecto
- * Quiénes son los principales usuarios de producto
+## 3. Descripción del proyecto 🏷️
+ * ¿Quiénes son los principales usuarios de Tech Help?
+ Personas  que inician y/o se encuentran recorriendo el mundo de la informática y necesitan un espacio en donde compartir información, hacer preguntas, desahogarse, interactuar con personas que pasan por su misma situación, con el fin de poder brindarse ayuda mutua y formar un bonita comunidad.
+
+  * ¿ Cual es la necesidad o problema que HelpTech busca solucionar?
+  Tech Help busca solucionar las inquietudes de las personas que se inician en el mundo de la informática, dentro de una comunidad amigable donde podrán compartir libremente sus dudas y experiencias en su proceso de aprendizaje asi como alimentarse de la información compartida de usuarios mas experimentados en el tema.
+
+  ## 4. Proceso creativo del diseño ⛱️
+  * Vista mobile 
+  
+
+
+
+
+
 # Creando una Red Social
 
 ## Índice
