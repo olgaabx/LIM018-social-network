@@ -384,8 +384,14 @@ nav {
   width: 16px;
   height: 16px;
   margin: 10px;
+  cursor: pointer;
 }
-
+.bi-pencil-square{
+  cursor: pointer;
+}
+.bi-trash3{
+  cursor: pointer;
+}
 .tweet-icons {
   display: flex;
   justify-content: space-evenly;

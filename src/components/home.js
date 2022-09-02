@@ -30,7 +30,7 @@ export function homePage() {
       <ul class="containerlogocerrarsesion">
         <li class="navbar-shopping-cart">
           <img class="photoCerrarSesion" src="./imagens/perfil-01.png" alt="profile photo">
-          
+          <a href="" id="logOutS">Cerrar sesión</a>
         </li>
       </ul>
     </div>
@@ -121,7 +121,7 @@ const functionUpdatePost = (idPost, editModal) => {
 const functionLikesPost = (userId) => {
   const btnLike = document.querySelectorAll('.heart-icon');
   btnLike.forEach((btn) => {
-    console.log(btn);
+    // console.log(btn);
     btn.addEventListener('click', (event) => {
       const idPost = event.target.dataset.id;
       // eslint-disable-next-line no-console

@@ -46,6 +46,7 @@ export const deletePost = (idPost) => {
   deleteDoc(doc(dataBase, 'posts', idPost));
   // console.log(deleteDoc());
 };
+
 // Actualizar Posts
 export const updatePost = (idPost, post) => updateDoc(doc(dataBase, 'posts', idPost), post);
 // Likes de Posts
