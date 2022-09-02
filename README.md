@@ -17,10 +17,10 @@ acceso y loguearse con ella y tener acceso a un muro para poder crear, editar, b
 ### 3.1. Proceso creativo del diseño ⛱️
 * Vista mobile 📱
   Se realizaron los prototipos en Figma.
- ![mobile](mobile-inicio.png)
- ![mobile](mobile-registro.png)
- ![mobile](mobile-home.png)
- ![mobile](mobile-editar.png)
+ ![mobile](src/imagens/mobile-inicio.png)
+ ![mobile](src/imagens/mobile-registro.png)
+ ![mobile](src/imagens/mobile-home.png)
+ ![mobile](src/imagens/mobile-editar.png)
 
 * Vista Desktop 🖥️
 
