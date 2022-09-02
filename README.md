@@ -15,8 +15,9 @@ acceso y loguearse con ella y tener acceso a un muro para poder crear, editar, b
   Tech Help busca solucionar las inquietudes de las personas que se inician en el mundo de la informática, dentro de una comunidad amigable donde podrán compartir recursos gratuitos o rutas de aprendizaje asi como despejar libremente sus dudas y experiencias en su proceso de aprendizaje y alimentarse de la información compartida de usuarios mas experimentados en el tema.
 
 ### 3.1. Proceso creativo del diseño ⛱️
-* Vista mobile 📱
-  Se realizaron los prototipos en Figma.
+
+* Vista mobile 📱 Se realizaron los prototipos en Figma.
+
  ![mobile](src/imagens/mobile-inicio.png)
  ![mobile](src/imagens/mobile-registro.png)
  ![mobile](src/imagens/mobile-home.png)
@@ -24,8 +25,8 @@ acceso y loguearse con ella y tener acceso a un muro para poder crear, editar, b
 
 * Vista Desktop 🖥️
 
- ![desktop](desktop.jpg)
- ![desktop](Desktop-registro.jpg)
+ ![desktop](src/imagens/desktop.JPG)
+ ![desktop](src/imagens/desktop-registro.JPG)
 
 ### 3.2.  Historias de Usuario y Criterios de Aceptación
 🧑‍💻 Historia 1: Como usuario
