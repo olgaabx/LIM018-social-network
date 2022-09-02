@@ -85,7 +85,8 @@ para interactuar con los post
 
 
 ### 3.3 Despliegue 📦
-_El despliegue fue realizado a través de GitHub Project y puede acceder a nuestra página desde aquí: [](https://olgaabx.github.io/LIM018-social-network/src/)_
+_El despliegue fue realizado a través de GitHub Project y puede acceder a nuestra página desde aquí: 
+(https://olgaabx.github.io/LIM018-social-network/src/)_
 
 ## 4. Consideraciones Generales 🚀
 * La lógica del proyecto está implementada completamente en JavaScript (ES6+), HTML y CSS.
