@@ -32,55 +32,56 @@ acceso y loguearse con ella y tener acceso a un muro para poder crear, editar, b
 🧑‍💻 Historia 1: Como usuario
 quiero poder registrarme con mi cuenta de correo para acceder a la red
 
- - El usuario solo podrá registrarse una vez
- - El usuario podrá registrarse ingresando nombre, correo, contraseña.
- - La contraseña debe contener al menos 6 caracteres
+  ☑️Criterios de aceptación:
+    - El usuario solo podrá registrarse una vez
+    - El usuario podrá registrarse ingresando nombre, correo, contraseña.
+    - La contraseña debe contener al menos 6 caracteres
 
 🧑‍💻 Historia 2: Como usuario
 quiero logearme con mi cuenta registrada
 para acceder a la red social
 
-  🏷️Criterios de aceptación:
-   -  El email de usuario debe ser de una cuenta válida(que ya se registró)
+  ☑️Criterios de aceptación:
+   - El email de usuario debe ser de una cuenta válida(que ya se registró)
  
  🧑‍💻 Historia 3 : Como usuario
 quiero poder ingresar con otras cuentas de correo
 para acceder con mayor facilidad a la red social
 
-  🏷️Criterios de aceptación:
-  - El usuario podrá acceder a la red con su cuenta de Gmail
+  ☑️Criterios de aceptación:
+   - El usuario podrá acceder a la red con su cuenta de Gmail
 
 🧑‍💻 Historia 4 : Como usuario de la red social
 quiero poder postear mis publicaciones
 para brindar mis aportes a la red social
 
- 🏷️Criterios de aceptación:
-  - El usuario podrá postear una o varias publicaciones en el muro
+  ☑️Criterios de aceptación:
+    - El usuario podrá postear una o varias publicaciones en el muro
 
 🧑‍💻 Historia 5 :Como usuario de la red social
 quiero poder postear y  eliminar mis posts
 para actualizar mis post
 
- 🏷️Criterios de aceptación:
-  -  El usuario podrá postear publicaciones en el muro
-  -  El usuario podrá eliminar solo sus posts
+  ☑️Criterios de aceptación:
+    - El usuario podrá postear publicaciones en el muro
+    - El usuario podrá eliminar solo sus posts
 
 🧑‍💻 Historia 6 : Como usuario
 quiero poder dar editar mis posts
 para actualizar la información
 
-   🏷️Criterios de aceptación:
-   - El usuario solo podrá editar solo sus posts
+   ☑️Criterios de aceptación:
+    - El usuario solo podrá editar solo sus posts
  
 
 🧑‍💻 Como usuario
 quiero poder dar like a mis posts y a los de los demas
 para interactuar con los post
 
-  🏷️Criterios de aceptación:
-  - El icono de like debe pintarse
-  - Los likes deben aumentar o disminuir al dar click
-  - Solo se podrá dar un like por usuario a cada post
+  ☑️Criterios de aceptación:
+    - El icono de like debe pintarse
+    - Los likes deben aumentar o disminuir al dar click
+    - Solo se podrá dar un like por usuario a cada post
 
 
 ### 3.3 Despliegue 📦
