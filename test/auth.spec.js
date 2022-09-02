@@ -2,8 +2,13 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../src/firebase/config';
 // import { logIn, startSession } from '../src/components/login.js';
 import { userLogin, userRegister } from '../src/firebase/auth';
+// import { components } from '../src/components';
 
 jest.mock('../src/firebase/config');
+jest.mock('../src/firebase/auth.js');
+jest.mock('../src/firebase/post.js');
+jest.mock('../src/firebase/index.js');
+
 // User register
 describe('userRegister', () => {
   it('should be a function', () => {
@@ -26,3 +31,24 @@ describe('userLogin', () => {
       expect(signInWithEmailAndPassword.mock.calls[0][2]).toBe('prueba');
     }));
 });
+
+// function promiseTest() {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, 0);
+//   });
+// }
+
+// describe('login', () => {
+//   it('It should switch views to when the Google user authenticates', async () => {
+//     const container = document.createElement('div');
+//     container.id = 'container';
+//     document.body.append(container);
+//     container.appendChild(components.SingInGmail());
+
+//     const gmailButton = document.getElementById('gmailIcon');
+//     gmailButton.click();
+
+//     await promiseTest();
+//     expect(window.location.hash).toBe('/home');
+//   });
+// });

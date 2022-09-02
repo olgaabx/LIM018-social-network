@@ -27,10 +27,10 @@ export function homePage() {
       </div>
     </div>
     <div class="navbar-right">
-      <ul>
+      <ul class="containerlogocerrarsesion">
         <li class="navbar-shopping-cart">
-          <img src="./imagens/perfil-01.png" alt="profile photo">
-          <a href="" id="logOutS">Cerrar sesión</a>
+          <img class="photoCerrarSesion" src="./imagens/perfil-01.png" alt="profile photo">
+          
         </li>
       </ul>
     </div>
@@ -53,7 +53,7 @@ export function homePage() {
     </div> -->
     <div class="footer-container">
       <div class="footer-home-icon">
-        <svg class="up" width="30" height="30" viewbox="0 0 24 24" fill="none"  xmlns="http://www.w3.org/2000/svg">
+        <svg class="up" width="30" height="30" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8.77217L14.0208 1.79299C12.8492 0.621414 10.9497 0.621413 9.77817 1.79299L3 8.57116V23.0858H10V17.0858C10 15.9812 10.8954 15.0858 12 15.0858C13.1046 15.0858 14 15.9812 14 17.0858V23.0858H21V8.77217ZM11.1924 3.2072L5 9.39959V21.0858H8V17.0858C8 14.8767 9.79086 13.0858 12 13.0858C14.2091 13.0858 16 14.8767 16 17.0858V21.0858H19V9.6006L12.6066 3.2072C12.2161 2.81668 11.5829 2.81668 11.1924 3.2072Z" fill="currentColor"/>
         </svg>
       </div>
@@ -74,7 +74,8 @@ export function homePage() {
   nodeHome.innerHTML = viewHome;
   return nodeHome;
 }
-// 
+
+// FUNCIÓN DE SCROLL PARA SUBIR AL INICIO DEL HOME
 export const scrollHome = () => {
   const upButton = document.querySelector('.up');
   upButton.addEventListener('click', () => {
@@ -102,7 +103,7 @@ const closeModal = (divEditModal) => {
   });
 };
 
-// Función edith post
+// FUNCIÓN EDIT POST MODAL
 const functionUpdatePost = (idPost, editModal) => {
   const buttonSave = editModal.querySelector('.save');
   buttonSave.addEventListener('click', () => {
@@ -116,12 +117,14 @@ const functionUpdatePost = (idPost, editModal) => {
   });
 };
 
+// FUNCIÓN DE LIKES POST
 const functionLikesPost = (userId) => {
-  const btnLike = document.querySelectorAll('.btn-like');
+  const btnLike = document.querySelectorAll('.heart-icon');
   btnLike.forEach((btn) => {
-    // console.log(btn);
+    console.log(btn);
     btn.addEventListener('click', (event) => {
       const idPost = event.target.dataset.id;
+      // eslint-disable-next-line no-console
       // console.log(idPost);
       getPost(idPost).then((post) => {
         // console.log(post);
@@ -130,14 +133,14 @@ const functionLikesPost = (userId) => {
 
         if (dataPost.likes.includes(userId)) {
           newLike = { likes: arrayRemove(userId) };
+          // eslint-disable-next-line no-console
           // console.log(newLike);
-          // btn.style.style = 'none';
-          btn.classList.contains('full-heart');
+          // btn.style.display = 'none';
         } else {
+          // eslint-disable-next-line no-console
           // console.log(userId);
           newLike = { likes: arrayUnion(userId) };
           // btn.style.color = 'block';
-          btn.classList.add('.full-heart');
         }
 
         updatePost(idPost, newLike);
@@ -145,26 +148,6 @@ const functionLikesPost = (userId) => {
     });
   });
 };
-// const functionLikesPost = () => {
-//   const btnLikes = document.querySelectorAll('.fi-rs-heart');
-//   btnLikes.forEach((btn) => {
-//     btn.addEventListener('click', (e) => {
-//       const btnLike = e.target;
-//       const idUser = currentUser();
-//       const idPost = btnLike.getAttribute('name');
-//       const dataPost = getUserById(idPost, 'posts');
-
-//       if (dataPost.likes.includes(idUser)) {
-//         postLikes(
-//           idPost,
-//           dataPost.likes.filter((item) => item !== idUser),
-//         );
-//       } else {
-//         postLikes(idPost, [...dataPost.likes, idUser]);
-//       }
-//     });
-//   });
-// };
 
 // EDITAR POST
 const functionEditPost = () => {
@@ -198,7 +181,7 @@ const functionEditPost = () => {
               </div> -->
             <div class = "postEdition">
               <div class ="containerTextarea">
-                <textarea class="postDescription" cols="41" rows="5">${post.description}</textarea>
+                <textarea type = "text" class="postDescription" cols="41" rows="5">${post.description}</textarea>
               </div>
               <div class="botonesEditar">
                 <button class="save"><spanx>Guardar</span></button>
@@ -227,9 +210,10 @@ export const getPosts = async () => {
       // console.log(current.uid);
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
       getUserById(dataPost.userId).then((user) => {
-        // console.log(user.data().id);
-        // console.log(doc.id);
         const likesQty = dataPost.likes ? dataPost.likes.length : 0;
+        // console.log(user.data().id);
+        // eslint-disable-next-line no-console
+        // console.log(doc.id);
         /* html */
         html += `
         <div class="tweet-container">
@@ -239,27 +223,27 @@ export const getPosts = async () => {
             <p class="tweet-date"></p>
           </div>
           <div class="text">
-            <p class ="publication">${dataPost.description}</p>
+            <p href="" class ="publication">${dataPost.description}</p>
           </div>
+          <div class="containerIcons">
           <div class="tweet-icons">
-            <div class="containerLike">
-              <button class="btn-like"data-id="${doc.id}"></button>
-              <i class="fi fi-rs-heart heartLike"data-id="${doc.id}"> </i>
-              <p class="contador"> ${likesQty}</p>
-            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" class="heart-icon" data-id="${doc.id}">
+            <p class="contador">${likesQty}</p>
           </div>`;
         // </div>`;
         if (user.data().userId === current.uid) {
-          html += `
-          <div class="containerButton">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" data-id="${doc.id}" viewBox="0 0 16 16">
-              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 trash" data-id="${doc.id}" viewBox="0 0 16 16">
-              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-            </svg>
-          </div>
+          html /* HTML */
+          += `
+            <div class="containerButton">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" data-id="${doc.id}" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 trash" data-id="${doc.id}" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+              </svg>
+            </div>
+            </div>
           </div>`;
         } else {
           html += '</div>';
