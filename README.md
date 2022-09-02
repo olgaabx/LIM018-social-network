@@ -96,11 +96,11 @@ _El despliegue fue realizado a través de GitHub Project y puede acceder a nuest
 
  ## 5. Autoras 🖋️
 
- 😉 **Stefani Peñaranda** - [yumari081196](https://github.com/StefaniPenaranda)
+ 😉 **Stefani Peñaranda** - [StefaniPenaranda](https://github.com/StefaniPenaranda)
 
- 😉 **Olga Acosta** - [PandArtist93](https://github.com/olgaabx)
+ 😉 **Olga Acosta** - [olgaabx](https://github.com/olgaabx)
 
- 😉 **Angélica López** - [fio-azahuanche](https://github.com/nanukelguru) 
+ 😉 **Angélica López** - [nanukelguru](https://github.com/nanukelguru) 
 
  
 ## 6. Objetivos de aprendizaje 📄
