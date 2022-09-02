@@ -1,3 +1,217 @@
+
+# TecHelp: Red Social para ayuda Tech
+
+## 1. Introducción ✒️
+Las redes sociales ganan cada vez más seguidores, niños, jóvenes y adultos estan prendados de ellas, nos son muy útiles en el día a día para diversos propósitos, desde diversión hasta educación y pensando en esto último es que nace Help Tech, una red social que permitirá a sus usuarios poder compartir información como links importantes, experiencias y aportes en general que puedan ayudar a otros usuarios en este camino del aprendizaje tech.
+
+## 2. Resumen del proyecto 📝
+Este proyecto de  Red Social tendrá como finalidad construir un SPA (aplicación web contenida en un único archivo)que permita a cualquier usuario crear una cuenta de
+acceso y loguearse con ella y tener acceso a un muro para poder crear, editar, borrar y _"likear"_ publicacciones.
+
+## 3. Descripción del proyecto 📔
+ * ¿Quiénes son los principales usuarios de Tech Help?
+ Personas  que inician y/o se encuentran recorriendo el mundo de la informática y necesitan un espacio en donde compartir información, hacer preguntas, desahogarse, interactuar con personas que pasan por su misma situación, con el fin de poder brindarse ayuda mutua y formar un bonita comunidad.
+
+  * ¿ Cual es la necesidad o problema que HelpTech busca solucionar?
+  Tech Help busca solucionar las inquietudes de las personas que se inician en el mundo de la informática, dentro de una comunidad amigable donde podrán compartir recursos gratuitos o rutas de aprendizaje asi como despejar libremente sus dudas y experiencias en su proceso de aprendizaje y alimentarse de la información compartida de usuarios mas experimentados en el tema.
+
+### 3.1. Proceso creativo del diseño ⛱️
+
+* Vista mobile 📱 Se realizaron los prototipos en Figma.
+
+ ![mobile](src/imagens/mobile-inicio.png)
+ ![mobile](src/imagens/mobile-registro.png)
+ ![mobile](src/imagens/mobile-home.png)
+ ![mobile](src/imagens/mobile-editar.png)
+
+* Vista Desktop 🖥️
+
+ ![desktop](src/imagens/desktop.JPG)
+ ![desktop](src/imagens/desktop-registro.JPG)
+
+### 3.2.  Historias de Usuario y Criterios de Aceptación
+🧑‍💻 Historia 1: Como usuario
+quiero poder registrarme con mi cuenta de correo para acceder a la red
+
+  ☑️Criterios de aceptación:
+    - El usuario solo podrá registrarse una vez
+    - El usuario podrá registrarse ingresando nombre, correo, contraseña.
+    - La contraseña debe contener al menos 6 caracteres
+
+🧑‍💻 Historia 2: Como usuario
+quiero logearme con mi cuenta registrada
+para acceder a la red social
+
+  ☑️Criterios de aceptación:
+   - El email de usuario debe ser de una cuenta válida(que ya se registró)
+ 
+ 🧑‍💻 Historia 3 : Como usuario
+quiero poder ingresar con otras cuentas de correo
+para acceder con mayor facilidad a la red social
+
+  ☑️Criterios de aceptación:
+   - El usuario podrá acceder a la red con su cuenta de Gmail
+
+🧑‍💻 Historia 4 : Como usuario de la red social
+quiero poder postear mis publicaciones
+para brindar mis aportes a la red social
+
+  ☑️Criterios de aceptación:
+    - El usuario podrá postear una o varias publicaciones en el muro
+
+🧑‍💻 Historia 5 :Como usuario de la red social
+quiero poder postear y  eliminar mis posts
+para actualizar mis post
+
+  ☑️Criterios de aceptación:
+    - El usuario podrá postear publicaciones en el muro
+    - El usuario podrá eliminar solo sus posts
+
+🧑‍💻 Historia 6 : Como usuario
+quiero poder dar editar mis posts
+para actualizar la información
+
+   ☑️Criterios de aceptación:
+    - El usuario solo podrá editar solo sus posts
+ 
+
+🧑‍💻 Como usuario
+quiero poder dar like a mis posts y a los de los demas
+para interactuar con los post
+
+  ☑️Criterios de aceptación:
+    - El icono de like debe pintarse
+    - Los likes deben aumentar o disminuir al dar click
+    - Solo se podrá dar un like por usuario a cada post
+
+
+### 3.3 Despliegue 📦
+_El despliegue fue realizado a través de GitHub Project y puede acceder a nuestra página desde aquí: 
+(https://olgaabx.github.io/LIM018-social-network/src/)_
+
+## 4. Consideraciones Generales 🚀
+* La lógica del proyecto está implementada completamente en JavaScript (ES6+), HTML y CSS.
+*  Se uso [Firebase](https://console.firebase.google.com/), plataforma en la nube para el login y publicaciones de nuestra aplicación.
+*  Se uso la librería [Jest](https://jestjs.io/docs/getting-started) para escribir y ejecutar tests.
+ ### 4.1 Herramientas 🛠️
+ * La planificación se realizó en Projects de GitHub
+ * El prototipo se desarrolló en [Figma]
+
+ ## 5. Autoras 🖋️
+
+ 😉 **Stefani Peñaranda** - [StefaniPenaranda](https://github.com/StefaniPenaranda)
+
+ 😉 **Olga Acosta** - [olgaabx](https://github.com/olgaabx)
+
+ 😉 **Angélica López** - [nanukelguru](https://github.com/nanukelguru) 
+
+ 
+## 6. Objetivos de aprendizaje 📄
+### HTML
+
+- [x] **Uso de HTML semántico**
+
+### CSS
+
+- [x] **Uso de selectores de CSS**
+
+- [x] **Modelo de caja (box model): borde, margen, padding**
+
+- [x] **Uso de flexbox en CSS**
+
+- [x] **Uso de CSS Grid Layout**
+
+### Web APIs
+
+- [x] **Uso de selectores del DOM**
+
+- [x] **Manejo de eventos del DOM (listeners, propagación, delegación)**
+
+- [x] **Manipulación dinámica del DOM**
+
+- [x] **Ruteado (History API, evento hashchange, window.location)**
+
+### JavaScript
+
+- [x] **Arrays (arreglos)**
+
+- [x] **Objetos (key, value)**
+
+- [x] **Diferenciar entre tipos de datos primitivos y no primitivos**
+
+- [x] **Variables (declaración, asignación, ámbito)**
+
+- [x] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
+
+- [x] **Uso de bucles/ciclos (while, for, for..of)**
+
+- [x] **Funciones (params, args, return)**
+
+- [ ] **Pruebas unitarias (unit tests)**
+
+- [ ] **Pruebas asíncronas**
+
+- [x] **Uso de mocks y espías**
+
+- [x] **Módulos de ECMAScript (ES Modules)**
+
+- [x] **Uso de linter (ESLINT)**
+
+- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
+
+- [x] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
+
+- [x] **Callbacks**
+
+- [x] **Promesas**
+
+### Control de Versiones (Git y GitHub)
+
+- [x] **Git: Instalación y configuración**
+
+- [x] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
+
+- [x] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
+
+- [x] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
+
+- [x] **GitHub: Despliegue con GitHub Pages**
+
+- [x] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
+
+- [x] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
+
+### UX (User eXperience)
+
+- [x] **Diseñar la aplicación pensando en y entendiendo al usuario**
+
+- [x] **Crear prototipos para obtener feedback e iterar**
+
+- [x] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
+
+- [x] **Planear y ejecutar tests de usabilidad**
+
+### Firebase
+
+- [x] **Firebase Auth**
+
+- [x] **Firestore**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Creando una Red Social
 
 ## Índice
@@ -18,7 +232,6 @@ sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
 vivir sin ellas.
 
 ![adem-ay-Tk9m_HP4rgQ-unsplash](https://user-images.githubusercontent.com/110297/135544666-4efa54f1-4ff6-4c4c-b398-6df04ef56117.jpg)
-"./src"
 
 Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
 en una ronda de financiamiento con inversionistas, se presentó una red social
@@ -518,3 +731,4 @@ Otras:
 * [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
 * [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
 * [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+>>>>>>> 66d9eedcef715c7d61c562f43a8246625e350e96
