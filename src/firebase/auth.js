@@ -32,43 +32,8 @@ export const currentUser = () => auth.currentUser;
 
 export const emailVerification = () => sendEmailVerification(auth.currentUser);
 
-// TODO: averiguar si puedo hacer un query para traerme un solo documento
-// eslint-disable-next-line max-len
-// export const getUserById = (postUserId) => getDoc(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));
-
 // postUserId es el ID del usuario que creó el post
 export function getUserById(postUserId) {
   const docRef = doc(dataBase, 'users', postUserId);
   return getDoc(docRef);
 }
-
-// export const emailVerification = () => sendEmailVerification(auth.currentUser);
-// CON FEÑA -------------------------------------------------------------------------
-// export const updateDisplayName = (name) => {
-//   updateProfile(auth.currentUser, {
-//     displayName: name,
-//   })
-//     .then(() => {
-//     // Profile updated!
-//     // ...
-//     })
-//     .catch((error) => {
-//     // An error occurred
-//     // .../
-//     });
-// };
-// CON DAVID ----------------------------------------------------------------------
-// export const getCurrentUserName = () => {
-// if(auth.currentUser.displayName === null &&  )
-// if (user.providerId === 'firebase') {
-//   // traernos el documetn de la coleccion de users donde el
-//   // return el name
-// }
-// if (user.providerId === 'google.com') {
-//   return user.displayName;
-// }
-// return 'pepito';
-// };
-// TODO: averiguar si puedo hacer un query para traerme un solo documento
-// eslint-disable-next-line max-len
-// export const getUserById = (postUserId) => getDoc(query(collection(dataBase, 'users'), where('userId', '==', postUserId)));
