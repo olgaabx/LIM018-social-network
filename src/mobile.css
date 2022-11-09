@@ -252,6 +252,7 @@ nav {
   color: var(--hard-purple);
   font-weight: 500;
   margin-top: 8px;
+  padding-top: 6.5px;
 }
 
 .navbar-right {
@@ -269,12 +270,22 @@ nav {
   align-items: center;
 }
 
+/*HOME LATERAL BAR SECTION*/
+.lateral-menu-container {
+  display: none;
+}
+
 /* HOME POSTING SECTION */
-.section-post {
+#task-form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.section-posting {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 85%;
   margin: 0 auto;
   border: 1px solid #22222214;
   margin-top: 5px;
@@ -295,7 +306,7 @@ nav {
 
 .div-button-post {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   margin-left: 60%;
   margin-bottom: 15px;
 }
@@ -308,7 +319,7 @@ nav {
   cursor: pointer;
   /* background-color: var(--very-light-blue); */
   border-radius: 8px;
-  width: 30%;
+  width: 100px;
   height: 3rem;
   cursor: pointer;
   font-size: var(--medium);
@@ -328,7 +339,7 @@ nav {
   height: auto;
   border: solid 1px var(--light-gray);
   border-top: none;
-  padding: 5px;
+  padding: 15px;
   margin: 0 auto;
   margin-top: 20px;
   position: relative;

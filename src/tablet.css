@@ -89,22 +89,43 @@
   display: flex;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 /*Barra lateral de menú*/
 .lateral-menu-container {
+  display: inline-block;
   width: 35%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   border-right: 1px solid #d6cece;
+}
+
+.profile-box {
+  width: 80%;
+  height: 20%;
+  border: 1px solid #d6cece;
+  border-radius: 10px;
+  border-top: none;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 /* Contenedor de publicaciones */
 .posts-container {
-  width: 65%;
-  height: 100%;
+  /* width: 65%;
+  height: 100%; */
+  margin-top: 51px;
+  margin-left: 35%;
+  /* position: relative;
+  right: 0px;
+  top: 0px; */
 }
 
-.section-post {
-  width: 70%;
+.section-posting {
+  width: 85%;
 }
 
 /* Desaparecer nav mobile and footer para tablet */

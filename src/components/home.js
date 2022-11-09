@@ -40,6 +40,11 @@ export function homePage() {
   <div class="home-container">
     <!--Barra lateral de menú-->
     <div class="lateral-menu-container">
+      <div class="logo-container-home">
+        <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo-home">
+        <p class="logo-home-title">TecHelp</p>
+      </div>
+
       <div class="profile-box">
 
       </div>
@@ -50,7 +55,7 @@ export function homePage() {
     <!--Contenedor de las publicaciones-->
     <div class="posts-container">
       <form id="task-form">
-        <div class="section-post">
+        <div class="section-posting">
           <!--<label for="description">Description:</label>-->
           <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
           <div class="div-button-post">
