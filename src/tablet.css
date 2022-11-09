@@ -81,10 +81,7 @@
 
 .logo-title-register {
   font-size: 2.5rem;
-}
-
-
-/*HOME*/
+}/*HOME*/
 .home-container {
   display: flex;
   width: 100%;
@@ -106,13 +103,24 @@
 .section-post {
   width: 70%;
 }
+/*Modal -edith*/
 
-/* Desaparecer nav mobile and footer para tablet */
-footer,
-nav {
-  display: none;
+.containerPostEdit {
+  background-color: #e96666;
+  width: 300px;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+  flex-direction: column;
 }
-
+/*edit modales*/
+#editModal {
+  display: none;
+  width: 700px;
+}
 /* HOME POSTS */
 
 /* .tweet-container {

@@ -35,7 +35,6 @@ export function homePage() {
       </ul>
     </div>
   </nav>
-  <!-- -->
   <!--Contenedor del home-->
   <div class="home-container">
     <!--Barra lateral de menú-->
@@ -205,7 +204,7 @@ const functionEditPost = () => {
                 <textarea type = "text" class="postDescription" cols="41" rows="5">${post.description}</textarea>
               </div>
               <div class="botonesEditar">
-                <button class="save"><spanx>Guardar</span></button>
+                <button class="btn-task-save"><spanx>Guardar</span></button>
               </div>
             </div>
           </div>`;
@@ -226,7 +225,6 @@ export const getPosts = async () => {
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
       const dataPost = doc.data();
-      console.log(dataPost.datePost);
       const current = currentUser();
       // console.log(current.uid);
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
