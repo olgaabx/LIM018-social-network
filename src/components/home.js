@@ -19,7 +19,7 @@ import {
 export function homePage() {
   /* html */
   const viewHome = `
-    <nav>
+  <nav>
     <div class="navbar-left">
       <div class="logo-container-home">
         <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo-home">
@@ -35,23 +35,40 @@ export function homePage() {
       </ul>
     </div>
   </nav>
+  <!-- -->
+  <!--Contenedor del home-->
+  <div class="home-container">
+    <!--Barra lateral de menú-->
+    <div class="lateral-menu-container">
+      <div class="profile-box">
 
- 
-    <form id="task-form">
-      <div class="section-post">
-        <!--<label for="description">Description:</label>-->
-        <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
-        <div class="div-button-post">
-          <button class="btn-task-save">Publicar</button>
-        </div>
       </div>
-    </form>
-    <!-- Tasks List -->
-    <div class="post-user-container" id="post-container"></div>
-     <div id="editModal"></div>
+      <div class="">
+      </div>
+    </div> <!-- Cierre lateral-menu-container -->
 
+    <!--Contenedor de las publicaciones-->
+    <div class="posts-container">
+      <form id="task-form">
+        <div class="section-post">
+          <!--<label for="description">Description:</label>-->
+          <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
+          <div class="div-button-post">
+            <button class="btn-task-save">Publicar</button>
+          </div>
+        </div>
+      </form>
 
-    <footer>
+      <!-- Publicaciones --> <!-- -->
+      <div class="post-user-container" id="post-container">
+      </div>
+      <div id="editModal">
+      </div>
+    </div> <!-- Cierre posts-container -->
+  </div> <!--Cierra home-container-->
+
+  <!--Footer para mobile-->
+  <footer>
     <!-- <div class="tweet-bottom">
       <i class="fi fi-rs-edit"></i>
     </div> -->
@@ -209,7 +226,7 @@ export const getPosts = async () => {
     querySnapshot.forEach((doc) => {
       // console.log(doc.id);
       const dataPost = doc.data();
-      // console.log(dataPost.userId);
+      console.log(dataPost.datePost);
       const current = currentUser();
       // console.log(current.uid);
       // Con esto guardo guardamos el nombre del usurio que hiso la publicación
@@ -223,13 +240,14 @@ export const getPosts = async () => {
         <div class="tweet-container">
           <div class="tweet-photo">
             <img src="./imagens/perfil-01.png" alt="profile photo">
-            <a  class="tweet-text name">${user.data().name}</a>
-            <p class="tweet-date"></p>
+            <div class="containerP">
+              <a  class="tweet-text name">${user.data().name}</a
+              <p class="tweet-date">${dataPost.datePost.toDate().toLocaleDateString()}</p>
+            </div>
           </div>
           <div class="text">
             <p href="" class ="publication">${dataPost.description}</p>
           </div>
-          
           <div class="tweet-icons">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" class="heart-icon" data-id="${doc.id}">
             <p class="contador">${likesQty}</p>
@@ -247,8 +265,7 @@ export const getPosts = async () => {
                 <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
               </svg>
             </div>
-      
-          </div>`;
+            </div>`;
         } else {
           html += '</div>';
         }

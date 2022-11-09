@@ -218,13 +218,14 @@ a {
 }
 
 /* BOTONES */
-input{
+input {
   border: none;
 }
+
 .icon-gmail,
 .icon-github{
- background-color: var(--white);
- border: none;
+  background-color: var(--white);
+  border: none;
 }
 
 /* HEADER HOME */
@@ -273,7 +274,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   border: 1px solid #22222214;
   margin-top: 5px;
@@ -316,10 +317,10 @@ nav {
 }
 
 /* POST HOME */
-.home-container {
+/* .home-container {
   position: relative;
-  height: 100vh;
-}
+  height: 100%;
+} */
 
 /* publicación  */
 .tweet-container {
@@ -336,6 +337,16 @@ nav {
 
 .tweet-photo {
   display: flex;
+  
+}
+
+.containerP{
+  display: flex;
+  align-items: center;
+  color: #aaaaaa;
+}
+.tweet-date{
+  margin-left: 3%;
 }
 
 .tweet-photo img {
@@ -362,6 +373,7 @@ nav {
   color: var(--black);
   font-weight: 500;
   font-size: 2rem;
+  margin-right: 10px;
 }
 
 .text-content {
