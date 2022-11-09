@@ -13,7 +13,7 @@ export {
   serverTimestamp,
   arrayRemove,
   arrayUnion,
-} from "./config.js";
+} from './config.js';
 export {
   savePost,
   onGetPost,
