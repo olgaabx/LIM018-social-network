@@ -73,3 +73,12 @@ body{
   font-size: 120%;
 
 }
+
+/*Barra lateral de menú*/
+.lateral-menu-container {
+  width: 25%;
+}
+
+.posts-container {
+  width: 75%;
+}

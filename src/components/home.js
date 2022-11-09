@@ -19,7 +19,7 @@ import {
 export function homePage() {
   /* html */
   const viewHome = `
-    <nav>
+  <nav>
     <div class="navbar-left">
       <div class="logo-container-home">
         <img src="https://d9hhrg4mnvzow.cloudfront.net/admissions.prepscholar.com/7ade0971-artificial-intelligence_107g07g07a07a000000028.png" alt="logo" class="logo-home">
@@ -35,19 +35,40 @@ export function homePage() {
       </ul>
     </div>
   </nav>
-    <form id="task-form">
-      <div class="section-post">
-        <!--<label for="description">Description:</label>-->
-        <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
-        <div class="div-button-post">
-          <button class="btn-task-save">Publicar</button>
-        </div>
+  <!-- -->
+  <!--Contenedor del home-->
+  <div class="home-container">
+    <!--Barra lateral de menú-->
+    <div class="lateral-menu-container">
+      <div class="profile-box">
+
       </div>
-    </form>
-    <!-- Tasks List -->
-    <div class="post-user-container" id="post-container"></div>
-     <div id="editModal"></div>
-    <footer>
+      <div class="">
+      </div>
+    </div> <!-- Cierre lateral-menu-container -->
+
+    <!--Contenedor de las publicaciones-->
+    <div class="posts-container">
+      <form id="task-form">
+        <div class="section-post">
+          <!--<label for="description">Description:</label>-->
+          <textarea id="task-description" rows="3" placeholder="¿Qué te gustaría compartirnos hoy?"></textarea>
+          <div class="div-button-post">
+            <button class="btn-task-save">Publicar</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Publicaciones --> <!-- -->
+      <div class="post-user-container" id="post-container">
+      </div>
+      <div id="editModal">
+      </div>
+    </div> <!-- Cierre posts-container -->
+  </div> <!--Cierra home-container-->
+
+  <!--Footer para mobile-->
+  <footer>
     <!-- <div class="tweet-bottom">
       <i class="fi fi-rs-edit"></i>
     </div> -->

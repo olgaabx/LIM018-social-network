@@ -83,6 +83,36 @@
   font-size: 2.5rem;
 }
 
+
+/*HOME*/
+.home-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/*Barra lateral de menú*/
+.lateral-menu-container {
+  width: 35%;
+  border-right: 1px solid #d6cece;
+}
+
+/* Contenedor de publicaciones */
+.posts-container {
+  width: 65%;
+  height: 100%;
+}
+
+.section-post {
+  width: 70%;
+}
+
+/* Desaparecer nav mobile and footer para tablet */
+footer,
+nav {
+  display: none;
+}
+
 /* HOME POSTS */
 
 /* .tweet-container {
