@@ -137,19 +137,17 @@ nav {
   margin: 10px 0 10px 30px;
   font-size: var(--small);
 }
-/* .logout-profile a {
-  padding-bottom: 10px;
-} */
 
 /* Contenedor de publicaciones */
+.home-title {
+  display: block;
+  font-size: var(--large);
+  margin: 19px 0 40px 40px;
+  color: var(--hard-purple);
+}
+
 .posts-container {
-  /* width: 65%;
-  height: 100%; */
-  margin-top: 51px;
   margin-left: 35%;
-  /* position: relative;
-  right: 0px;
-  top: 0px; */
 }
 
 .section-posting {

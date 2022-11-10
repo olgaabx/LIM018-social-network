@@ -242,17 +242,17 @@ nav {
 }
 
 .logo-home {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   margin: 8px;
 }
 
 .logo-home-title {
   font-size: var(--large);
+  font-weight: 700;
   color: var(--hard-purple);
-  font-weight: 500;
   margin-top: 8px;
-  padding-top: 6.5px;
+  padding-top: 10px;
 }
 
 .navbar-right {
@@ -287,7 +287,11 @@ nav {
 .logout-profile img {
   width: 30px;
   height: 30px;
-  padding: 0 0 10px 5px;
+  margin: 0 0 10px 10px;
+}
+
+.logout-profile a {
+  margin: 2px 0 0 0;
 }
 
 /*HOME LATERAL BAR SECTION*/
@@ -299,6 +303,10 @@ nav {
 #task-form {
   width: 100%;
   margin-top: 20px;
+}
+
+.home-title {
+  display: none;
 }
 
 .section-posting {
@@ -352,10 +360,6 @@ nav {
 }
 
 /* POST HOME */
-/* .home-container {
-  position: relative;
-  height: 100%;
-} */
 
 /* publicación  */
 .tweet-container {

@@ -46,14 +46,17 @@ export function homePage() {
       </div>
       
       <div class="logout-profile">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png">
-          <a href="" id="logOutS">Cerrar sesión</a>
+        <a href="" id="logOutS">Cerrar sesión</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png">
       </div>
       
     </div> <!-- Cierre lateral-menu-container -->
 
     <!--Contenedor de las publicaciones-->
     <div class="posts-container">
+      <div>
+      <h3 class="home-title">HOME</h3>
+      </div>
       <form id="task-form">
         <div class="section-posting">
           <!--<label for="description">Description:</label>-->
