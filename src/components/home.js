@@ -45,10 +45,13 @@ export function homePage() {
       </div>
 
       <div class="profile-section" id="profile-box">
-        
       </div>
-      <div class="">
+      
+      <div class="logout-profile">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png">
+          <a href="" id="logOutS">Cerrar sesión</a>
       </div>
+      
     </div> <!-- Cierre lateral-menu-container -->
 
     <!--Contenedor de las publicaciones-->
@@ -227,32 +230,24 @@ export const profileBox = async () => {
   // console.log(profileSection);
   onGetPost((querySnapshot) => {
     let html = '';
-    querySnapshot.forEach((doc) => {
-      const dataPost = doc.data();
-      const current = currentUser();
-
-      // console.log(dataPost);
-      // console.log(current);
-
-      getUserById(dataPost.userId).then((user) => {
-        // console.log(user.data().id);
-        // console.log(user.data());
-        // console.log(current);
-        // eslint-disable-next-line no-console
-        // console.log(doc.id);
-        /* html */
-        html = `
-        <div class="tweet-container">
-          <div class="tweet-photo">
-            <img src="./imagens/perfil-01.png" alt="profile photo">
-            <div class="containerP">
-              <a  class="tweet-text name">${user.data().name}</a
-            </div>
-          </div>`;
-        // </div>`;
-        profileSection.innerHTML = html;
-      });
-    });
+    // querySnapshot.forEach((doc) => {
+    const current = currentUser();
+    // eslint-disable-next-line no-console
+    // console.log(doc.id);
+    /* html */
+    html = `
+    <div class="tweet-container">
+        <div class="tweet-photo">
+          <img src="./imagens/perfil-01.png" alt="profile photo">
+          <div class="containerP">
+            <a  class="tweet-text name">${current.displayName}</a>
+        </div>
+    </div>
+    <p class="profile-email">${current.email}</p>`;
+    // </div>`;
+    profileSection.innerHTML = html;
+    // });
+    // });
   });
 };
 // console.log(profileBox);

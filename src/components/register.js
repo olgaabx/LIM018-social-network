@@ -27,8 +27,6 @@ export const register = () => {
                     <input type="email" id="email" name="email" placeholder="Correo electrónico" class="input input-email" required>
 
                     <input type="password" id="password" name="password" placeholder="Contraseña" class="input input-password" required>
-                    <p class="mensajeRegister">Revisa tu correo, hemos enviado un mensaje de confirmación</p>
-                    <p class="mensajeErrorRegister">No revises nada, igual no  envia nada jejej</p>
                 </div>
 
                 <input type="submit" value="Regístrate" id ="register-button" class="primary-button register-button">
