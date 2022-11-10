@@ -45,7 +45,7 @@ export function homePage() {
       </div>
 
       <div class="profile-box">
-
+        
       </div>
       <div class="">
       </div>
@@ -189,6 +189,7 @@ const functionEditPost = () => {
         modalEvent.style.display = 'flex';
         // trayendo el nombre del usuario
         getUserById(post.userId).then((user) => {
+          /* html */
           modalEvent.innerHTML = `
           <div class="containerPostEdit">
               <div class="headerPostEdit">
