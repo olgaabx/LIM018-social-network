@@ -256,11 +256,11 @@ nav {
 }
 
 .navbar-right {
-  width: 45px;
+  /* width: 45px;
   height: 45px;
   margin: 5px;
   border: 1px solid black;
-  border-radius: 50%;
+  border-radius: 50%; */
 }
 
 .navbar-left ul,
@@ -268,6 +268,26 @@ nav {
   list-style: none;
   display: flex;
   align-items: center;
+}
+
+.navbar-right {
+  margin: 15px 10px 0 0;
+}
+
+.logout-profile {
+  display: flex;
+  /* width: 100%; */
+  font-size: var(--medium);
+  text-align: center;
+  /* position: absolute;
+  bottom: 10px;
+  right: 10px; */
+} 
+
+.logout-profile img {
+  width: 30px;
+  height: 30px;
+  padding: 0 0 10px 5px;
 }
 
 /*HOME LATERAL BAR SECTION*/
@@ -341,21 +361,21 @@ nav {
   border-top: none;
   padding: 15px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 35px;
   position: relative;
   background-color: #fff;
 }
 
 .tweet-photo {
   display: flex;
-  
 }
 
-.containerP{
+.containerP {
   display: flex;
   align-items: center;
   color: #aaaaaa;
 }
+
 .tweet-date{
   margin-left: 3%;
 }
@@ -417,7 +437,7 @@ nav {
 }
 .tweet-icons {
   display: flex;
-  justify-content: space-evenly;
+
   width: 50%;
   align-items: center;
   flex-direction: row;
@@ -550,9 +570,13 @@ footer {
 
 .containerButton{
   display: flex;
-  justify-content: space-around;
-  padding: 5%;
+  flex-direction: column;
   width: 50%;
+  margin: 5px 0 0 10px;
+}
+
+.containerButton svg {
+  margin: 0 15px 15px 0;
 }
 
 .btn-like{

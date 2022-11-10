@@ -27,12 +27,10 @@ export function homePage() {
       </div>
     </div>
     <div class="navbar-right">
-      <ul class="containerlogocerrarsesion">
-        <li class="navbar-shopping-cart">
-          <img class="photoCerrarSesion" src="https://img1.freepng.es/20180326/xze/kisspng-computer-icons-user-profile-avatar-female-profile-5ab915f5e6da82.5608284515220792219456.jpg" alt="profile photo">
-          <a href="" id="logOutS">Cerrar sesión</a>
-        </li>
-      </ul>
+      <div class="logout-profile">
+        <a href="" id="logOutS">Cerrar sesión</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png">
+      </div>
     </div>
   </nav>
   <!--Contenedor del home-->
@@ -48,7 +46,7 @@ export function homePage() {
       </div>
       
       <div class="logout-profile">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png">
           <a href="" id="logOutS">Cerrar sesión</a>
       </div>
       
@@ -228,6 +226,7 @@ const functionEditPost = () => {
 export const profileBox = async () => {
   const profileSection = document.getElementById('profile-box');
   // console.log(profileSection);
+  // eslint-disable-next-line no-unused-vars
   onGetPost((querySnapshot) => {
     let html = '';
     // querySnapshot.forEach((doc) => {
@@ -271,7 +270,7 @@ export const getPosts = async () => {
         // console.log(doc.id);
         /* html */
         html += `
-        <div class="tweet-container">
+        <div class="tweet-container" id="tweet-container-id">
           <div class="tweet-photo">
             <img src="./imagens/perfil-01.png" alt="profile photo">
             <div class="containerP">
@@ -282,10 +281,10 @@ export const getPosts = async () => {
           <div class="text">
             <p href="" class ="publication">${dataPost.description}</p>
           </div>
-          <div class="tweet-icons">
+          <div class="tweet-icons" id="tweet-icons-id">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" class="heart-icon" data-id="${doc.id}">
             <p class="contador">${likesQty}</p>
-          </div>`;
+        </div>`;
         // </div>`;
         if (user.data().userId === current.uid) {
           html /* HTML */
