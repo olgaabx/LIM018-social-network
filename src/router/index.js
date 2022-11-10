@@ -23,6 +23,7 @@ export const changeview = (route) => {
     case '#/home':
       container.appendChild(components.Home());
       components.AddHomePageEvents();
+      components.ProfileBox();
       components.Getposts();
       components.ScrollHome();
       break;
